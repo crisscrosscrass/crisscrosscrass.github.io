@@ -1,0 +1,366 @@
+body{
+	font-family: Source Sans Pro, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	background-color: white;
+	background-size: cover;
+	visibility: hidden;
+}
+html.sr .load-hidden {
+    visibility: hidden;
+}
+
+/*Global*/
+.container{
+	width: 80%;
+	margin:auto; 
+	overflow: hidden;
+}
+.header-content {
+	color: #1e797d;
+	width: 45%;
+	text-align: left;
+}
+.header-content h1{
+	font-size: 25px;
+}
+
+hr {
+	width: 150px;
+    margin-top: 1px;
+    margin-bottom: 15px;
+    height: 1px;
+    border: 0;
+    box-shadow: 0 10px 1px -10px #000000 inset;
+    border-top: 1px solid #fff;
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
+li{
+	
+}
+/*Header*/
+header{
+	/* background: #124b4e;*/
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	background: #1e797d;
+	color: white;
+	min-height: 55px;
+	border-bottom: white 2px solid;
+}
+header a{
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+header li{
+	float: left;
+	display: inline;
+	padding: 0 20px 0 20px;
+}
+header #branding{
+	float: left;
+}
+section .section-content{
+	display: flex;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+section .section-part{
+	display: block;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	overflow: : hidden;
+	width: 50%;
+}
+div.section-part-two{
+	text-align: right;
+	padding: 10px;
+	width: 40%;
+}
+section #wrapper-horizontally {
+  text-align: center;
+  z-index: 5;
+}
+section #horizontally {
+  display: inline-block;
+}
+header #branding h1{
+	margin: 0;
+	padding: 0;
+}
+header #heading{
+	padding: 0;
+	margin: 0;
+}
+header nav{
+	float: right;
+	margin-top: 10px;
+}
+header a:hover{
+	color: rgba(24,191,239,1);
+}
+#main{
+    display:block;
+    width:80%;
+    padding:50px 10%;
+    height:300px;
+}
+#particles{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+}
+#canvas {
+		position: relative;
+        display: block;
+        padding: 0;
+        margin: 0 auto;
+        width: 65%;
+        height: 300px;
+        z-index: 1;
+    }
+#main-header-content{
+	min-height: 400px;
+	padding-top: 40vh;
+	background: #124b4e;
+	text-align: center;
+	color: white;
+}
+#main-header-content h1{
+	font-size: 25px;
+}
+#main-header-content h4{
+	font-size: 15px;
+}
+#about-me{
+	/*background: #124b4e;*/
+	background-color: #1e797d;
+	color: white;
+	padding-top: 25vh;
+	min-height: 400px;
+}
+#projects{
+	background: white;
+	min-height:350px;
+	width: 100%;
+	padding-top: 15vh;
+	display: inline-block;
+}
+#skills{
+	background: white;
+	width: 100%;
+	padding-top: 10vh;
+	padding-bottom: : 10vh;
+	display: inline-block;
+}
+#skills .wrapper-container .container{
+	height: 5px;
+}
+#skills .wrapper-container .header{
+	height: 45px;
+	text-align: center;
+}
+.wrapper-container{
+	background-color: #1e797d;
+	border: 2px solid #1e797d;
+	width: 100%;
+}
+.wrapper-container{
+	color: white;
+}
+div.wrapper-container p{
+	margin-bottom: 0px;
+}
+.wrapper-container .container {
+	width: 100%;
+	background-color: #124b4e;
+	padding:0;
+}
+
+.skills {
+  text-align: right;
+  padding: 5px;
+  color: white;
+}
+
+.html {
+width: 100%; background-color: white;
+color: #1e797d;
+}
+.css {
+width: 100%; background-color: white;
+color: #1e797d;
+}
+.javascript {
+width: 95%; background-color: white;
+color: #1e797d;
+}
+.jquery {
+width: 80%; background-color: white;
+color: #1e797d;
+}
+.bootstrap {
+width: 60%; background-color: white;
+color: #1e797d;
+}
+.json {
+width: 60%; background-color: white;
+color: #1e797d;
+}
+.php {
+width: 70%; background-color: white;
+color: #1e797d;
+}
+.sql {
+width: 45%; background-color: white;
+color: #1e797d;
+}
+.java {
+width: 90%; background-color: white;
+color: #1e797d;
+}
+.docker {
+width: 75%; background-color: white;
+color: #1e797d;
+}
+.git {
+width: 60%; background-color: white;
+color: #1e797d;
+}
+#connect{
+	background: white;
+	min-height:350px;
+	width: 100%;
+	padding-top: 15vh;
+	display: inline-block;
+}
+.connect-links a{
+	color: #17a2b8;
+	float: left;
+}
+.connect-links a{
+	color: #17a2b8;
+	float: left;
+}
+.connect-links ul{
+	list-style-type: none;
+}
+#connect .section-part{
+	display: block;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	overflow: : hidden;
+	width: 40%;
+}
+#connect .section-second-part{
+	display: block;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	overflow: : hidden;
+	width: 60%;
+}
+#showcase{
+	background: #fdfdfd;
+	min-height:350px;
+	width: 100%;
+	padding-top: 15vh;
+	display: inline-block;
+}
+#about-chris{
+	background: #124b4e;
+	min-height:350px;
+	width: 100%;
+	padding-top: 15vh;
+	display: inline-block;
+	color: white;
+}
+
+#about-chris .header-content {
+	color: white;
+	width: 45%;
+	text-align: left;
+}
+#about-chris .section-content{
+	display: flex;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+#about-chris .section-part{
+	display: block;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	overflow: : hidden;
+	width: 70%;
+}
+#about-chris .section-second-part{
+	display: block;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	overflow: : hidden;
+	width: 30%;
+}
+#about-chris li{
+	margin-left: 5%;
+}
+#boxlayout{
+	padding: 5px;
+}
+#music{
+	background: #124b4e;
+	min-height:270px;
+	width: 100%;
+	padding-top: 5vh;
+	display: inline-block;
+	color: white;
+}
+
+/*
+@media only screen and (orientation: landscape)
+#heading {
+    min-height: 500px;
+    padding-top: 35vh;
+}
+@media only screen and (min-width: 750px)
+#heading {
+    padding: 19rem 2em 0;
+}
+@media only screen and (min-width: 600px)
+#heading {
+    padding: 24em 2em 0;
+}
+*/
+@media(min-width:800px) {
+	#canvas {
+            width: 100%;
+        }
+}
+@media(min-width:1200px) {
+	#canvas {
+            width: 100%;
+        }
+}
+
+@media screen and (max-width: 480px) {
+    .section-part-two{
+        display: none;
+    }
+    #canvas {
+            width: 100%;
+        }    
+}
+@media screen and (max-width: 650px) {
+    #boxlayout {
+        display: none;
+    }
+}
