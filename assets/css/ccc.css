@@ -23,9 +23,6 @@ hr{
 .overflow-wrap{
 	overflow-x: hidden;
 }
-.container{
-	width: 90%;
-}
 .header-Section{
 	text-transform: uppercase;
 	text-align: center;
@@ -34,6 +31,27 @@ hr{
 	/*border-bottom: 3px solid rgba(24,191,239,1);*/
 	text-decoration: underline;
 	text-align: left;
+}
+.content-Section{
+	width: 100%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.content-Section h2{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.content-Split{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
 }
 .responsive {
   width: 100%;
@@ -132,6 +150,47 @@ hr{
     justify-content: space-around;
     align-items: center;
 }
+.sidenav {
+  font-size: initial;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 /*** ABOUT ***/
 #about{
 	position: relative;
@@ -146,27 +205,6 @@ hr{
 }
 #about h1{
 	margin: 0;
-}
-.content-Section{
-	width: 100%;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 2%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.content-Section h2{
-	display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.content-Split{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: end;
 }
 #skills .wrapper-container .container{
 	height: 5px;
@@ -280,4 +318,65 @@ div.wrapper-container p{
 	padding-top: 15vh;
 	padding-bottom: 25vh;
 	min-height: 400px;
+}
+@media screen and (min-width: 100px) {
+	.container{
+		width: 100%;
+		padding-right: 0;
+		padding-left: 0;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.content-Split{
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: end;
+	}
+	#navi{
+		display: none;
+	}
+	#sidenavi{
+		display: block;
+	}
+	#sideNaviButton{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 20;
+	}
+	.responsive {
+		width: 50%;
+		height: auto;
+	}
+	.content-Section h2 {
+    display: none;
+	}
+}
+@media screen and (min-width: 700px) {
+	.container{
+		width: 90%;
+	}
+  .content-Split{
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: center;
+	    align-items: end;
+	}
+	#navi{
+		display: flex;
+		position: relative;
+	}
+	#sidenavi,#sideNaviButton{
+		display: none;
+	}
+	.responsive {
+		width: 100%;
+		height: auto;
+	}
+	.content-Section h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    }
 }

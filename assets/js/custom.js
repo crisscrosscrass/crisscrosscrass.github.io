@@ -4,28 +4,41 @@ window.onload = function(){
   stickyNavi();
 }
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
 function addScrollClickToButtons(){
   $(".section1").click(function() {
+      closeNav();
       $([document.documentElement, document.body]).animate({
           scrollTop: $("#home").offset().top
       }, 1000);
   });
   $(".section2").click(function() {
+      closeNav();
       $([document.documentElement, document.body]).animate({
           scrollTop: $("#about").offset().top
       }, 1000);
   });
   $(".section3").click(function() {
+      closeNav();
       $([document.documentElement, document.body]).animate({
           scrollTop: $("#portfolio").offset().top
       }, 1000);
   });
   $(".section4").click(function() {
+      closeNav();
       $([document.documentElement, document.body]).animate({
           scrollTop: $("#connect").offset().top
       }, 1000);
   });
   $(".section5").click(function() {
+      closeNav();
       $([document.documentElement, document.body]).animate({
           scrollTop: $("#contact").offset().top
       }, 1000);
@@ -34,7 +47,6 @@ function addScrollClickToButtons(){
 
 function stickyNavi(){
   var navOffset = $("#navi").offset().top;
-
   $("#navi").wrap('<div class="nav-placeholder"></div>');
   $(".nav-placeholder").height($('#navi').outerHeight);
 
@@ -163,11 +175,11 @@ function MyParticleSystem(){
 
       var lightbox_resize = false;
       $( window ).resize(function() {
-        console.log(true);
         if (lightbox_resize)
           clearTimeout(lightbox_resize);
         lightbox_resize = setTimeout(function() {
           console.log('resize');
+          stickyNavi();
           //$('canvas').remove();
           reset();
           redrawAndUpdate();
