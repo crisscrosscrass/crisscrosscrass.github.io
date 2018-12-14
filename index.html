@@ -59,7 +59,7 @@
 					<span id="sideNaviButton" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 		</section>
 		<!-- ABOUT -->
-		<section id="about">
+		<section id="about" class="about hidden">
 			<div class="container">
 				<div class="header-Section">
 					<h1>About</h1>
@@ -92,16 +92,18 @@
 				</div>
 				<div class="content-Split">
 						<div class="content-Section">
-							<div class="header-content">
-								<h1>Technological</h1>
-								<hr>
-							</div>
-							<p>I always enjoy learning new things. Especially the technologies that make the company where i am working on very special.</p>
-							<div class="content-Section">
-								<img src="images/Foto.JPG"/>
-							</div>
-							<div class="content-Section">
-								<a href="#portfolio" class="btn btn-info section3">FIND OUT MORE</a>
+							<div class="wrapper-left-container">
+								<div class="header-content">
+									<h1>Technological</h1>
+									<hr>
+								</div>
+								<p>I always enjoy learning new things. Especially the technologies that make the company where i am working on very special.</p>
+								<div class="content-Section">
+									<img src="images/Foto.JPG"/>
+								</div>
+								<div class="content-Section">
+									<a href="#portfolio" class="btn btn-info section3">FIND OUT MORE</a>
+								</div>
 							</div>
 						</div>
 						<div class="content-Section">
@@ -136,7 +138,7 @@
 			</div>
 		</section>
 		<!-- PORTFOLIO -->
-		<section id="portfolio">
+		<section id="portfolio" class="portfolio hidden">
 			<div class="container">
 					<div class="header-Section">
 						<h1>Projects</h1>
@@ -147,17 +149,23 @@
 					</div>
 					<div class="content-Split">
 							<div class="content-Section">
-								<h2>THE "FEED DETECTIVE"</h2>
+								<div class="wrapper-left-container">
+									<h2>THE "FEED DETECTIVE"</h2>
+								</div>
 							</div>
 							<div class="content-Section">
-								<h2>FRONTEND AUTOMATION</h2>
+								<div class="wrapper-right-container">
+									<h2>FRONTEND AUTOMATION</h2>
+								</div>
 							</div>
 					</div>
 					<div class="content-Split">
 							<div class="content-Section">
-								<a href="https://drive.google.com/open?id=1YRRUeMdbdxoKssb8YePv45Yu9bJbfvg_" class="image fit"><img src="images/Project1.jpg" alt="" class="responsive"/></a>
-								<div class="content-Section">
-									<i>Project built with:<br> HTML, CSS, Java-Script, PHP, Ajax</i><br>
+								<div class="wrapper-left-container">
+									<a href="https://drive.google.com/open?id=1YRRUeMdbdxoKssb8YePv45Yu9bJbfvg_" class="image fit"><img src="images/Project1.jpg" alt="" class="responsive"/></a>
+									<div class="content-Section">
+										<i>Project built with:<br> HTML, CSS, Java-Script, PHP, Ajax</i><br>
+									</div>
 								</div>
 								<p>At Visual Meta we have to synchronize millions of products from our partner-shops on a daily basis in order to provide users with the most recent product information (price changes, availability or even new products). Prior to allowing new product feeds to join the synchronization schedule, they have to undergo a detailed quality check. A manual validation of CSV & XML files with hundreds of thousands of lines is very time consuming and vague. To ease the burden of this huge effort, we planned, developed and released the “Feed Detective”, a web-based solution to automate & simplify this process.</p>
 								<div class="content-Section">
@@ -165,9 +173,11 @@
 								</div>
 							</div>
 							<div class="content-Section">
-								<img src="images/tool.jpg" alt="" class="responsive"/>
-								<div class="content-Section">
-									<i>Project built with:<br> Java, JavaFX, CSS, Selenium</i><br>
+								<div class="wrapper-right-container">
+									<img src="images/tool.jpg" alt="" class="responsive"/>
+									<div class="content-Section">
+										<i>Project built with:<br> Java, JavaFX, CSS, Selenium</i><br>
+									</div>
 								</div>
 								<p>At Visual Meta we have to sanity check thousand of webpages on a daily basis in order to provide users with the best recent and newest product information on our landing pages. To ease the burden of this huge effort, we planned, developed and released the “QM Frontend Checker tool”, a JavaFX and Selenium based solution to automate & simplify this process.</p>
 								<div class="content-Section">
@@ -178,7 +188,7 @@
 			</div>
 		</section>
 		<!-- CONNECT ETC -->
-		<section id="connect">
+		<section id="connect" class="connect hidden">
 			<div class="container">
 				<div class="header-Section">
 					<h1>Social</h1>
@@ -248,7 +258,7 @@
 			</div>
 		</section>
 		<!-- CONTACT -->
-		<section id="contact">
+		<section id="contact" class="connect hidden">
 			<div class="container">
 				<div class="header-Section">
 					<h1>About CCC</h1>

@@ -3,7 +3,8 @@ body{
 	font-family: 'Raleway';
 	font-size: 12pt;
 	margin: 0;
-	background-color: #1e797d;
+	/*background-color: #1e797d;*/
+	background-color: white;
 }
 hr{
 	width: 30%;
@@ -65,6 +66,7 @@ hr{
     width: 100%;
     height: 100%;
     z-index: -1;
+    background-color: #1e797d;
     /*background: url(./imgages/filler.png) center center/cover;*/
 }
 #home{
@@ -203,9 +205,6 @@ hr{
 	padding-bottom: 15vh;
 	min-height: 400px;
 }
-#about h1{
-	margin: 0;
-}
 #skills .wrapper-container .container{
 	height: 5px;
 }
@@ -289,7 +288,7 @@ div.wrapper-container p{
 	background-color: white;
 	color: #1e797d;
 	padding-top: 15vh;
-	padding-bottom: 15vh;
+	padding-bottom: 25vh;
 	min-height: 400px;
 }
 /*** CONNECT WITH ME ***/
@@ -319,6 +318,186 @@ div.wrapper-container p{
 	padding-bottom: 25vh;
 	min-height: 400px;
 }
+/*** MEDIA ANIMATIONS ***/
+	/*** 	ABOUT */
+		.about{
+			transform: perspective(400px);
+			transition: 0.4s ease;
+		}
+		.about.hidden{
+			opacity: 0;
+			transform: perspective(400px);
+		}
+		.about h1{
+			transform:translate(0px);
+			transition: 0.4s ease;
+		}
+		.about.hidden h1{
+			opacity: 0;
+			transform: scale3d(.75,.75,1);
+		}
+		.about h2{
+			transform:translate(0px);
+			transition: 0.4s ease;
+			transition-delay: 0.4s;
+		}
+		.about.hidden h2{
+			opacity: 0;
+			transform:translate(-1000px);
+		}
+		.about p{
+			transform: scale3d(1,1,1);
+			transition: 0.4s ease;
+			transition-delay: 0.8s;
+			transform-origin: center bottom;
+		}
+		.about.hidden p{
+			opacity: 0;
+			transform: scale3d(.15,.15,1);
+			transform-origin: center bottom;
+		}
+		.about .wrapper-container{
+			transform: scale3d(1,1,1);
+			transition: 0.4s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.about.hidden .wrapper-container{
+			opacity: 0;
+			transform:translate(1000px);
+			transform-origin: center bottom;
+		}
+		.about .wrapper-left-container{
+			transform: scale3d(1,1,1);
+			transition: 0.4s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.about.hidden .wrapper-left-container{
+			opacity: 0;
+			transform:translate(-1000px);
+			transform-origin: center bottom;
+		}
+	/*** 	Projects */
+		.portfolio{
+			transform: perspective(400px);
+			transition: 0.4s ease;
+		}
+		.portfolio.hidden{
+			opacity: 0;
+			transform: perspective(400px);
+		}
+		.portfolio h1{
+			transform:translate(0px);
+			transition: 1.8s ease;
+		}
+		.portfolio.hidden h1{
+			opacity: 0;
+			transform: scale3d(.75,.75,1);
+		}
+		.portfolio i{
+			transform:translate(0px);
+			transition: 0.8s ease;
+			transition-delay: 0.4s;
+		}
+		.portfolio.hidden i{
+			opacity: 0;
+			transform:translate(-1000px);
+		}
+		.portfolio p{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 0.8s;
+			transform-origin: center bottom;
+		}
+		.portfolio.hidden p{
+			opacity: 0;
+			transform: scale3d(.15,.15,1);
+			transform-origin: center bottom;
+		}
+		.portfolio .wrapper-right-container{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.portfolio.hidden .wrapper-right-container{
+			opacity: 0;
+			transform:translate(1000px);
+			transform-origin: center bottom;
+		}
+		.portfolio .wrapper-left-container{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.portfolio.hidden .wrapper-left-container{
+			opacity: 0;
+			transform:translate(-1000px);
+			transform-origin: center bottom;
+		}
+	/*** 	connect */
+		.connect{
+			transform: perspective(400px);
+			transition: 0.4s ease;
+		}
+		.connect.hidden{
+			opacity: 0;
+			transform: perspective(400px);
+		}
+		.connect h1{
+			transform:translate(0px);
+			transition: 1.8s ease;
+		}
+		.connect.hidden h1{
+			opacity: 0;
+			transform: scale3d(.75,.75,1);
+		}
+		.connect i{
+			transform:translate(0px);
+			transition: 0.8s ease;
+			transition-delay: 0.4s;
+		}
+		.connect.hidden i{
+			opacity: 0;
+			transform:translate(-1000px);
+		}
+		.connect p{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 0.8s;
+			transform-origin: center bottom;
+		}
+		.connect.hidden p{
+			opacity: 0;
+			transform: scale3d(.15,.15,1);
+			transform-origin: center bottom;
+		}
+		.connect .wrapper-right-container{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.connect.hidden .wrapper-right-container{
+			opacity: 0;
+			transform:translate(1000px);
+			transform-origin: center bottom;
+		}
+		.connect .wrapper-left-container{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.connect.hidden .wrapper-left-container{
+			opacity: 0;
+			transform:translate(-1000px);
+			transform-origin: center bottom;
+		}
+
+/*** MEDIA QUERYS ***/
 @media screen and (min-width: 100px) {
 	.container{
 		width: 100%;

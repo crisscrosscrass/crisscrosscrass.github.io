@@ -2,6 +2,33 @@ window.onload = function(){
   addScrollClickToButtons();
   MyParticleSystem();
   stickyNavi();
+  addRevealOnScroll('#about');
+  addRevealOnScroll('#portfolio');
+  addRevealOnScroll('#connect');
+  addRevealOnScroll('#contact');
+}
+
+function isInViewport(idName) {
+var elementTop = $(idName).offset().top;
+var elementBottom = elementTop + $(idName).innerHeight();
+var viewportTop = $(window).scrollTop();
+var viewportBottom = viewportTop + $(window).height();
+return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+function addRevealOnScroll(idName){
+  var aboutElement = $(idName),
+  aboutElementOffset = aboutElement.offset().top/2,
+  documentElement = $(document);
+
+  documentElement.on('scroll', function(){
+    if (documentElement.scrollTop() > aboutElementOffset && aboutElement.hasClass('hidden')) {
+        if (isInViewport(idName)) {
+          console.log("remove class for "+idName);
+          aboutElement.removeClass('hidden');
+        }
+    }
+  });
 }
 
 function openNav() {
