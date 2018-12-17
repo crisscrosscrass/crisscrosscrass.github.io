@@ -87,22 +87,33 @@ hr{
     justify-content: center;
 	align-items: center;
 }
-.button-view-my-work{
+.branding .button-view-my-work{
+	cursor: pointer;
+	min-width: 200px;
+    margin: 2%;
+    padding-top: 18px;
+    color: white;
+    background-color: rgba(24,191,239,0);
+    border: 3px solid white;
+    text-align: center;
+    transition: 0.5s;
+}
+.branding .button-view-my-work:hover{
+	cursor: pointer;
+	min-width: 200px;
+	color: white;
+    background-color: rgba(24,191,239,1);
+    border: 3px solid rgba(24,191,239,1);
+    text-align: center;
+    transition: 0.5s;
+}
+.branding .button-view-my-work:after{
 	cursor: pointer;
 	min-width: 200px;
     margin: 2%;
     padding-top: 18px;
     color: white;
     border: 3px solid white;
-    text-align: center;
-    transition: 0.5s;
-}
-.button-view-my-work:hover{
-	cursor: pointer;
-	min-width: 200px;
-	color: white;
-    background-color: rgba(24,191,239,1);
-    border: 3px solid rgba(24,191,239,1);
     text-align: center;
     transition: 0.5s;
 }
@@ -319,6 +330,43 @@ div.wrapper-container p{
 	min-height: 400px;
 }
 /*** MEDIA ANIMATIONS ***/
+	/*** 	BRANDING */
+		.branding{
+			transform: perspective(400px);
+			transition: 0.4s ease;
+		}
+		.branding.hidden{
+			opacity: 0;
+			transform: perspective(400px);
+		}
+		.branding h1{
+			transform:translate(0px,0px);
+			transition: 0.4s ease;
+			transition-delay: 3.4s;
+		}
+		.branding.hidden h1{
+			opacity: 0;
+			transform:translate(1000px,0px);
+		}
+		.branding .special-text{
+			transform:translate(0px,0px);
+			transition: 3.4s ease;
+			transition-delay: 0.0s;
+		}
+		.branding.hidden .special-text{
+			opacity: 0;
+			transform:translate(0px,-500px);
+		}
+		.branding .animation-for-button{
+			transform:translate(0px,0px);
+			transition: 0.4s ease;
+			transition-delay: 3.8s;
+		}
+		.branding.hidden .animation-for-button{
+			opacity: 0;
+			transform:translate(-1000px,0px);
+		}
+
 	/*** 	ABOUT */
 		.about{
 			transform: perspective(400px);

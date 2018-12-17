@@ -2,6 +2,7 @@ window.onload = function(){
   addScrollClickToButtons();
   MyParticleSystem();
   stickyNavi();
+  addRevealOnPageUp('#branding');
   addRevealOnScroll('#about');
   addRevealOnScroll('#portfolio');
   addRevealOnScroll('#connect');
@@ -16,9 +17,14 @@ var viewportBottom = viewportTop + $(window).height();
 return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
+function addRevealOnPageUp(idName) {
+  var aboutElement = $(idName);
+  aboutElement.removeClass('hidden');
+}
+
 function addRevealOnScroll(idName){
   var aboutElement = $(idName),
-  aboutElementOffset = aboutElement.offset().top/2,
+  aboutElementOffset = aboutElement.offset().top-300,// 300 is a fixed number, maybe adjust to percent calculation?
   documentElement = $(document);
 
   documentElement.on('scroll', function(){
