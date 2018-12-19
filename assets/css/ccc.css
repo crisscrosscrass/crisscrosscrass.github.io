@@ -595,8 +595,7 @@ div.wrapper-container p{
 			transform:translate(-1000px);
 			transform-origin: center bottom;
 		}
-
-
+		/* maybe some more later on... */
 
 /*** MEDIA QUERYS ***/
 @media screen and (min-width: 100px) {
