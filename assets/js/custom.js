@@ -132,7 +132,7 @@ function MyParticleSystem(){
               //draw a line between particles if distance is below x
               ctx.beginPath();
               ctx.lineWidth = .1;
-              ctx.strokeStyle = 'rgba(255,255,255,1)';
+              ctx.strokeStyle = '#A239CA';
               ctx.moveTo(this.x, this.y);
               ctx.lineTo(canvasWidth / 2, canvasHeight / 2);
               ctx.stroke();
@@ -179,7 +179,7 @@ function MyParticleSystem(){
       addParticles(amountofParticles);
 
       function redrawAndUpdate(){
-        ctx.fillStyle = '#1e797d';
+        ctx.fillStyle = '#0E0B16';
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
           for(var i = 0; i < particles.length; i++){

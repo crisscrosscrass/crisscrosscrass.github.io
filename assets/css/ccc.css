@@ -1,4 +1,17 @@
 /*** GLOBAL SETTINGS ***/
+/*
+*	Colors:
+* 	dark
+	#0E0B16
+	diff
+	#A239CA
+	buttons?
+	#4717F6
+	bright
+	#E7DFDD
+*
+*
+*/
 body{
 	font-family: 'Raleway';
 	font-size: 12pt;
@@ -12,6 +25,16 @@ hr{
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+
+#about h1,#portfolio h1,#connect h1,#about h2,#portfolio h2,#connect h2,#about h3,#portfolio h3,#connect h3{
+	color: #A239CA;
+}
+#about p,#portfolio p,#connect p{
+	color: #0E0B16;
+}
+#about i,#portfolio i,#connect i{
+	color: #0E0B16;
+}
 .nav-placeholder{
 	width: 100%;
 	min-height: 60px;
@@ -20,6 +43,7 @@ hr{
 	color: #124b4e;
 	color: #E31B6D;
 	color: rgba(24,191,239,1);
+	color: #A239CA;
 }
 .overflow-wrap{
 	overflow-x: hidden;
@@ -66,7 +90,7 @@ hr{
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: #1e797d;
+    background-color: #0E0B16;
     /*background: url(./imgages/filler.png) center center/cover;*/
 }
 #home{
@@ -102,8 +126,8 @@ hr{
 	cursor: pointer;
 	min-width: 200px;
 	color: white;
-    background-color: rgba(24,191,239,1);
-    border: 3px solid rgba(24,191,239,1);
+    background-color: #4717F6;
+    border: 3px solid #4717F6;
     text-align: center;
     transition: 0.5s;
 }
@@ -143,8 +167,8 @@ hr{
 	display: flex;
     justify-content: center;
     align-items: center;
-    background: #124b4e;
-    border-bottom: 3px solid #1e797d;
+    background: #0E0B16;
+    border-bottom: 3px solid #A239CA;
 }
 #navi a{
 	color: white;
@@ -152,8 +176,8 @@ hr{
 	transition: 0.5s;
 }
 #navi a:hover{
-	color: rgba(24,191,239,1);
-	border: 3px solid rgba(24,191,239,1);
+	color: #A239CA;
+	border: 3px solid rgba(24,191,239,0);
 	transition: 200ms ease-in;
 }
 .link-wrap {
@@ -216,6 +240,31 @@ hr{
 	padding-bottom: 15vh;
 	min-height: 400px;
 }
+#about a,#portfolio a{
+	display: inline-block;
+    font-weight: 400;
+    color: #4717F6;
+	background-color: white;
+	border-color: #4717F6;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #4717F6;
+    padding: .375rem .75rem;
+	font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#about a:hover,#portfolio a:hover{
+    color: white;
+	background-color: #4717F6;;
+	border-color: #4717F6;
+}
 #skills .wrapper-container .container{
 	height: 5px;
 }
@@ -224,19 +273,25 @@ hr{
 	text-align: center;
 }
 .wrapper-container{
-	background-color: #1e797d;
-	border: 2px solid #1e797d;
+	font-size: 12pt;
+	background-color: #A239CA;
+	border: 2px solid #0E0B16;
 	width: 80%;
 }
-.wrapper-container{
+.wrapper-container {
 	color: white;
+}
+#about .wrapper-container p {
+	color: white;
+	background-color: #A239CA;
 }
 div.wrapper-container p{
 	margin-bottom: 0px;
 }
 .wrapper-container .container {
 	width: 100%;
-	background-color: #124b4e;
+	background-color: #0E0B16;
+	color: #E7DFDD;
 	padding:0;
 }
 		/*** Skills ***/
@@ -302,6 +357,7 @@ div.wrapper-container p{
 	padding-bottom: 25vh;
 	min-height: 400px;
 }
+
 /*** CONNECT WITH ME ***/
 #connect{
 	position: relative;
@@ -317,20 +373,78 @@ div.wrapper-container p{
 .connect-links ul{
 	list-style-type: none;
 }
+#connect a,#portfolio a{
+	display: inline-block;
+    font-weight: 400;
+    color: #4717F6;
+	background-color: white;
+	border-color: #4717F6;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #4717F6;
+    padding: .375rem .75rem;
+	font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#connect a h1{
+    color: #4717F6;
+}
+#connect a:hover h1{
+    color: white;
+}
+#connect a:hover,#portfolio a:hover{
+    color: white;
+	background-color: #4717F6;;
+	border-color: #4717F6;
+}
 /*** CONTACT ***/
 #contact{
 	position: relative;
 	margin: 0;
 	padding: 0;
 	width: 100vw;
-	background-color: #124b4e;
-	color: white;
+	background-color: #0E0B16;;
+	color: #E7DFDD;
 	padding-top: 15vh;
 	padding-bottom: 25vh;
 	min-height: 400px;
 }
+#contact a{
+	display: inline-block;
+    font-weight: 400;
+    color: #4717F6;
+	background-color: transparent;
+	border-color: #4717F6;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #4717F6;
+    padding: .375rem .75rem;
+	font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#contact a:hover{
+    color: white;
+    background-color: #4717F6;
+}
 /*** MEDIA QUERYS ***/
 @media screen and (min-width: 100px) {
+	body{
+		font-size: 12pt;
+	}
 	.container{
 		width: 100%;
 		padding-right: 0;
@@ -365,6 +479,9 @@ div.wrapper-container p{
 	}
 }
 @media screen and (min-width: 700px) {
+	body{
+		font-size: 1.2vw;
+	}
 	.container{
 		width: 90%;
 	}
