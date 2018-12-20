@@ -24,7 +24,7 @@ function addRevealOnPageUp(idName) {
 
 function addRevealOnScroll(idName){
   var aboutElement = $(idName),
-  aboutElementOffset = aboutElement.offset().top-300,// 300 is a fixed number, maybe adjust to percent calculation?
+  aboutElementOffset = aboutElement.offset().top-150,// 150 is a fixed number, maybe adjust to percent calculation?
   documentElement = $(document);
 
   documentElement.on('scroll', function(){
