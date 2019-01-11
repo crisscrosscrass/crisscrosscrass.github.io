@@ -288,6 +288,9 @@ hr{
 div.wrapper-container p{
 	margin-bottom: 0px;
 }
+div.wrapper-container h1{
+	margin: 0;
+}
 .wrapper-container .container {
 	width: 100%;
 	background-color: #0E0B16;
@@ -325,6 +328,10 @@ div.wrapper-container p{
 		width: 60%; background-color: #A239CA;
 		color: #1e797d;
 		}
+		.regex {
+		width: 75%; background-color: #A239CA;
+		color: #1e797d;
+		}
 		.php {
 		width: 70%; background-color: #A239CA;
 		color: #1e797d;
@@ -354,7 +361,7 @@ div.wrapper-container p{
 	background-color: white;
 	color: #1e797d;
 	padding-top: 15vh;
-	padding-bottom: 25vh;
+	padding-bottom: 5vh;
 	min-height: 400px;
 }
 
@@ -366,7 +373,7 @@ div.wrapper-container p{
 	width: 100vw;
 	background-color: white;
 	color: #1e797d;
-	padding-top: 15vh;
+	padding-top: 25vh;
 	padding-bottom: 15vh;
 	min-height: 400px;
 }
