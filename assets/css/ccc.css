@@ -534,6 +534,15 @@ div.wrapper-container h1{
 			opacity: 0;
 			transform:translate(1000px,0px);
 		}
+		.branding h3{
+			transform:translate(0px,0px);
+			transition: 0.4s ease;
+			transition-delay: 3.4s;
+		}
+		.branding.hidden h3{
+			opacity: 0;
+			transform:translate(1000px,0px);
+		}
 		.branding .special-text{
 			transform:translate(0px,0px);
 			transition: 3.4s ease;
