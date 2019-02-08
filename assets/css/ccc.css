@@ -213,7 +213,7 @@ hr{
 }
 
 .sidenav a:hover{
-  color: #f1f1f1;
+  color: #A239CA;
 }
 
 .sidenav .closebtn {
@@ -463,6 +463,16 @@ div.wrapper-container h1{
 		margin-right: auto;
 		margin-left: auto;
 	}
+	.content-Section{
+		width: 90%;
+		margin-left: 1%;
+		margin-right: 5%;
+		margin-top: 2%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+}
 	.content-Split{
 	    display: flex;
 	    flex-direction: column;
