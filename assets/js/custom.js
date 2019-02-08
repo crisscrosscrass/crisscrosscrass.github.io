@@ -7,6 +7,7 @@ window.onload = function(){
   addRevealOnScroll('#portfolio');
   addRevealOnScroll('#connect');
   addRevealOnScroll('#contact');
+
 }
 
 function isInViewport(idName) {
@@ -46,6 +47,10 @@ function closeNav() {
 }
 
 function addScrollClickToButtons(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+
   $(".section1").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
