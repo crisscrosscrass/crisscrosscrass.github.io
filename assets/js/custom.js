@@ -73,7 +73,7 @@ function addScrollClickToButtons(){
   $(".section5").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#contact").offset().top
+          scrollTop: $("#aboutcontact").offset().top
       }, 1000);
   });
 }
