@@ -222,5 +222,16 @@ function MyParticleSystem(){
       });
 }
 
+function SendingTestEmailViaJavaScript(){
+  Email.send({
+    SecureToken : "5b15db81-fa23-4a08-96ea-adf22435255b",
+    To : 'christopher.eckardt@visual-meta.com',
+    From : "testuser@somewhere.com",
+    Subject : "This is a test mail to see if this is working",
+    Body : "And this is the textbody of the Mail!"
+}).then(
+  message => alert(message)
+);
+}
 
 
