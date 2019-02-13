@@ -328,7 +328,10 @@ function EmailViaJavaScriptFunction(NameInput,EmailInput,MessageInput){
         icon: 'error',
         showHideTransition: 'slide', // fade, slide or plain
         allowToastClose: true, 
-        hideAfter: false
+        hideAfter: false,
+        afterHidden: function () {
+          alert(message);
+          }
         });
       }
     }
