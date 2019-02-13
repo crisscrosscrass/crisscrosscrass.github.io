@@ -320,6 +320,16 @@ function EmailViaJavaScriptFunction(NameInput,EmailInput,MessageInput){
         allowToastClose: true, 
         hideAfter: false
         });
+      }else{
+        $.toast({
+        heading: "Error",
+        text: "Email couldn't not been sent! Please try again later...",
+        showHideTransition: 'slide',
+        icon: 'error',
+        showHideTransition: 'slide', // fade, slide or plain
+        allowToastClose: true, 
+        hideAfter: false
+        });
       }
     }
     
