@@ -5,7 +5,7 @@
 	#0E0B16
 	diff
 	#A239CA
-	buttons?
+	buttons
 	#4717F6
 	bright
 	#E7DFDD
@@ -80,6 +80,39 @@ hr{
 .responsive {
   width: 100%;
   height: auto;
+}
+.modal{
+	z-index: 1000;
+	margin: auto;
+	margin-top: 10%;
+	display: hide;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	/*background-color: rgba(0,0,0,0.5);*/
+}
+.modalContent{
+	display: table-cell;
+  	vertical-align: middle;
+	width: 40%;
+	height: 60%;
+	margin: auto;
+}
+.modalBoxContent{
+	color: white;
+	background-color: rgba(0, 0, 0, .9);
+	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border: 3px solid #4717F6;
+	border-radius: 15px 50px;
+}
+.modalBoxWrapperContent{
+	margin: 20px;
 }
 /*** HOME ***/
 #particles{
@@ -804,4 +837,60 @@ div.wrapper-container h1{
 			transform:translate(-1000px);
 			transform-origin: center bottom;
 		}
-		/* maybe some more later on... */
+/* Overwrite some font-size, because some browser doesn't recognize the changes in some divs for some reason, need more time to look into this  */
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+}

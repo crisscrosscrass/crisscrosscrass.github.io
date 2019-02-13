@@ -15,14 +15,49 @@
 	<script src="https://smtpjs.com/v3/smtp.js"></script>
 	<!-- LOCAL -->
 	<link rel="stylesheet" href="./assets/css/ccc.css">
+	<!-- LOCAL / jquery Toast -->
+	<link rel="stylesheet" href="./assets/js/jquery.toast.min.css">
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.toast.min.js"></script>
 	<script src="assets/js/custom.js"></script>
 </head>
 <body>
 	<div class="overflow-wrap">
 		<div class="modal-wrap flex">
 			<div class="mask"></div>
-			<div class="modal"></div>
+			<div class="modal" id="myModalSendEmailTo">
+				<div class="modalContent">
+					<div class="modalBoxContent">
+						<div class="modalBoxWrapperContent">
+							<form role="form" method="post" id="reused_form" >
+					        <p>Send your message in the form below and i will get back to you as soon as possible.</p>
+						        <div class="form-group">
+						            Name:
+						            <input type="text" class="form-control"
+						            name="name"   required maxlength="50" id="contactNameInput">
+						        </div>
+						        <div class="form-group">
+						            <label for="email">
+						                Email:</label>
+						            <input type="email" class="form-control"
+						            name="email" required maxlength="50" id="contactEmailInput">
+						        </div>
+						        <div class="form-group">
+						            <label for="name">
+						                Message:</label>
+						            <textarea class="form-control" type="textarea" name="message"
+						            placeholder="Your Message here"
+						            maxlength="6000" rows="8" style="resize:none" id="contactTextInput"></textarea>
+						        </div>
+						        <div style="text-align:center; width:100%; padding:0;">
+						        	<a href="#Mail" class="btn btn-outline-info" onclick="OpenMailTo()">Close</a>
+						        	<a href="#Mail" class="btn btn-outline-info" onclick="SubmitButton()">Submit</a>
+						        </div>
+					    	</form>
+					    </div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- HOME -->
 		<section id="home">
@@ -229,7 +264,7 @@
 								<a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-info" target="_blank"><h1 class="fab fa-stack-overflow"></h1></a>
 							</div>
 							<div class="content-Section">
-								<a href="mailto:c.eckardt@sags-per-mail.de" class=""><h1 class="fas fa-envelope"></h1></a>
+								<a href="#Mail" onclick="OpenMailTo()" class=""><h1 class="fas fa-envelope"></h1></a>
 							</div>
 					</div>
 				</div>
@@ -312,7 +347,7 @@
 											<a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-info" target="_blank"><h6 class="fab fa-stack-overflow"></h6></a>
 										</div>
 										<div class="content-Section">
-											<a href="mailto:c.eckardt@sags-per-mail.de" class="btn btn-outline-info"><h6 class="fas fa-envelope"></h6></a>
+											<a href="#Mail" class="btn btn-outline-info" onclick="OpenMailTo()"><h6 class="fas fa-envelope"></h6></a>
 										</div>
 									</div>
 
@@ -320,7 +355,7 @@
 							</div>
 							<div class="content-Section">
 								<div class="wrapper-right-container">
-									
+									<p><h2>Currently looking for a Junior Frontend Developer Position</h2></p>
 									<p>I started my journey as a self-taught web developer right out of High School. Ever since I have fallen in love with web development and spend most of my days taking my craft to the next level.</p>
 									<p>Nowadays I tend to code all of my projects from scratch in order to deliver a unique experience to every company.</p>
 									<p>Like many other people, I enjoy spending my free time increasing my knowledge of Web Development and building new and challenging projects.</p>

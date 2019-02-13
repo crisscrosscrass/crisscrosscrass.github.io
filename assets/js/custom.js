@@ -226,17 +226,102 @@ function MyParticleSystem(){
           
       });
 }
+function OpenMailTo(){
+  if($("#myModalSendEmailTo:visible").length == 0) {
+    $( "#myModalSendEmailTo" ).slideDown("slow", function() {
+      // Animation complete.
+    });
+  } else{
+    $( "#myModalSendEmailTo" ).slideUp("slow", function() {
+      // Animation complete.
+    });
+  }
+}
+function SubmitButton(){
+  //get all Infos from Field
+  var NameInput = document.getElementById("contactNameInput").value,
+  EmailInput = document.getElementById("contactEmailInput").value,
+  MessageInput = document.getElementById("contactTextInput").value;
+  //check if Field correct
+  if (ValidationSendingEmail(NameInput,EmailInput,MessageInput) ){
+    OpenMailTo();
+    //send Email plus Field-Informations
+    SendingEmailFunction(NameInput,EmailInput,MessageInput);
+    //reset all Inputs
+    document.getElementById("contactNameInput").value = "";
+    document.getElementById("contactEmailInput").value = "";
+    document.getElementById("contactTextInput").value = "";
+  }
+}
+function ValidationSendingEmail(NameInput,EmailInput,MessageInput){
+  $.toast().reset('all');
+  if( NameInput.length == 0){
+    ToastErrorMsg("Name","The Name can't be empty");
+  }
+  if( EmailInput.length == 0){
+    ToastErrorMsg("Email","The Email can't be empty");
+  }
+  if( MessageInput.length == 0){
+    ToastErrorMsg("Message","The Message shouldn't be empty");
+  }
+  if( EmailInput.length > 0 & !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(EmailInput) ){
+    ToastErrorMsg("Email","Something looks wrong with the email, please have a look at it");
+  }
+  if(NameInput.length == 0 | EmailInput.length == 0 | MessageInput.length == 0 | !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(EmailInput) ){
+    return false;
+  }else{
+    return true;
+  }
+}
+function ToastErrorMsg(heading,text){
+  $.toast({
+    heading: heading,
+    text: text,
+    showHideTransition: 'slide',
+    icon: 'info',
+    showHideTransition: 'slide', // fade, slide or plain
+    allowToastClose: true, 
+    hideAfter: 3000, 
+    loader: false
+    });
+}
+function SendingEmailFunction(NameInput,EmailInput,MessageInput){
+  $.toast({
+    heading: 'Email sending...',
+    text: 'Hi '+ NameInput +' , your email is on the way.',
+    showHideTransition : 'slide',  
+    bgColor : '#4717F6',
+    position: 'mid-center',
+    hideAfter: 3000,
+    afterHidden: function () {
+      console.log("Mail has been sent");
+      EmailViaJavaScriptFunction(NameInput,EmailInput,MessageInput);
+    }
+  });
 
-function SendingTestEmailViaJavaScript(){
+}
+function EmailViaJavaScriptFunction(NameInput,EmailInput,MessageInput){
   Email.send({
     SecureToken : "5b15db81-fa23-4a08-96ea-adf22435255b",
     To : 'christopher.eckardt@visual-meta.com',
-    From : "christopher.eckardt@visual-meta.com",
-    Subject : "This is a test mail to see if this is working",
-    Body : "And this is the textbody of the Mail!"
-}).then(
-  message => alert(message)
-);
+    From : 'christopher.eckardt@visual-meta.com',
+    Subject : "CONTACT via https://crisscrosscrass.github.io:",
+    Body : "Message from "+EmailInput+" | "+NameInput+ "<br/>"+MessageInput
+  }).then(
+    //message => alert(message)
+    message => {
+      if(message == "OK"){
+        $.toast({
+        heading: "Success",
+        text: "Email has been sent!",
+        showHideTransition: 'slide',
+        icon: 'success',
+        showHideTransition: 'slide', // fade, slide or plain
+        allowToastClose: true, 
+        hideAfter: false
+        });
+      }
+    }
+    
+  );
 }
-
-
