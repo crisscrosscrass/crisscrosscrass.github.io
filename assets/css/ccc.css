@@ -94,10 +94,6 @@ hr{
 	/*background-color: rgba(0,0,0,0.5);*/
 }
 .modalContent{
-	display: table-cell;
-  	vertical-align: middle;
-	width: 40%;
-	height: 60%;
 	margin: auto;
 }
 .modalBoxContent{
@@ -105,9 +101,6 @@ hr{
 	background-color: rgba(0, 0, 0, .9);
 	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
 	box-shadow: 0 5px 15px rgba(0,0,0,.5);
-	margin-left: auto;
-	margin-right: auto;
-	width: 40%;
 	border: 3px solid #4717F6;
 	border-radius: 15px 50px;
 }
@@ -531,6 +524,10 @@ div.wrapper-container h1{
 	.content-Section h2 {
     display: none;
 	}
+	.modalContent{
+	min-width: 50%;
+	margin: 5%;
+	}
 }
 @media screen and (min-width: 700px) {
 	body{
@@ -561,6 +558,10 @@ div.wrapper-container h1{
     flex-direction: row;
     justify-content: space-around;
     }
+    .modalContent{
+	max-width: 30%;
+	margin: 0 auto;
+	}
 }
 /*** MEDIA ANIMATIONS ***/
 	/*** 	BRANDING */
