@@ -7,7 +7,10 @@ window.onload = function(){
   addRevealOnScroll('#portfolio');
   addRevealOnScroll('#connect');
   addRevealOnScroll('#contact');
-
+  addActiveMenuOnScroll('#about','#naviAboutMeLink');
+  addActiveMenuOnScroll('#portfolio','#naviProjectsLink');
+  addActiveMenuOnScroll('#connect','#naviConnectLink');
+  addActiveMenuOnScroll('#contact','#naviContactLink');
 }
 
 function isInViewport(idName) {
@@ -25,17 +28,44 @@ function addRevealOnPageUp(idName) {
 
 function addRevealOnScroll(idName){
   var aboutElement = $(idName),
-  aboutElementOffset = aboutElement.offset().top-150,// 150 is a fixed number, maybe adjust to percent calculation?
+  aboutElementOffset = aboutElement.offset().top-300,// is a fixed number, maybe adjust to percent calculation? on hold for now
   documentElement = $(document);
 
   documentElement.on('scroll', function(){
     if (documentElement.scrollTop() > aboutElementOffset && aboutElement.hasClass('hidden')) {
         if (isInViewport(idName)) {
-          console.log("remove class for "+idName);
+          //console.log("remove class for "+idName);
           aboutElement.removeClass('hidden');
         }
     }
   });
+}
+function addActiveMenuOnScroll(idName,idLink){
+  var aboutElement = $(idName),
+  highlightedElement = $(idLink),
+  aboutElementOffset = aboutElement.offset().top,
+  documentElement = $(document),
+  scrollBottom = $(window).scrollTop() + $(window).height();
+
+  documentElement.on('scroll', function(){
+    if (documentElement.scrollTop() > aboutElementOffset ) {
+        if (isInViewport(idName) && !highlightedElement.hasClass('highlight') ) {
+          highlightedElement.addClass('highlight');
+          removeNoneActiveMenuOnScroll(idLink);
+        }
+    }
+  });
+}
+
+function removeNoneActiveMenuOnScroll(activeLink){
+  var aboutElement = $(activeLink),
+  allElements = ["#naviAboutMeLink", "#naviProjectsLink", "#naviConnectLink","#naviContactLink"];
+  for (  i = 0 ; i < allElements.length ; i++){
+    if (allElements[i] != activeLink ) {
+      var highlightedElement = $(allElements[i]);
+      highlightedElement.removeClass('highlight');
+    }
+  }
 }
 
 function openNav() {
@@ -54,31 +84,31 @@ function addScrollClickToButtons(){
   $(".section1").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#home").offset().top
+          scrollTop: $("#home").offset().top+10
       }, 1000);
   });
   $(".section2").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#about").offset().top
+          scrollTop: $("#about").offset().top+10
       }, 1000);
   });
   $(".section3").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#portfolio").offset().top
+          scrollTop: $("#portfolio").offset().top+10
       }, 1000);
   });
   $(".section4").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#connect").offset().top
+          scrollTop: $("#connect").offset().top+10
       }, 1000);
   });
   $(".section5").click(function() {
       closeNav();
       $([document.documentElement, document.body]).animate({
-          scrollTop: $("#aboutcontact").offset().top
+          scrollTop: $("#aboutcontact").offset().top+10
       }, 1000);
   });
 }

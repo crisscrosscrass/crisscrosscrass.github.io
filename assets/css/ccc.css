@@ -206,6 +206,9 @@ hr{
 	border: 3px solid rgba(24,191,239,0);
 	transition: 200ms ease-in;
 }
+#navi a.highlight{
+	color: rgba(24,191,239,1);
+}
 .link-wrap {
 	width: 100%;
     display: flex;
