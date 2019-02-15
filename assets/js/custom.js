@@ -7,6 +7,7 @@ window.onload = function(){
   addRevealOnScroll('#portfolio');
   addRevealOnScroll('#connect');
   addRevealOnScroll('#contact');
+  addActiveMenuOnScroll('#branding','#naviHomeLink');
   addActiveMenuOnScroll('#about','#naviAboutMeLink');
   addActiveMenuOnScroll('#portfolio','#naviProjectsLink');
   addActiveMenuOnScroll('#connect','#naviConnectLink');
@@ -59,7 +60,7 @@ function addActiveMenuOnScroll(idName,idLink){
 
 function removeNoneActiveMenuOnScroll(activeLink){
   var aboutElement = $(activeLink),
-  allElements = ["#naviAboutMeLink", "#naviProjectsLink", "#naviConnectLink","#naviContactLink"];
+  allElements = ["#naviHomeLink","#naviAboutMeLink", "#naviProjectsLink", "#naviConnectLink","#naviContactLink"];
   for (  i = 0 ; i < allElements.length ; i++){
     if (allElements[i] != activeLink ) {
       var highlightedElement = $(allElements[i]);
@@ -246,7 +247,7 @@ function MyParticleSystem(){
         if (lightbox_resize)
           clearTimeout(lightbox_resize);
         lightbox_resize = setTimeout(function() {
-          console.log('resize');
+          //console.log('resize');
           stickyNavi();
           //$('canvas').remove();
           reset();
