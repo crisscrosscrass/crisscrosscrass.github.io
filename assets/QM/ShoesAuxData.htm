@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+        }
+        input[type=file], input[type=submit] {
+            width: 100%;
+            height: 100px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+            #EnterAllTagIds p{
+                width: 100%;
+                text-align: right;
+                margin: 0;
+            }
+            .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+            }
+    </style>
+</head>
+<body>
+    <div id="" class="App-header">
+        <form id="xmlForm" name="xmlForm">
+            <input id="input" type="file"> <input type="submit" value="ReadAuxDataTemplate" style="display:none;">
+        </form>
+        <div id="EnterAllTagIds">
+
+        </div>
+    </div>
+    <script>
+       var readXml=null;
+       var identifiedTags;
+       $('#xmlForm').on('change',function(event) {
+           event.preventDefault();
+           var selectedFile = document.getElementById('input').files[0];
+           var selectedFileName = document.getElementById('input').files[0].name;
+           var reader = new FileReader();
+           reader.onload = function(e) {
+               readXml=e.target.result;
+               identifiedTags = readStringForEachLine(readXml);
+               resetUploadButton();
+               identifiedTags = uniq_fast(identifiedTags);
+               createInputFields(identifiedTags,selectedFileName);
+               createSubmitButtonForTagIds();
+           }
+           reader.readAsText(selectedFile);
+       });
+       function createAuxData(){
+            var tagNameAndTagIds = getAllTagIds(identifiedTags);
+            var newXML = replaceAllTagsWithTagIDs(readXml,tagNameAndTagIds);
+            OpenPopUpWindow(newXML);
+            //reset doc
+            document.getElementById('EnterAllTagIds').innerHTML = "";
+       }
+       function OpenPopUpWindow(newXML){
+        var newWindow = window.open("","Test","'location=no,toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=200,width=800,height=800'")
+        var html = "<html><head><title>AuxData</title><style>textarea {width: 750px;height: 750px;}</style></head><body>"+ '' +"<br />"
+            html += "<textarea>"+newXML+"</textarea></body></html>"
+            newWindow .document.open()
+            newWindow .document.write(html)            
+            newWindow .document.close()
+        }
+       function replaceAllTagsWithTagIDs(readXml,tagNameAndTagIds){
+           var newXML = readXml;
+           for( var i = 0; i < tagNameAndTagIds.length ; i++ ){
+            var regEx = new RegExp('\<.*\<\!\-\-.*?'+tagNameAndTagIds[i].tagname+'.*?\-\-\>','g')
+            newXML = newXML.replace(regEx,'<tag id="'+tagNameAndTagIds[i].tagID+'" /> <!-- '+tagNameAndTagIds[i].tagname+'-->');
+           }
+           return newXML;
+       }
+       function getAllTagIds(identifiedTags){
+        var Groups = [];
+        for(let i = 0; i < identifiedTags.length ; i++ ){
+            //console.log(document.getElementById(identifiedTags[i]).value);
+            Groups[i] = {"tagname":identifiedTags[i],"tagID":document.getElementById(identifiedTags[i]).value}
+           }
+        return Groups;
+       }
+       function readStringForEachLine(textArea){
+            var arrayOfLines = textArea.split("\n");
+            var identifiedLines = [];
+            arrayOfLines.forEach(element => {
+                if(element.match(/\<.*\-\>/) ){
+                    var StringPart = element.replace(/.*\<\!\-*\s*/,'');
+                    StringPart = StringPart.replace(/\-*\>\s*/,'');
+                    identifiedLines.push(StringPart);
+                }
+            });
+            return identifiedLines;
+       }
+       function createSubmitButtonForTagIds(){
+        var Divwindow = document.createElement("INPUT");            
+            Divwindow.setAttribute("type", "submit");
+            Divwindow.setAttribute("value", "CreateAuxData");
+            Divwindow.setAttribute("onclick", "createAuxData()");
+            document.getElementById("EnterAllTagIds").appendChild(Divwindow);
+       }
+       function createInputFields(identifiedTags,selectedFileName){
+           document.getElementById('EnterAllTagIds').innerHTML = "";
+           document.getElementById('EnterAllTagIds').innerHTML += "<h1>File: "+selectedFileName+"</h1>";
+           var writelocation = document.getElementById("EnterAllTagIds");
+           for(let i = 0; i < identifiedTags.length ; i++ ){
+            createInputFieldAtLocation(writelocation,identifiedTags[i]);
+           }
+       }
+       function createInputFieldAtLocation(writelocation,tagName){
+            var Divwindow = document.createElement("P");            
+            Divwindow.innerHTML += tagName + "   ";
+            writelocation.appendChild(Divwindow);
+            var Inputwindow = document.createElement("INPUT");
+            Inputwindow.setAttribute("id", tagName);
+            Inputwindow.setAttribute("value", "");
+            Divwindow.appendChild(Inputwindow);
+       }
+       function resetUploadButton(){
+        cloned = $("#input").clone(true);
+        cloned.val("");
+        $("#input").replaceWith(cloned);
+       }
+       function uniq_fast(a) {
+            var seen = {};
+            var out = [];
+            var len = a.length;
+            var j = 0;
+            for(var i = 0; i < len; i++) {
+                var item = a[i];
+                if(seen[item] !== 1) {
+                    seen[item] = 1;
+                    out[j++] = item;
+                }
+            }
+            return out;
+        }
+    </script>
+</body>
+</html>
