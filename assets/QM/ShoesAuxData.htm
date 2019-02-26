@@ -3,6 +3,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <style>
         body{
@@ -24,6 +25,7 @@
                 margin: 0;
             }
             .App-header {
+            width: 100%;
             background-color: #282c34;
             min-height: 100vh;
             display: flex;
@@ -33,10 +35,63 @@
             font-size: calc(10px + 2vmin);
             color: white;
             }
+            .collapsible {
+            background-color: #6f7a91;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            }
+            .active, .collapsible:hover {
+                background-color: #49505f;
+            }
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+            .active:after {
+                content: "\2212";
+            }
+            .content {
+                padding: 0 18px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+                background-color: #282c34;
+            }
+            #PreFilledPlace{
+                text-align: right;
+            }
+            #PreFilledPlace p{
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
     </style>
 </head>
 <body>
     <div id="" class="App-header">
+        <button class="collapsible">Open Prefiller Replacement</button>
+        <div class="content">
+            <div id="PreFilledPlace">
+                    <p style="text-align:center;">Gender</p>
+                    <p>women <input id="prefilled-women" value=""></p>
+                    <p>men <input id="prefilled-men" value=""></p>
+                    <p>baby <input id="prefilled-baby" value=""></p>
+                    <p>kids <input id="prefilled-kids" value=""></p>
+                    <p>girls <input id="prefilled-girls" value=""></p>
+                    <p>boys <input id="prefilled-boys" value=""></p>
+                    <p style="text-align:center;">Brand</p>
+                    <p>nike <input id="prefilled-nike" value=""></p>
+                    <p>puma <input id="prefilled-puma" value=""></p>
+                    <p>adidas <input id="prefilled-adidas" value=""></p>
+            </div>
+        </div>
         <form id="xmlForm" name="xmlForm">
             <input id="input" type="file"> <input type="submit" value="ReadAuxDataTemplate" style="display:none;">
         </form>
@@ -59,9 +114,34 @@
                identifiedTags = uniq_fast(identifiedTags);
                createInputFields(identifiedTags,selectedFileName);
                createSubmitButtonForTagIds();
+               fillingIdentifiedTagsFromPrefiller(identifiedTags);
            }
            reader.readAsText(selectedFile);
        });
+       function fillingIdentifiedTagsFromPrefiller(identifiedTags){
+           var preFilledTagsAndIDs = getAllPrefilledTagsAndValues();
+           for(var i = 0 ; i < preFilledTagsAndIDs.length ; i++ ){
+               for(var j = 0 ; j < identifiedTags.length ; j++){
+                    //console.log(preFilledTagsAndIDs[i].tagname);
+                    //console.log(identifiedTags[j]);
+                   if( preFilledTagsAndIDs[i].tagname.trim() === identifiedTags[j].toLowerCase().trim() ){
+                       document.getElementById(identifiedTags[j]).value = preFilledTagsAndIDs[i].tagID;
+                   }
+               }
+           }
+       }
+       function getAllPrefilledTagsAndValues(){
+        var PreFilledIDs = ["prefilled-women","prefilled-men","prefilled-baby","prefilled-kids","prefilled-girls","prefilled-boys","prefilled-nike","prefilled-puma","prefilled-adidas"];
+        var PreFilledTags = [];
+        var j = 0;
+        for(let i = 0; i < PreFilledIDs.length ; i++ ){
+            if( document.getElementById(PreFilledIDs[i]).value != "" ){
+                PreFilledTags[j] = {"tagname":PreFilledIDs[i].replace("prefilled-",""),"tagID":document.getElementById(PreFilledIDs[i]).value};
+                ++j;
+            }
+           }
+        return PreFilledTags;
+       }
        function createAuxData(){
             var tagNameAndTagIds = getAllTagIds(identifiedTags);
             var newXML = replaceAllTagsWithTagIDs(readXml,tagNameAndTagIds);
@@ -147,6 +227,20 @@
                 }
             }
             return out;
+        }
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
         }
     </script>
 </body>
