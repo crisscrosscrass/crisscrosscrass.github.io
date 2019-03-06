@@ -152,7 +152,7 @@
        }
        function OpenPopUpWindow(newXML){
         var newWindow = window.open("","Test","'location=no,toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=200,width=800,height=800'")
-        var html = "<html><head><title>AuxData</title><style>textarea {width: 750px;height: 750px;}</style></head><body>"+ '' +"<br />"
+        var html = "<html><head><title>AuxData</title><style>textarea {width: 750px;height: 550px;}</style></head><body>"+ '' +"<br />"
             html += "<textarea>"+newXML+"</textarea></body></html>"
             newWindow .document.open()
             newWindow .document.write(html)            
@@ -161,7 +161,7 @@
        function replaceAllTagsWithTagIDs(readXml,tagNameAndTagIds){
            var newXML = readXml;
            for( var i = 0; i < tagNameAndTagIds.length ; i++ ){
-            var regEx = new RegExp('\<.*\<\!\-\-.*?'+tagNameAndTagIds[i].tagname+'.*?\-\-\>','g')
+            var regEx = new RegExp('\<.*\<\!\-\-.*? '+tagNameAndTagIds[i].tagname+'.*?\-\-\>','gm')
             newXML = newXML.replace(regEx,'<tag id="'+tagNameAndTagIds[i].tagID+'" /> <!-- '+tagNameAndTagIds[i].tagname+'-->');
            }
            return newXML;
