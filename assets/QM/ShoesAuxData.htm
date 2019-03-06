@@ -151,12 +151,12 @@
             document.getElementById('EnterAllTagIds').innerHTML = "";
        }
        function OpenPopUpWindow(newXML){
-        var newWindow = window.open("","Test","'location=no,toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=200,width=800,height=800'")
-        var html = "<html><head><title>AuxData</title><style>textarea {width: 750px;height: 550px;}</style></head><body>"+ '' +"<br />"
+        var newWindow = window.open("","Test","'location=no,toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=200,width=800,height=600'")
+        var html = "<html><head><title>AuxData</title><style>textarea {width: 650px;height: 550px;}</style></head><body>"+ '' +"<br />"
             html += "<textarea>"+newXML+"</textarea></body></html>"
-            newWindow .document.open()
-            newWindow .document.write(html)            
-            newWindow .document.close()
+            newWindow.document.open();
+            newWindow.document.write(html);
+            newWindow.document.close();
         }
        function replaceAllTagsWithTagIDs(readXml,tagNameAndTagIds){
            var newXML = readXml;
