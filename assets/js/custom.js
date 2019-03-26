@@ -159,8 +159,8 @@ function MyParticleSystem(){
       var Particle = function(){
           this.x = Math.random() * canvasWidth;
           this.y = Math.random() * canvasHeight;
-          this.vx = Math.nRandom() * 30;
-          this.vy = Math.nRandom() * 30;
+          this.vx = Math.nRandom() * 60;
+          this.vy = Math.nRandom() * 60;
           this.r = Math.random() * 5 + 1;
           this.dt = 0.05;
 
