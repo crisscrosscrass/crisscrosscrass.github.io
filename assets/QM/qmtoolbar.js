@@ -352,7 +352,7 @@ javascript:(function(){
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
         aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
+        aLink.setAttribute("href", "https://www.google.com/");
         aLink.setAttribute("class", "dropbtn");
         aLink.innerHTML = "Personal";
         listItem.appendChild(aLink);

@@ -1,0 +1,1 @@
+javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://crisscrosscrass.github.io/assets/QM/qmtoolbar.js';})();
