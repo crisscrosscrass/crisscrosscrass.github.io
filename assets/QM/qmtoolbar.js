@@ -359,7 +359,7 @@ javascript:(function(){
         aDiv = document.createElement("div");
         aDiv.setAttribute("class","dropdown-content");
         aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.personio.de/login/index");
+        aDropDownLink.setAttribute("href","https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/");
         aDropDownLink.innerHTML = "OKR Dashboard";
         aDiv.appendChild(aDropDownLink);
         aDropDownLink = document.createElement("a");
