@@ -360,6 +360,10 @@ javascript:(function(){
         aDiv.setAttribute("class","dropdown-content");
         aDropDownLink = document.createElement("a");
         aDropDownLink.setAttribute("href","https://visualmeta.personio.de/login/index");
+        aDropDownLink.innerHTML = "OKR Dashboard";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://visualmeta.personio.de/login/index");
         aDropDownLink.innerHTML = "Personio";
         aDiv.appendChild(aDropDownLink);
         aDropDownLink = document.createElement("a");
