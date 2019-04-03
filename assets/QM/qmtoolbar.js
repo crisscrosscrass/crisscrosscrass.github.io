@@ -323,6 +323,10 @@ javascript:(function(){
         aDiv = document.createElement("div");
         aDiv.setAttribute("class","dropdown-content");
         aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://sorting-debug-tool.visual-meta.com/");
+        aDropDownLink.innerHTML = "Sorting Debug Tool";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
         aDropDownLink.setAttribute("href","http://feeddetective.office.vm:8080/");
         aDropDownLink.innerHTML = "Feed Detective";
         aDiv.appendChild(aDropDownLink);
