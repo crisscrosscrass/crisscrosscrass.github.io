@@ -700,6 +700,17 @@ div.wrapper-container h1{
 			transform:translate(-1000px);
 			transform-origin: center bottom;
 		}
+		.about .middle{
+			transform: scale3d(1,1,1);
+			transition: 0.4s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.about.hidden .middle{
+			opacity: 0;
+			transform:translateY(1000px);
+			transform-origin: center bottom;
+		}
 	/*** 	Projects */
 		.portfolio{
 			transform: perspective(400px);
@@ -757,6 +768,17 @@ div.wrapper-container h1{
 		.portfolio.hidden .wrapper-left-container{
 			opacity: 0;
 			transform:translate(-1000px);
+			transform-origin: center bottom;
+		}
+		.portfolio .wrapper-middle-container{
+			transform: scale3d(1,1,1);
+			transition: 0.8s ease;
+			transition-delay: 1.2s;
+			transform-origin: center bottom;
+		}
+		.portfolio.hidden .wrapper-middle-container{
+			opacity: 0;
+			transform:translateY(2000px);
 			transform-origin: center bottom;
 		}
 	/*** 	connect */
