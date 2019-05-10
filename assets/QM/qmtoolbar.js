@@ -287,6 +287,10 @@ javascript:(function(){
         aDropDownLink.innerHTML = "Suggestions";
         aDiv.appendChild(aDropDownLink);
         aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/urlToTagSetController?url=https://moebel.ladenzeile.de/schraenke-vitrinen-rot-kirschrot-holz/");
+        aDropDownLink.innerHTML = "Tagset-Controller";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
         aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/liveViewController");
         aDropDownLink.innerHTML = "Live View";
         aDiv.appendChild(aDropDownLink);
