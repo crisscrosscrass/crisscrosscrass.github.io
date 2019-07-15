@@ -387,8 +387,10 @@ javascript:(function(){
             listItem.appendChild(aLink);
             aDiv = document.createElement("div");
             // for each
-            for(var i = 0 ; dropdownLinks.length; i++){
+            for(var i = 0 ; i < dropdownLinks.length; i++){
+                console.log("Loop COUNTER: "+i);
                 console.log(dropdownLinks);
+                console.log(dropdownLinks[i][1]);
                 aDiv.setAttribute("class","dropdown-content");
                 aDropDownLink = document.createElement("a");
                 aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
@@ -405,45 +407,9 @@ javascript:(function(){
             ["OKR Dashboard S2","https://docs.google.com/spreadsheets/d/1AX1JXXmsUczz25wzLi89QhX4w2Dx-RTtMIQVz1iOcKs/"],
             ["Personio","https://visualmeta.personio.de/login/index"],
             ["Mobile Working Calendar","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126620914/Mobile+Working+-+Calendar/"],
-            ["All Hands Presentations","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations"]
+            ["All Hands Presentations","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations/"]
         ]
-        //createDropDownMenu("PersonalQuery","https://www.google.com/",PersonalSectionDropDownLinks);
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "https://www.google.com/");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Personal";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://chat.google.com/");
-        aDropDownLink.innerHTML = "Chat - Google";
-        aDiv.appendChild(aDropDownLink);
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/");
-        aDropDownLink.innerHTML = "OKR Dashboard S1";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://docs.google.com/spreadsheets/d/1AX1JXXmsUczz25wzLi89QhX4w2Dx-RTtMIQVz1iOcKs/");
-        aDropDownLink.innerHTML = "OKR Dashboard S2";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.personio.de/login/index");
-        aDropDownLink.innerHTML = "Personio";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126620914/Mobile+Working+-+Calendar/");
-        aDropDownLink.innerHTML = "Mobile Working Calendar";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations");
-        aDropDownLink.innerHTML = "All Hands Presentations";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        createDropDownMenu("Personal","https://www.google.com/",PersonalSectionDropDownLinks);
         /* Close Section */
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
