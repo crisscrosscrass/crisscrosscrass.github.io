@@ -316,6 +316,26 @@ javascript:(function(){
         aDiv.appendChild(aDropDownLink);
         listItem.appendChild(aDiv);
         unorderList.appendChild(listItem);
+        /* Grafana Section */
+        listItem = document.createElement("li");
+        listItem.setAttribute("class","dropdown");
+        aLink = document.createElement("a");
+        aLink.setAttribute("href", "#");
+        aLink.setAttribute("class", "dropbtn");
+        aLink.innerHTML = "Grafana";
+        listItem.appendChild(aLink);
+        aDiv = document.createElement("div");
+        aDiv.setAttribute("class","dropdown-content");
+        aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1");
+        aDropDownLink.innerHTML = "Tagging Cache";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1");
+        aDropDownLink.innerHTML = "Tagging Processing";
+        aDiv.appendChild(aDropDownLink);
+        listItem.appendChild(aDiv);
+        unorderList.appendChild(listItem);
         /* Tools Section */
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
@@ -326,14 +346,6 @@ javascript:(function(){
         listItem.appendChild(aLink);
         aDiv = document.createElement("div");
         aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1");
-        aDropDownLink.innerHTML = "Grafana - Tagging Cache";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1");
-        aDropDownLink.innerHTML = "Grafana - Tagging Processing";
-        aDiv.appendChild(aDropDownLink);
         aDropDownLink = document.createElement("a");
         aDropDownLink.setAttribute("href","https://sorting-debug-tool.visual-meta.com/");
         aDropDownLink.innerHTML = "Sorting Debug Tool";
