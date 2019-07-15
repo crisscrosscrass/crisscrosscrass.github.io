@@ -388,6 +388,7 @@ javascript:(function(){
             aDiv = document.createElement("div");
             // for each
             for(var i = 0 ; dropdownLinks.length; i++){
+                console.log(dropdownLinks);
                 aDiv.setAttribute("class","dropdown-content");
                 aDropDownLink = document.createElement("a");
                 aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
@@ -406,7 +407,7 @@ javascript:(function(){
             ["Mobile Working Calendar","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126620914/Mobile+Working+-+Calendar/"],
             ["All Hands Presentations","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations"]
         ]
-        createDropDownMenu("PersonalQuery","https://www.google.com/",PersonalSectionDropDownLinks);
+        //createDropDownMenu("PersonalQuery","https://www.google.com/",PersonalSectionDropDownLinks);
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
         aLink = document.createElement("a");
