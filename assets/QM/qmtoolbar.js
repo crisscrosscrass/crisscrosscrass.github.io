@@ -377,6 +377,36 @@ javascript:(function(){
         listItem.appendChild(aDiv);
         unorderList.appendChild(listItem);
         /* Personal Section */
+        function createDropDownMenu(dropdownTitle,dropdownTitleLink,dropdownLinks){
+            listItem = document.createElement("li");
+            listItem.setAttribute("class","dropdown");
+            aLink = document.createElement("a");
+            aLink.setAttribute("href", dropdownTitleLink);
+            aLink.setAttribute("class", "dropbtn");
+            aLink.innerHTML = dropdownTitle;
+            listItem.appendChild(aLink);
+            aDiv = document.createElement("div");
+            // for each
+            for(var i = 0 ; dropdownLinks.length; i++){
+                aDiv.setAttribute("class","dropdown-content");
+                aDropDownLink = document.createElement("a");
+                aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
+                aDropDownLink.innerHTML = dropdownLinks[i][0];
+                aDiv.appendChild(aDropDownLink);
+            }
+            // ends
+            listItem.appendChild(aDiv);
+            unorderList.appendChild(listItem);
+        }
+        PersonalSectionDropDownLinks = [
+            ["Chat - Google","https://chat.google.com/"],
+            ["OKR Dashboard S1","https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/"],
+            ["OKR Dashboard S2","https://docs.google.com/spreadsheets/d/1AX1JXXmsUczz25wzLi89QhX4w2Dx-RTtMIQVz1iOcKs/"],
+            ["Personio","https://visualmeta.personio.de/login/index"],
+            ["Mobile Working Calendar","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126620914/Mobile+Working+-+Calendar/"],
+            ["All Hands Presentations","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations"]
+        ]
+        createDropDownMenu("PersonalQuery","https://www.google.com/",PersonalSectionDropDownLinks);
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
         aLink = document.createElement("a");
