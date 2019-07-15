@@ -388,9 +388,6 @@ javascript:(function(){
             aDiv = document.createElement("div");
             // for each
             for(var i = 0 ; i < dropdownLinks.length; i++){
-                console.log("Loop COUNTER: "+i);
-                console.log(dropdownLinks);
-                console.log(dropdownLinks[i][1]);
                 aDiv.setAttribute("class","dropdown-content");
                 aDropDownLink = document.createElement("a");
                 aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
