@@ -327,6 +327,14 @@ javascript:(function(){
         aDiv = document.createElement("div");
         aDiv.setAttribute("class","dropdown-content");
         aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1");
+        aDropDownLink.innerHTML = "Grafana - Tagging Cache";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
+        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1");
+        aDropDownLink.innerHTML = "Grafana - Tagging Processing";
+        aDiv.appendChild(aDropDownLink);
+        aDropDownLink = document.createElement("a");
         aDropDownLink.setAttribute("href","https://sorting-debug-tool.visual-meta.com/");
         aDropDownLink.innerHTML = "Sorting Debug Tool";
         aDiv.appendChild(aDropDownLink);
