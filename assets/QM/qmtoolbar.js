@@ -1,5 +1,26 @@
 javascript:(function(){
     if(!document.getElementById("ToolbarID")){
+        function createDropDownMenu(dropdownTitle,dropdownTitleLink,dropdownLinks){
+            listItem = document.createElement("li");
+            listItem.setAttribute("class","dropdown");
+            aLink = document.createElement("a");
+            aLink.setAttribute("href", dropdownTitleLink);
+            aLink.setAttribute("class", "dropbtn");
+            aLink.innerHTML = dropdownTitle;
+            listItem.appendChild(aLink);
+            aDiv = document.createElement("div");
+            // for each
+            for(var i = 0 ; i < dropdownLinks.length; i++){
+                aDiv.setAttribute("class","dropdown-content");
+                aDropDownLink = document.createElement("a");
+                aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
+                aDropDownLink.innerHTML = dropdownLinks[i][0];
+                aDiv.appendChild(aDropDownLink);
+            }
+            // ends
+            listItem.appendChild(aDiv);
+            unorderList.appendChild(listItem);
+        }
         toolbar = document.createElement("div");
         toolbar.setAttribute("name", "ToolbarDiv");
         toolbar.setAttribute("id", "ToolbarID");
@@ -8,7 +29,7 @@ javascript:(function(){
         toolbar.style.cssText = cssToolbar;
         document.body.style.transform = 'translateY(35px)';
         unorderList = document.createElement("ul");
-        /* Plattform */
+        /* Frontend */
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
         aLink = document.createElement("a");
@@ -201,203 +222,54 @@ javascript:(function(){
         listItem.appendChild(aDiv);
         unorderList.appendChild(listItem);
         /* Validation Controller */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Validation";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - DE";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.at/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - AT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.nl/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - NL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.fr/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - FR";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.it/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - IT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.es/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - ES";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.pl/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - PL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.hu/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - HU";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.sk/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - SK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.cz/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - CZ";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.fi/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - FI";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.dk/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - DK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.se/controller/validationController");
-        aDropDownLink.innerHTML = "Controller - SE";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        ValidationSectionDropDownLinks = [
+            ["Controller - DE","https://www.ladenzeile.de/controller/validationController"],
+            ["Controller - AT","https://www.ladenzeile.at/controller/validationController"],
+            ["Controller - NL","https://www.shopalike.nl/controller/validationController"],
+            ["Controller - FR","https://www.shopalike.fr/controller/validationController"],
+            ["Controller - IT","https://www.shopalike.it/controller/validationController"],
+            ["Controller - ES","https://www.shopalike.es/controller/validationController"],
+            ["Controller - PL","https://www.shopalike.pl/controller/validationController"],
+            ["Controller - HU","https://www.shopalike.hu/controller/validationController"],
+            ["Controller - SK","https://www.shopalike.sk/controller/validationController"],
+            ["Controller - CZ","https://www.shopalike.cz/controller/validationController"],
+            ["Controller - FI","https://www.shopalike.fi/controller/validationController"],
+            ["Controller - DK","https://www.shopalike.dk/controller/validationController"],
+            ["Controller - SE","https://www.shopalike.se/controller/validationController"],
+        ]
+        createDropDownMenu("Validation","#",ValidationSectionDropDownLinks);
         /* Controller */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Controller";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/wiki/spaces/DEV/pages/21759197/Controllers+Tools");
-        aDropDownLink.innerHTML = "How to use";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/contentCheckerController?q=keyword");
-        aDropDownLink.innerHTML = "Content Checker";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/suggestionDebugController?method=perfectmatch&query=Adidas");
-        aDropDownLink.innerHTML = "Suggestions";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/urlToTagSetController?url=https://moebel.ladenzeile.de/schraenke-vitrinen-rot-kirschrot-holz/");
-        aDropDownLink.innerHTML = "Tagset-Controller";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/liveViewController");
-        aDropDownLink.innerHTML = "Live View";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/cacheDebugController?mode=item&itemIds=445266720");
-        aDropDownLink.innerHTML = "Cache Debug";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/itemGroupingDebugController?tagIds=103030&offset=0&itemCount=120");
-        aDropDownLink.innerHTML = "itemGrouping";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/flushCacheController");
-        aDropDownLink.innerHTML = "Cache Flush";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/ipBlockerDebugController");
-        aDropDownLink.innerHTML = "ipBlockerDebug";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/controller/emailRendererController");
-        aDropDownLink.innerHTML = "Email Renderer";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        ControllerSectionDropDownLinks = [
+            ["How to use","https://visualmeta.atlassian.net/wiki/spaces/DEV/pages/21759197/Controllers+Tools"],
+            ["Content Checker","https://www.ladenzeile.de/controller/contentCheckerController?q=keyword"],
+            ["Suggestions","https://www.ladenzeile.de/controller/suggestionDebugController?method=perfectmatch&query=Adidas"],
+            ["Tagset-Controller","https://www.ladenzeile.de/controller/urlToTagSetController?url=https://moebel.ladenzeile.de/schraenke-vitrinen-rot-kirschrot-holz/"],
+            ["Live View","https://www.ladenzeile.de/controller/liveViewController"],
+            ["Cache Debug","https://www.ladenzeile.de/controller/cacheDebugController?mode=item&itemIds=445266720"],
+            ["Cache Flush","https://www.ladenzeile.de/controller/flushCacheController"],
+            ["itemGrouping","https://www.ladenzeile.de/controller/itemGroupingDebugController?tagIds=103030&offset=0&itemCount=120"],
+            ["ipBlockerDebug","https://www.ladenzeile.de/controller/ipBlockerDebugController"],
+            ["Email Renderer","https://www.ladenzeile.de/controller/emailRendererController"]
+        ]
+        createDropDownMenu("Controller","#",ControllerSectionDropDownLinks);
         /* Grafana Section */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Grafana";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1");
-        aDropDownLink.innerHTML = "Tagging Cache";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1");
-        aDropDownLink.innerHTML = "Tagging Processing";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        GrafanaSectionDropDownLinks = [
+            ["Tagging Cache","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1"],
+            ["Tagging Processing","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1"]
+        ]
+        createDropDownMenu("Grafana","#",GrafanaSectionDropDownLinks);
         /* Tools Section */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Tools";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://sorting-debug-tool.visual-meta.com/");
-        aDropDownLink.innerHTML = "Sorting Debug Tool";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","http://feeddetective.office.vm:8080/");
-        aDropDownLink.innerHTML = "Feed Detective";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://bi.visual-meta.com/spotfire/login.html?#/");
-        aDropDownLink.innerHTML = "Spotfire - Donald";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/secure/Dashboard.jspa");
-        aDropDownLink.innerHTML = "Jira";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/wiki/");
-        aDropDownLink.innerHTML = "Confluence";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","http://bannerpool.office.vm/");
-        aDropDownLink.innerHTML = "Banner Pool - Image Search";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://shoppingworld.visual-meta.com/overview");
-        aDropDownLink.innerHTML = "SW - Creator tool";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        ToolsSectionDropDownLinks = [
+            ["Sorting Debug Tool","https://sorting-debug-tool.visual-meta.com/"],
+            ["Feed Detective","http://feeddetective.office.vm:8080/"],
+            ["Spotfire - Donald","https://bi.visual-meta.com/spotfire/login.html?#/"],
+            ["Jira","https://visualmeta.atlassian.net/secure/Dashboard.jspa"],
+            ["Confluence","https://visualmeta.atlassian.net/wiki/"],
+            ["Banner Pool - Image Search","http://bannerpool.office.vm/"],
+            ["SW - Creator Tool","https://shoppingworld.visual-meta.com/overview"]
+        ]
+        createDropDownMenu("Tools","#",ToolsSectionDropDownLinks);
         /* Personal Section */
-        function createDropDownMenu(dropdownTitle,dropdownTitleLink,dropdownLinks){
-            listItem = document.createElement("li");
-            listItem.setAttribute("class","dropdown");
-            aLink = document.createElement("a");
-            aLink.setAttribute("href", dropdownTitleLink);
-            aLink.setAttribute("class", "dropbtn");
-            aLink.innerHTML = dropdownTitle;
-            listItem.appendChild(aLink);
-            aDiv = document.createElement("div");
-            // for each
-            for(var i = 0 ; i < dropdownLinks.length; i++){
-                aDiv.setAttribute("class","dropdown-content");
-                aDropDownLink = document.createElement("a");
-                aDropDownLink.setAttribute("href",dropdownLinks[i][1]);
-                aDropDownLink.innerHTML = dropdownLinks[i][0];
-                aDiv.appendChild(aDropDownLink);
-            }
-            // ends
-            listItem.appendChild(aDiv);
-            unorderList.appendChild(listItem);
-        }
         PersonalSectionDropDownLinks = [
             ["Chat - Google","https://chat.google.com/"],
             ["OKR Dashboard S1","https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/"],
@@ -426,7 +298,7 @@ javascript:(function(){
         aDiv.setAttribute("class","dropdown-content");
         listItem.appendChild(aDiv);
         unorderList.appendChild(listItem);
-        /* append List to Toolbar*/
+        /* append List to Toolbar */
         toolbar.appendChild(unorderList);
         css = '#ToolbarID {z-index: 5000; padding:0; position: absolute;top: -35px;width: 100%;height: 50px;font-family: "Open Sans",sans-serif;font-size: 12px; } #ToolbarID ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden;  background-color: #333; } #ToolbarID li {  float: left;} #ToolbarID #right {  float: right;} #ToolbarID li a,#ToolbarID .dropbtn {  display: inline-block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;} #ToolbarID li a:hover,#ToolbarID  .dropdown:hover .dropbtn {  background-color: red;} #ToolbarID li.dropdown {  display: inline-block;} #ToolbarID .dropdown-content {  display: none;  position: absolute;  background-color: #f9f9f9;  min-width: 160px;  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  z-index: 1;} #ToolbarID .dropdown-content a {  color: black;  padding: 12px 16px;  text-decoration: none;  display: block;  text-align: left;} #ToolbarID .dropdown-content a:hover {background-color: #f1f1f1;} #ToolbarID .dropdown:hover .dropdown-content {  display: block;}';
         head = document.head || document.getElementsByTagName('head')[0];
