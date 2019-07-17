@@ -31,19 +31,19 @@ javascript:(function(){
         unorderList = document.createElement("ul");
         /* Frontend */
         FrontendSectionDropDownLinks = [
-            ["Ladenzeile - AT","https://wwwladenzeile.at/"],
-            ["Ladenzeile - DE","https://wwwladenzeile.de/"],
-            ["ShopAlike - NL","https://wwwshopalike.nl/"],
-            ["ShopAlike - FR","https://wwwshopalike.fr/"],
-            ["ShopAlike - IT","https://wwwshopalike.it/"],
-            ["ShopAlike - ES","https://wwwshopalike.es/"],
-            ["ShopAlike - PL","https://wwwshopalike.pl/"],
-            ["ShopAlike - HU","https://wwwshopalike.hu/"],
-            ["ShopAlike - SK","https://wwwshopalike.sk/"],
-            ["ShopAlike - CZ","https://wwwshopalike.cz/"],
-            ["ShopAlike - FI","https://wwwshopalike.fi/"],
-            ["ShopAlike - DK","https://wwwshopalike.dk/"],
-            ["ShopAlike - SE","https://wwwshopalike.se/"]
+            ["Ladenzeile - AT","https://www.ladenzeile.at/"],
+            ["Ladenzeile - DE","https://www.ladenzeile.de/"],
+            ["ShopAlike - NL","https://www.shopalike.nl/"],
+            ["ShopAlike - FR","https://www.shopalike.fr/"],
+            ["ShopAlike - IT","https://www.shopalike.it/"],
+            ["ShopAlike - ES","https://www.shopalike.es/"],
+            ["ShopAlike - PL","https://www.shopalike.pl/"],
+            ["ShopAlike - HU","https://www.shopalike.hu/"],
+            ["ShopAlike - SK","https://www.shopalike.sk/"],
+            ["ShopAlike - CZ","https://www.shopalike.cz/"],
+            ["ShopAlike - FI","https://www.shopalike.fi/"],
+            ["ShopAlike - DK","https://www.shopalike.dk/"],
+            ["ShopAlike - SE","https://www.shopalike.se/"]
         ]
         createDropDownMenu("Frontend","#",FrontendSectionDropDownLinks);
         /* Backoffice */
