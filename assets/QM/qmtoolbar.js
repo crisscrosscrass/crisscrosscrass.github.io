@@ -139,6 +139,86 @@ javascript:(function(){
             ["All Hands Presentations","https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations/"]
         ]
         createDropDownMenu("Personal","https://www.google.com/",PersonalSectionDropDownLinks);
+        /* create Ticket Section */
+        function createTicket(){
+            console.log("Create a Ticket for... ");
+            // customfield_10807=13816 TEAM
+            var Jira = "";
+            if(document.getElementById("selectedTeamForBug").value != "-1" ){
+                // console.log("you selected Bug!");
+                var selectedTeam = document.getElementById("selectedTeamForBug").value;
+                Jira = "https://visualmeta.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=11000&issuetype=1&summary=Problem Summary&description=*Problem Statement*%0A|WHERE do you see the problem?|%0A|WHAT is exactly wrong?|%0A|WHO is affected?|%0A%0A*Reproduce*%0A|HOW did the problem occur?|%0A|HOW can we see it?|%0A%0A*Expected Outcome*%0A|WHY is that wrong?|%0A|WHAT is the correct one?|%0A%0A*Hints*&customfield_10807="+selectedTeam;
+            }
+            if(document.getElementById("selectedTeamForStory").value != "-1" ){
+                // console.log("you selected Story!");
+                var selectedTeam = document.getElementById("selectedTeamForStory").value;
+                Jira = "https://visualmeta.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=11000&issuetype=10001&summary=Feature Summary&description=*Feature Statement*%0A|WHERE do you see the problem?|%0A|WHAT is exactly wrong?|%0A|WHO is affected?|%0A%0A*Reproduce*%0A|HOW did the problem occur?|%0A|HOW can we see it?|%0A%0A*Expected Outcome*%0A|WHY is that wrong?|%0A|WHAT is the correct one?|%0A%0A*Hints*&customfield_10807="+selectedTeam;
+            }
+            window.open(Jira);
+            // console.log(document.getElementById("selectedTeamForBug").options[document.getElementById("selectedTeamForBug").selectedIndex].text);
+            // console.log(document.getElementById("selectedTeamForBug").value);
+            document.getElementById("selectedTeamForBug").value = "-1";
+            document.getElementById("selectedTeamForStory").value = "-1";
+        };
+        AllDevTeams = [
+            ["None","-1"],
+            ["Sharks","13816"],
+            ["Rabbits","14701"],
+            ["Lobster","10651"],
+            ["Swift Foxes","10636"],
+            ["Goldfish","14734"],
+            ["Orcas","10638"],
+            ["Elephants","10635"],
+            ["Crocodiles","10634"],
+            ["Meerkats","14736"],
+            ["Bees","10637"],
+            ["Camels","14804"],
+            ["Raptors","14837"],
+            ["Design","14866"]
+        ];
+        listItem = document.createElement("li");
+            listItem.setAttribute("class","dropdown");
+            aLink = document.createElement("a");
+            aLink.setAttribute("href", "#");
+            aLink.setAttribute("class", "dropbtn");
+            aLink.innerHTML = "&#9850;Ticket";
+            listItem.appendChild(aLink);
+            aDiv = document.createElement("div");
+            aDiv.setAttribute("class","dropdown-content");
+                aDropDownLink = document.createElement("a");
+                aDropDownLink.setAttribute("href","https://visualmeta.atlassian.net/wiki/spaces/DEV/pages/1398047321/Bug+Reporting+You");
+                aDropDownLink.innerHTML = "<strong>Bug Reporting & You &#9873;</strong>";
+                aDiv.appendChild(aDropDownLink);
+                aDropDownLink = document.createElement("a");
+                aDropDownLink.setAttribute("href","#");
+                aDropDownLink.innerHTML = "create Bug";
+                    aSelection = document.createElement("select");
+                    aSelection.setAttribute("id","selectedTeamForBug");
+                    aSelection.addEventListener("change", createTicket, false);
+                    for (var i = 0; i < AllDevTeams.length; i++){
+                        aOption = document.createElement("option");
+                            aOption.innerHTML = AllDevTeams[i][0];
+                            aOption.setAttribute("value",AllDevTeams[i][1]);
+                        aSelection.appendChild(aOption);
+                    }
+                aDropDownLink.appendChild(aSelection);
+            aDiv.appendChild(aDropDownLink);
+                aDropDownLink = document.createElement("a");
+                aDropDownLink.setAttribute("href","#");
+                aDropDownLink.innerHTML = "create Story";
+                    aSelection = document.createElement("select");
+                    aSelection.setAttribute("id","selectedTeamForStory");
+                    aSelection.addEventListener("change", createTicket, false);
+                    for (var i = 0; i < AllDevTeams.length; i++){
+                        aOption = document.createElement("option");
+                            aOption.innerHTML = AllDevTeams[i][0];
+                            aOption.setAttribute("value",AllDevTeams[i][1]);
+                        aSelection.appendChild(aOption);
+                    }
+                aDropDownLink.appendChild(aSelection);
+            aDiv.appendChild(aDropDownLink);
+            listItem.appendChild(aDiv);
+            unorderList.appendChild(listItem);
         /* Close Section */
         listItem = document.createElement("li");
         listItem.setAttribute("class","dropdown");
@@ -160,7 +240,7 @@ javascript:(function(){
         unorderList.appendChild(listItem);
         /* append List to Toolbar */
         toolbar.appendChild(unorderList);
-        css = '#ToolbarID {z-index: 5000; padding:0; position: absolute;top: -35px;width: 100%;height: 50px;font-family: "Open Sans",sans-serif;font-size: 12px; } #ToolbarID ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden;  background-color: #333; } #ToolbarID li {  float: left;} #ToolbarID #right {  float: right;} #ToolbarID li a,#ToolbarID .dropbtn {  display: inline-block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;} #ToolbarID li a:hover,#ToolbarID  .dropdown:hover .dropbtn {  background-color: red;} #ToolbarID li.dropdown {  display: inline-block;} #ToolbarID .dropdown-content {  display: none;  position: absolute;  background-color: #f9f9f9;  min-width: 160px;  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  z-index: 1;} #ToolbarID .dropdown-content a {  color: black;  padding: 12px 16px;  text-decoration: none;  display: block;  text-align: left;} #ToolbarID .dropdown-content a:hover {background-color: #f1f1f1;} #ToolbarID .dropdown:hover .dropdown-content {  display: block;}';
+        css = '#ToolbarID {z-index: 5000; padding:0; position: absolute;top: -35px;width: 100%;height: 50px;font-family: "Open Sans",sans-serif;font-size: 12px; } #ToolbarID ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden;  background-color: #333; } #ToolbarID li {  float: left;} #ToolbarID #right {  float: right;} #ToolbarID li a,#ToolbarID .dropbtn {  display: inline-block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;} #ToolbarID li a:hover,#ToolbarID  .dropdown:hover .dropbtn {  background-color: red;} #ToolbarID li.dropdown {  display: inline-block;} #ToolbarID .dropdown-content {  display: none;  position: absolute;  background-color: #f9f9f9;  min-width: 160px;  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  z-index: 1;} #ToolbarID .dropdown-content a {  color: black;  padding: 12px 16px;  text-decoration: none;  display: block;  text-align: left;} #ToolbarID .dropdown-content a:hover {background-color: #f1f1f1;} #ToolbarID .dropdown:hover .dropdown-content {  display: block;} #ToolbarID select { font-family: "Open Sans",sans-serif;font-size: 12px;  margin-left: 5px;  padding-left: 10px;  width: 100%;background: #333; border-color: #333; color: #fff;} #ToolbarID select option { background: #333;color: #fff;box-shadow: inset 20px 20px #f00;}';
         head = document.head || document.getElementsByTagName('head')[0];
         style = document.createElement('style');
         head.appendChild(style);
