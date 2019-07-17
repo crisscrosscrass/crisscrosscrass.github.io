@@ -30,197 +30,56 @@ javascript:(function(){
         document.body.style.transform = 'translateY(35px)';
         unorderList = document.createElement("ul");
         /* Frontend */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Frontend";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.de/");
-        aDropDownLink.innerHTML = "Ladenzeile - DE";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.ladenzeile.at/");
-        aDropDownLink.innerHTML = "Ladenzeile - AT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.nl/");
-        aDropDownLink.innerHTML = "ShopAlike - NL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.fr/");
-        aDropDownLink.innerHTML = "ShopAlike - FR";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.it/");
-        aDropDownLink.innerHTML = "ShopAlike - IT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.es/");
-        aDropDownLink.innerHTML = "ShopAlike - ES";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.pl/");
-        aDropDownLink.innerHTML = "ShopAlike - PL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.hu/");
-        aDropDownLink.innerHTML = "ShopAlike - HU";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.sk/");
-        aDropDownLink.innerHTML = "ShopAlike - SK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.cz/");
-        aDropDownLink.innerHTML = "ShopAlike - CZ";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.fi/");
-        aDropDownLink.innerHTML = "ShopAlike - FI";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.dk/");
-        aDropDownLink.innerHTML = "ShopAlike - DK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://www.shopalike.se/");
-        aDropDownLink.innerHTML = "ShopAlike - SE";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        FrontendSectionDropDownLinks = [
+            ["Ladenzeile - AT","https://wwwladenzeile.at/"],
+            ["Ladenzeile - DE","https://wwwladenzeile.de/"],
+            ["ShopAlike - NL","https://wwwshopalike.nl/"],
+            ["ShopAlike - FR","https://wwwshopalike.fr/"],
+            ["ShopAlike - IT","https://wwwshopalike.it/"],
+            ["ShopAlike - ES","https://wwwshopalike.es/"],
+            ["ShopAlike - PL","https://wwwshopalike.pl/"],
+            ["ShopAlike - HU","https://wwwshopalike.hu/"],
+            ["ShopAlike - SK","https://wwwshopalike.sk/"],
+            ["ShopAlike - CZ","https://wwwshopalike.cz/"],
+            ["ShopAlike - FI","https://wwwshopalike.fi/"],
+            ["ShopAlike - DK","https://wwwshopalike.dk/"],
+            ["ShopAlike - SE","https://wwwshopalike.se/"]
+        ]
+        createDropDownMenu("Frontend","#",FrontendSectionDropDownLinks);
         /* Backoffice */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Backoffice";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.ladenzeile.de/");
-        aDropDownLink.innerHTML = "Backoffice - DE";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.ladenzeile.at/");
-        aDropDownLink.innerHTML = "Backoffice - AT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.nl/");
-        aDropDownLink.innerHTML = "Backoffice - NL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.fr/");
-        aDropDownLink.innerHTML = "Backoffice - FR";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.it/");
-        aDropDownLink.innerHTML = "Backoffice - IT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.es/");
-        aDropDownLink.innerHTML = "Backoffice - ES";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.pl/");
-        aDropDownLink.innerHTML = "Backoffice - PL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.hu/");
-        aDropDownLink.innerHTML = "Backoffice - HU";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.sk/");
-        aDropDownLink.innerHTML = "Backoffice - SK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.cz/");
-        aDropDownLink.innerHTML = "Backoffice - CZ";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.fi/");
-        aDropDownLink.innerHTML = "Backoffice - FI";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.dk/");
-        aDropDownLink.innerHTML = "Backoffice - DK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://backoffice.shopalike.se/");
-        aDropDownLink.innerHTML = "Backoffice - SE";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        BackofficeSectionDropDownLinks = [
+            ["Backoffice - AT","https://backoffice.ladenzeile.at/"],
+            ["Backoffice - DE","https://backoffice.ladenzeile.de/"],
+            ["Backoffice - NL","https://backoffice.shopalike.nl/"],
+            ["Backoffice - FR","https://backoffice.shopalike.fr/"],
+            ["Backoffice - IT","https://backoffice.shopalike.it/"],
+            ["Backoffice - ES","https://backoffice.shopalike.es/"],
+            ["Backoffice - PL","https://backoffice.shopalike.pl/"],
+            ["Backoffice - HU","https://backoffice.shopalike.hu/"],
+            ["Backoffice - SK","https://backoffice.shopalike.sk/"],
+            ["Backoffice - CZ","https://backoffice.shopalike.cz/"],
+            ["Backoffice - FI","https://backoffice.shopalike.fi/"],
+            ["Backoffice - DK","https://backoffice.shopalike.dk/"],
+            ["Backoffice - SE","https://backoffice.shopalike.se/"]
+        ]
+        createDropDownMenu("Backoffice","#",BackofficeSectionDropDownLinks);
         /* Tagger */
-        listItem = document.createElement("li");
-        listItem.setAttribute("class","dropdown");
-        aLink = document.createElement("a");
-        aLink.setAttribute("href", "#");
-        aLink.setAttribute("class", "dropbtn");
-        aLink.innerHTML = "Tagger";
-        listItem.appendChild(aLink);
-        aDiv = document.createElement("div");
-        aDiv.setAttribute("class","dropdown-content");
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.ladenzeile.de/");
-        aDropDownLink.innerHTML = "Tagger - DE";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.ladenzeile.at/");
-        aDropDownLink.innerHTML = "Tagger - AT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.nl/");
-        aDropDownLink.innerHTML = "Tagger - NL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.fr/");
-        aDropDownLink.innerHTML = "Tagger - FR";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.it/");
-        aDropDownLink.innerHTML = "Tagger - IT";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.es/");
-        aDropDownLink.innerHTML = "Tagger - ES";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.pl/");
-        aDropDownLink.innerHTML = "Tagger - PL";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.hu/");
-        aDropDownLink.innerHTML = "Tagger - HU";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.sk/");
-        aDropDownLink.innerHTML = "Tagger - SK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.cz/");
-        aDropDownLink.innerHTML = "Tagger - CZ";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.fi/");
-        aDropDownLink.innerHTML = "Tagger - FI";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.dk/");
-        aDropDownLink.innerHTML = "Tagger - DK";
-        aDiv.appendChild(aDropDownLink);
-        aDropDownLink = document.createElement("a");
-        aDropDownLink.setAttribute("href","https://tagger.shopalike.se/");
-        aDropDownLink.innerHTML = "Tagger - SE";
-        aDiv.appendChild(aDropDownLink);
-        listItem.appendChild(aDiv);
-        unorderList.appendChild(listItem);
+        TaggerSectionDropDownLinks = [
+            ["Tagger - DE","https://tagger.ladenzeile.de/"],
+            ["Tagger - AT","https://tagger.ladenzeile.at/"],
+            ["Tagger - NL","https://tagger.shopalike.nl/"],
+            ["Tagger - FR","https://tagger.shopalike.fr/"],
+            ["Tagger - IT","https://tagger.shopalike.it/"],
+            ["Tagger - ES","https://tagger.shopalike.es/"],
+            ["Tagger - PL","https://tagger.shopalike.pl/"],
+            ["Tagger - HU","https://tagger.shopalike.hu/"],
+            ["Tagger - SK","https://tagger.shopalike.sk/"],
+            ["Tagger - CZ","https://tagger.shopalike.cz/"],
+            ["Tagger - FI","https://tagger.shopalike.fi/"],
+            ["Tagger - DK","https://tagger.shopalike.dk/"],
+            ["Tagger - SE","https://tagger.shopalike.se/"]
+        ]
+        createDropDownMenu("Tagger","#",TaggerSectionDropDownLinks);
         /* Validation Controller */
         ValidationSectionDropDownLinks = [
             ["Controller - DE","https://www.ladenzeile.de/controller/validationController"],
@@ -235,7 +94,7 @@ javascript:(function(){
             ["Controller - CZ","https://www.shopalike.cz/controller/validationController"],
             ["Controller - FI","https://www.shopalike.fi/controller/validationController"],
             ["Controller - DK","https://www.shopalike.dk/controller/validationController"],
-            ["Controller - SE","https://www.shopalike.se/controller/validationController"],
+            ["Controller - SE","https://www.shopalike.se/controller/validationController"]
         ]
         createDropDownMenu("Validation","#",ValidationSectionDropDownLinks);
         /* Controller */
@@ -255,7 +114,8 @@ javascript:(function(){
         /* Grafana Section */
         GrafanaSectionDropDownLinks = [
             ["Tagging Cache","https://control.visual-meta.com/d/000000144/techops-alerts?orgId=1"],
-            ["Tagging Processing","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1"]
+            ["Tagging Processing","https://control.visual-meta.com/d/000000086/tagging-process-monitor-influxdb?orgId=1"],
+            ["Sync General Item","https://control.visual-meta.com/d/ENxo58RZk/sync-general-item-status?orgId=1"]
         ]
         createDropDownMenu("Grafana","#",GrafanaSectionDropDownLinks);
         /* Tools Section */
