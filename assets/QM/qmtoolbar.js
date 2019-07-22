@@ -227,7 +227,8 @@ javascript:(function(){
         aLink.setAttribute("class", "dropbtn");
         var removeToolbarFunction = function (){
             if(document.location.href.includes("backoffice")){
-
+                document.body.style.body = 'padding-top:25px;';
+                document.getElementsByClassName('gwt-MenuBar-horizontal').style ="margin-top: 25px;";
             }else{
                 document.body.style.transform = 'translateY(0px)';
             }
