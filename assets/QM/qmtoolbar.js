@@ -28,7 +28,7 @@ javascript:(function(){
         document.body.appendChild(toolbar);
         toolbar.style.cssText = cssToolbar;
         if(document.location.href.includes("backoffice")){
-            document.body.style.transform = 'translateY(0px)';
+            document.body.style.transform = 'translateY(10px)';
         }else{
             document.body.style.transform = 'translateY(35px)';
         }
