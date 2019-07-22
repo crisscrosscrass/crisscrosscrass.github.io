@@ -227,8 +227,9 @@ javascript:(function(){
         aLink.setAttribute("class", "dropbtn");
         var removeToolbarFunction = function (){
             if(document.location.href.includes("backoffice")){
-                document.body.style.body = 'padding-top:25px;';
-                document.getElementsByClassName('gwt-MenuBar-horizontal').style ="margin-top: 25px;";
+                var sheet = document.getElementById("qmtoolbarStyleSheet");
+                sheet.disabled = true;
+                sheet.parentNode.removeChild(sheet);
             }else{
                 document.body.style.transform = 'translateY(0px)';
             }
@@ -252,6 +253,7 @@ javascript:(function(){
         }
         head = document.head || document.getElementsByTagName('head')[0];
         style = document.createElement('style');
+        style.setAttribute("id","qmtoolbarStyleSheet");
         head.appendChild(style);
         style.type = 'text/css';
         if (style.styleSheet){
