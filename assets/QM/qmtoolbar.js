@@ -27,7 +27,6 @@ javascript:(function(){
         cssToolbar = '';
         document.body.appendChild(toolbar);
         toolbar.style.cssText = cssToolbar;
-        document.body.style.transform = 'translateY(35px)';
         unorderList = document.createElement("ul");
         /* Frontend */
         FrontendSectionDropDownLinks = [
@@ -242,8 +241,10 @@ javascript:(function(){
         toolbar.appendChild(unorderList);
         if(document.location.href.includes("backoffice")){
             css = '#ToolbarID {z-index: 5000; padding:0; position: absolute;top: -35px;width: 100%;height: 50px;font-family: "Open Sans",sans-serif;font-size: 12px; } #ToolbarID ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden;  background-color: #333; } #ToolbarID li {  float: left;} #ToolbarID #right {  float: right;} #ToolbarID li a,#ToolbarID .dropbtn {  display: inline-block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;} #ToolbarID li a:hover,#ToolbarID  .dropdown:hover .dropbtn {  background-color: red;} #ToolbarID li.dropdown {  display: inline-block;} #ToolbarID .dropdown-content {  display: none;  position: absolute;  background-color: #f9f9f9;  min-width: 160px;  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  z-index: 1;} #ToolbarID .dropdown-content a {  color: black;  padding: 12px 16px;  text-decoration: none;  display: block;  text-align: left;} #ToolbarID .dropdown-content a:hover {background-color: #f1f1f1;} #ToolbarID .dropdown:hover .dropdown-content {  display: block;} #ToolbarID select { font-family: "Open Sans",sans-serif;font-size: 12px;  margin-left: 5px;  padding-left: 10px;  width: 100%;background: #333; border-color: #333; color: #fff;} #ToolbarID select option { background: #333;color: #fff;box-shadow: inset 20px 20px #f00;}';
+            document.body.style.transform = 'translateY(0px)';
         }else{
             css = '#ToolbarID {z-index: 5000; padding:0; position: absolute;top: -35px;width: 100%;height: 50px;font-family: "Open Sans",sans-serif;font-size: 12px; } #ToolbarID ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden;  background-color: #333; } #ToolbarID li {  float: left;} #ToolbarID #right {  float: right;} #ToolbarID li a,#ToolbarID .dropbtn {  display: inline-block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;} #ToolbarID li a:hover,#ToolbarID  .dropdown:hover .dropbtn {  background-color: red;} #ToolbarID li.dropdown {  display: inline-block;} #ToolbarID .dropdown-content {  display: none;  position: absolute;  background-color: #f9f9f9;  min-width: 160px;  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  z-index: 1;} #ToolbarID .dropdown-content a {  color: black;  padding: 12px 16px;  text-decoration: none;  display: block;  text-align: left;} #ToolbarID .dropdown-content a:hover {background-color: #f1f1f1;} #ToolbarID .dropdown:hover .dropdown-content {  display: block;} #ToolbarID select { font-family: "Open Sans",sans-serif;font-size: 12px;  margin-left: 5px;  padding-left: 10px;  width: 100%;background: #333; border-color: #333; color: #fff;} #ToolbarID select option { background: #333;color: #fff;box-shadow: inset 20px 20px #f00;}';
+            document.body.style.transform = 'translateY(35px)';
         }
         head = document.head || document.getElementsByTagName('head')[0];
         style = document.createElement('style');
