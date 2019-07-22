@@ -27,7 +27,11 @@ javascript:(function(){
         cssToolbar = '';
         document.body.appendChild(toolbar);
         toolbar.style.cssText = cssToolbar;
-        document.body.style.transform = 'translateY(35px)';
+        if(document.location.href.includes("backoffice")){
+            document.body.style.transform = 'translateY(0px)';
+        }else{
+            document.body.style.transform = 'translateY(35px)';
+        }
         unorderList = document.createElement("ul");
         /* Frontend */
         FrontendSectionDropDownLinks = [
