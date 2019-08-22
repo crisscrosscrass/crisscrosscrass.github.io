@@ -122,6 +122,7 @@ javascript:(function(){
             ["Sorting Debug Tool","https://sorting-debug-tool.visual-meta.com/"],
             ["Feed Detective","http://feeddetective.office.vm:8080/"],
             ["Spotfire - Donald","https://bi.visual-meta.com/spotfire/login.html?#/"],
+            ["Tableau - Dashboards","https://tableau.visual-meta.com/"],
             ["Jira","https://visualmeta.atlassian.net/secure/Dashboard.jspa"],
             ["Confluence","https://visualmeta.atlassian.net/wiki/"],
             ["Banner Pool - Image Search","http://bannerpool.office.vm/"],
