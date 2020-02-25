@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>ParticlesTest</title>
     <section id="home">
         <div id="particles"></div>
     </section>
-    
-  
-  <style>
-    body, html{
-        margin: 0;
-        padding: 0;
-        color: rgba(115, 246, 255, 0.904);
-        background-color: rgb(255, 255, 255);
-    }
-    #home {
-        width: 100%;
-        height: 100%;
-    }
-    #particles{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: #0E0B16;
-        /*background: url(./imgages/filler.png) center center/cover;*/
-    }
-   </style>
+
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            color: rgba(115, 246, 255, 0.904);
+            background-color: rgb(255, 255, 255);
+        }
+
+        #home {
+            width: 100%;
+            height: 100%;
+        }
+
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #0E0B16;
+            /*background: url(./imgages/filler.png) center center/cover;*/
+        }
+    </style>
 </head>
+
 <body>
     <script>
-        function randomInRange(min, max){
+        function randomInRange(min, max) {
             var n = Math.random() * (max - min + 0.1) + min;
             return n > max ? randomInRange(min, max) : n;
         }
-        var colorArray = ['#A239CA','white','#4717F6'];
-            
-        </script>
+        var colorArray = ['#A239CA', 'white', '#4717F6'];
+
+    </script>
     <script src="hexagon.js"></script>
     <script src="circle.js"></script>
-    <script src="mainjs.js"></script>
+    <script src="main.js"></script>
+    <script>
+    </script>
 </body>
+
 </html>

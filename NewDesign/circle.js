@@ -44,7 +44,7 @@ function createCircleArray(){
     circleArray = []
 
     for(var i = 0; i < 1000; i++){
-        radius = randomInRange(0, 1.1); // 30 should be at least for nice circles
+        radius = randomInRange(0, 0.5); // 30 should be at least for nice circles
         // where to spawn / e.g. ( canvas.width - radius * 2) + radius = not outside the acutal window
         x = Math.random() * ( canvas.width - radius * 2) + radius;
         y = Math.random() * ( canvas.height - radius * 2) + radius;
