@@ -1102,6 +1102,11 @@ MODAL
     background-color: rgba(117, 117, 117, 0.11);
 }
 
+button {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 @-webkit-keyframes zoom {
     from {
         -webkit-transform: scale(0.4)
