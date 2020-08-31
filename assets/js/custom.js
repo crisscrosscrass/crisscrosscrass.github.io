@@ -347,6 +347,60 @@ function EmailViaJavaScriptFunction(NameInput, EmailInput, MessageInput) {
 }
 
 const projects = {
+    comissioner: {
+        name: "Feed Comissioner",
+        text: "",
+        image: "images/feedcomissioner.jpg",
+        language: "NodeJS, Express, Socket.io, EJS",
+        fullstory: "",
+        source: "",
+        demo: ""
+    },
+    synctemplate: {
+        name: "Sync Template",
+        text: "",
+        image: "images/synctemplate.jpg",
+        language: "Python, Materialize, Flask, MongoDB",
+        fullstory: "",
+        source: "",
+        demo: ""
+    },
+    aggregator: {
+        name: "Aggregator Monitor",
+        text: "",
+        image: "images/aggregator.jpg",
+        language: "Java, React, Spring, MySQL",
+        fullstory: "",
+        source: "https://github.com/crisscrosscrass/AggregatorMonitor",
+        demo: ""
+    },
+    notifications: {
+        name: "Incident Notifications",
+        text: "",
+        image: "images/gChatBot.jpg",
+        language: "Python, Jira, Webhooks",
+        fullstory: "",
+        source: "",
+        demo: ""
+    },
+    salestracking: {
+        name: "Salestracking",
+        text: "",
+        image: "images/salestracking.jpg",
+        language: "Python, Flask, MySQL, uWSGI",
+        fullstory: "",
+        source: "",
+        demo: ""
+    },
+    failwatch: {
+        name: "Failwatch",
+        text: "",
+        image: "images/failwatch.jpg",
+        language: "Python, Flask, MongoDB, uWSGI",
+        fullstory: "",
+        source: "",
+        demo: ""
+    },
     beerwebapp: {
         name: "Beerlist WebApp",
         text: "This was a small Task for a Company to prove that i can work with APIs, so why not choose an very fomouse API for Beers? This is just a small App, to display a list of Beers and getting some Detail information about the selected Item.        The Interessting part was basically you need to set up a Backend API (used Nodejs here) to fetch the Data from there Backend and then display the Data to the Frontend (used React here).",

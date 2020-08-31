@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        video {
+            width: 320;
+            height: 160px;
+        }
+        
+        canvas {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="warning">
+        Enable chrome://flags/#enable-experimental-web-platform-features
+    </p>
+    <div class="left">
+        <h2>Preview</h2>
+        <video id="camElement" autoplay muted></video>
+        <video id="videoElement" autoplay muted></video>
+    </div>
+    <div class="right">
+        <h2>Recording</h2>
+        <canvas>
+            
+        </canvas>
+    </div>
+    <div id="captureVideoButton" class="button">
+        <button>Capture Settings</button>
+    </div>
+    <input type="checkbox" id="cameraToggle" />
+    <label for="audioToggle">+ Video from Cam</label><br>
+    <input type="checkbox" id="audioToggle" />
+    <label for="audioToggle">Capture Audio from Desktop</label><br>
+    <input type="checkbox" id="micAudioToggle" />
+    <label for="micAudioToggle">Capture Audio from Microphone</label><br>
+    <div id="startVideoButton" class="button">
+        <button>Start Recording</button>
+    </div>
+    <div id="stopVideoButton" class="button">
+        <button>Stop Recording</button>
+    </div>
+
+    <script>
+        // init
+        let warningElement = document.getElementById('warning');
+        if ('getDisplayMedia' in navigator.mediaDevices) warningElement.style.display = 'none';
+
+        const camElement = document.getElementById('camElement');
+        const videoElement = document.getElementById('videoElement');
+        const cameraToggle = document.getElementById('cameraToggle');
+        const audioToggle = document.getElementById('audioToggle');
+        const micAudioToggle = document.getElementById('micAudioToggle');
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext('2d');
+
+        const captureVideoButton = document.getElementById("captureVideoButton");
+        const startVideoButton = document.getElementById("startVideoButton");
+        const stopVideoButton = document.getElementById("stopVideoButton");
+
+        // methods
+        let voiceStream;
+        let webcamStream;
+        let desktopStream;
+
+        captureVideoButton.onclick = async() => {
+            // download.style.display = 'none';
+            const audio = audioToggle.checked || false;
+            const mic = micAudioToggle.checked || false;
+            const cam = cameraToggle.checked || false;
+
+            desktopStream = await navigator.mediaDevices.getDisplayMedia({
+                video: true,
+                audio: audio
+            });
+
+            if (cam === true) {
+                webcamStream = await navigator.mediaDevices.getUserMedia({
+                    video: true,
+                    audio: false
+                });
+            }
+
+            if (mic === true) {
+                voiceStream = await navigator.mediaDevices.getUserMedia({
+                    video: false,
+                    audio: mic
+                });
+            }
+
+            const tracks = [
+                ...desktopStream.getVideoTracks(),
+            ];
+            console.log('Tracks to add to stream', tracks);
+            streamDesktop = new MediaStream(tracks);
+            console.log('streamDesktop', streamDesktop);
+            videoElement.srcObject = streamDesktop;
+            videoElement.muted = true;
+
+            if (cam === true) {
+                const camtracks = [
+                    ...webcamStream.getVideoTracks(),
+                ];
+                console.log('Cam to add to stream', camtracks);
+                streamCam = new MediaStream(camtracks);
+                console.log('streamCam', streamCam);
+                camElement.srcObject = streamCam;
+                camElement.muted = true;
+            }
+
+            console.log(videoElement.dWidth);
+        }
+        videoElement.onplay = () => {
+            console.log(videoElement.videoHeight);
+
+            function step() {
+                ctx.drawImage(videoElement, 0, 0)
+                requestAnimationFrame(step)
+            }
+            requestAnimationFrame(step);
+        }
+    </script>
+</body>
+
+</html>
