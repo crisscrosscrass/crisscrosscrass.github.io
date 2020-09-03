@@ -472,7 +472,6 @@ class ModalWindow {
         this.modal = document.getElementById('myModal');
         this.closeModalButton = document.getElementById("modalScreenCloseButton").onclick = () => this.closeModalWindow();
         this.closeModalBackgroundButton = document.getElementById("modalFullScreenClose").onclick = () => this.closeModalWindow();
-        console.log(projects[name]);
         this.changeModalContent();
         this.showModal();
     }
@@ -508,10 +507,8 @@ class ModalWindow {
     }
     attachFeatures(features) {
         if (features != "" && features.length != 0) {
-            console.log("add Feature");
             this.projectFeatures.innerHTML += "<h6>Features</h6>"
             for (let i = 0; i < features.length; i++) {
-                console.log(features[i]);
                 this.projectFeatures.innerHTML += `<span class="badge badge-primary">${features[i]}</span>`;
             }
         } else {
