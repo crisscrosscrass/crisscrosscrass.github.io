@@ -349,57 +349,63 @@ function EmailViaJavaScriptFunction(NameInput, EmailInput, MessageInput) {
 const projects = {
     comissioner: {
         name: "Feed Comissioner",
-        text: "",
+        text: "At Visual Meta we have to synchronize millions of products from our partner-shops on a daily basis in order to provide users with the most recent product information (price changes, availability or even new products). Prior to allowing new product feeds to join the synchronization schedule, they have to undergo a quick quality check. A manual validation of CSV & XML files with hundreds of thousands of lines is very time consuming and vague. To ease the burden of this huge effort, I planned, developed and released the “Feed Commision” (based on the Feed Detective, but with the Backend in mind and dealing with huge Files), a web-based solution to automate & simplify this process.",
         image: "images/feedcomissioner.jpg",
         language: "NodeJS, Express, Socket.io, EJS",
         fullstory: "",
         source: "",
-        demo: ""
+        demo: "",
+        features: ["URL Import", "FileReader", "Streaming", "XML-Parser", "JSON-Parser", "FileStorage", "File Splitter", "Analysis Table", "Log Reader"]
     },
     synctemplate: {
         name: "Sync Template",
-        text: "",
+        text: "Web interface for creating dynamically jira tickets",
         image: "images/synctemplate.jpg",
         language: "Python, Materialize, Flask, MongoDB",
         fullstory: "",
         source: "",
-        demo: ""
+        demo: "",
+        features: ["Dynamic Forms", "Login System", "Jira Ticket Creation"]
     },
     aggregator: {
         name: "Aggregator Monitor",
-        text: "",
+        text: "Web interface for investigating aggregator issues",
         image: "images/aggregator.jpg",
         language: "Java, React, Spring, MySQL",
         fullstory: "",
         source: "https://github.com/crisscrosscrass/AggregatorMonitor",
-        demo: ""
+        demo: "",
+        features: ["Realtime Rendering", "Multiple Database", "Jira Ticket Creation", "Gmail Import"]
     },
     notifications: {
         name: "Incident Notifications",
-        text: "",
+        text: "Notifications for Hangouts chat for Jira tickets with INCIDENT tag and A variation of Incident Notifications for TechOps tickets",
         image: "images/gChatBot.jpg",
         language: "Python, Jira, Webhooks",
         fullstory: "",
         source: "",
-        demo: ""
+        demo: "",
+        features: ["Check for Comments", "Realtime Updates"]
     },
     salestracking: {
         name: "Salestracking",
-        text: "",
+        text: "Web interface for investigating sales tracking issues",
         image: "images/salestracking.jpg",
         language: "Python, Flask, MySQL, uWSGI",
         fullstory: "",
         source: "",
-        demo: ""
+        demo: "",
+        features: ["Gmail Import", "Jira Updates", "Error Search", "Multiple processes on same machine"]
     },
     failwatch: {
         name: "Failwatch",
-        text: "",
+        text: "Web interface for investigating issues with failing items",
         image: "images/failwatch.jpg",
         language: "Python, Flask, MongoDB, uWSGI",
         fullstory: "",
         source: "",
-        demo: ""
+        demo: "",
+        features: ["Thread-based Database Import", "Shop Search", "Jira Tickets Import", "Multiple processes on same machine"]
     },
     beerwebapp: {
         name: "Beerlist WebApp",
@@ -408,7 +414,8 @@ const projects = {
         language: "NodeJS, React, Heroku",
         fullstory: "",
         source: "https://github.com/crisscrosscrass/BreweryDBReactBeerApp",
-        demo: "https://blooming-sierra-74939.herokuapp.com/"
+        demo: "https://blooming-sierra-74939.herokuapp.com/",
+        features: ["Pagination", "DetailView"]
     },
     qmtoolbar: {
         name: "QM TOOLBAR",
@@ -417,7 +424,8 @@ const projects = {
         language: "Vanila Javascript, CSS, Chrome Extensions",
         fullstory: "",
         source: "https://crisscrosscrass.github.io/assets/QM/qmtoolbar.js",
-        demo: "https://crisscrosscrass.github.io/assets/QM/qmtoolbar.htm"
+        demo: "https://crisscrosscrass.github.io/assets/QM/qmtoolbar.htm",
+        features: ""
     },
     fetchingimages: {
         name: "MODERN FETCHING IMAGES",
@@ -426,7 +434,8 @@ const projects = {
         language: "React, CSS, Ajax & JSON",
         fullstory: "",
         source: "https://github.com/crisscrosscrass/modernfetchingimages",
-        demo: "https://crisscrosscrass.github.io/modernfetchingimages/"
+        demo: "https://crisscrosscrass.github.io/modernfetchingimages/",
+        features: ""
     },
     qmautomation: {
         name: "QM AUTOMATION",
@@ -435,7 +444,8 @@ const projects = {
         language: "Java, JavaFX, CSS, Selenium",
         fullstory: "https://crisscrosscrass.github.io/images/QMAutomation.pdf",
         source: "https://github.com/crisscrosscrass/frontendcheckerqm",
-        demo: ""
+        demo: "",
+        features: ["Selenium Test", "Visualize Data", "Screenshots", "Fully Customizable Test"]
     },
     feeddetective: {
         name: "FEED DETECTIVE",
@@ -444,7 +454,8 @@ const projects = {
         language: "HTML, CSS, Java-Script, JQuery, PHP, Ajax",
         fullstory: "https://drive.google.com/open?id=1YRRUeMdbdxoKssb8YePv45Yu9bJbfvg_",
         source: "https://github.com/crisscrosscrass/feeddetective",
-        demo: "http://crisscrosscrass.epizy.com"
+        demo: "http://crisscrosscrass.epizy.com",
+        features: ["Read Files", "Feed Analysis", "Visualize Data", "Feedback Builder", "Automatic Feedback", "Support 16 Languages"]
     }
 }
 class ModalWindow {
@@ -456,6 +467,7 @@ class ModalWindow {
         this.projectImage = document.getElementById("projectImage");
         this.projectLanguages = document.getElementById("projectLanguages");
         this.projectAttachedLinks = document.getElementById("projectAttachedLinks");
+        this.projectFeatures = document.getElementById("projectFeatures");
         // Modal 
         this.modal = document.getElementById('myModal');
         this.closeModalButton = document.getElementById("modalScreenCloseButton").onclick = () => this.closeModalWindow();
@@ -471,6 +483,7 @@ class ModalWindow {
         this.projectImage.src = "";
         this.projectLanguages.textContent = "";
         this.projectAttachedLinks.innerHTML = "";
+        this.projectFeatures.innerHTML = "";
         // add content based on selected Project
         this.projectModalTitle.textContent = projects[this.projectName].name;
         this.projectImage.src = projects[this.projectName].image;
@@ -479,7 +492,7 @@ class ModalWindow {
         this.attachButton("FULLSTORY", projects[this.projectName].fullstory);
         this.attachButton("SOURCE", projects[this.projectName].source);
         this.attachButton("DEMO", projects[this.projectName].demo);
-
+        this.attachFeatures(projects[this.projectName].features);
     }
     attachButton(button, url) {
         if (url != "") {
@@ -491,6 +504,18 @@ class ModalWindow {
                 button == "SOURCE" ? createButton.setAttribute("class", "btn btn-outline-info") :
                 button == "DEMO" ? createButton.setAttribute("class", "btn btn-outline-primary") : "";
             this.projectAttachedLinks.appendChild(createButton);
+        }
+    }
+    attachFeatures(features) {
+        if (features != "" && features.length != 0) {
+            console.log("add Feature");
+            this.projectFeatures.innerHTML += "<h6>Features</h6>"
+            for (let i = 0; i < features.length; i++) {
+                console.log(features[i]);
+                this.projectFeatures.innerHTML += `<span class="badge badge-primary">${features[i]}</span>`;
+            }
+        } else {
+
         }
     }
     showModal() {

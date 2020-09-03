@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <style>
-        video {
-            width: 320;
-            height: 160px;
+        .mainMenuSettings {
+            position: absolute;
+            top: 0;
+            right: 50px;
         }
         
         canvas {
-            width: 800px;
-            height: 600px;
+            border: 1px solid green;
         }
     </style>
 </head>
@@ -31,24 +31,30 @@
     </div>
     <div class="right">
         <h2>Recording</h2>
-        <canvas>
+        <canvas width="960" height="540">
             
         </canvas>
     </div>
-    <div id="captureVideoButton" class="button">
-        <button>Capture Settings</button>
-    </div>
-    <input type="checkbox" id="cameraToggle" />
-    <label for="audioToggle">+ Video from Cam</label><br>
-    <input type="checkbox" id="audioToggle" />
-    <label for="audioToggle">Capture Audio from Desktop</label><br>
-    <input type="checkbox" id="micAudioToggle" />
-    <label for="micAudioToggle">Capture Audio from Microphone</label><br>
-    <div id="startVideoButton" class="button">
-        <button>Start Recording</button>
-    </div>
-    <div id="stopVideoButton" class="button">
-        <button>Stop Recording</button>
+    <div class="mainMenuSettings">
+        <div id="captureVideoButton" class="button">
+            <button>Capture Device</button>
+        </div>
+        <div id="captureVideoButton" class="button">
+            <button>enable Cam</button>
+        </div>
+        <input type="checkbox" id="cameraToggle" />
+        <label for="audioToggle">+ Video from Cam</label><br>
+        <input type="checkbox" id="audioToggle" />
+        <label for="audioToggle">Capture Audio from Desktop</label><br>
+        <input type="checkbox" id="micAudioToggle" />
+        <label for="micAudioToggle">Capture Audio from Microphone</label><br>
+        <div id="startVideoButton" class="button">
+            <button>Start Recording</button>
+        </div>
+        <div id="stopVideoButton" class="button">
+            <button>Stop Recording</button>
+        </div>
+        <a id="download" href="#" style="display: none;">Download</a>
     </div>
 
     <script>
@@ -57,28 +63,45 @@
         if ('getDisplayMedia' in navigator.mediaDevices) warningElement.style.display = 'none';
 
         const camElement = document.getElementById('camElement');
+        camElement.width = screen.width / 6;
+        camElement.height = screen.height / 6;
+
         const videoElement = document.getElementById('videoElement');
+        videoElement.width = screen.width / 6;
+        videoElement.height = screen.height / 6;
+
         const cameraToggle = document.getElementById('cameraToggle');
         const audioToggle = document.getElementById('audioToggle');
         const micAudioToggle = document.getElementById('micAudioToggle');
 
         const canvas = document.querySelector("canvas");
+        canvas.width = screen.width / 2;
+        canvas.height = screen.height / 2;
         const ctx = canvas.getContext('2d');
+
 
         const captureVideoButton = document.getElementById("captureVideoButton");
         const startVideoButton = document.getElementById("startVideoButton");
         const stopVideoButton = document.getElementById("stopVideoButton");
+        const download = document.getElementById('download');
 
         // methods
         let voiceStream;
         let webcamStream;
         let desktopStream;
+        let allowCam;
+
+        // recording
+        let rec;
+
 
         captureVideoButton.onclick = async() => {
             // download.style.display = 'none';
             const audio = audioToggle.checked || false;
             const mic = micAudioToggle.checked || false;
             const cam = cameraToggle.checked || false;
+            allowCam = cam;
+
 
             desktopStream = await navigator.mediaDevices.getDisplayMedia({
                 video: true,
@@ -102,7 +125,7 @@
             const tracks = [
                 ...desktopStream.getVideoTracks(),
             ];
-            console.log('Tracks to add to stream', tracks);
+            console.log('Desktop add to stream', tracks);
             streamDesktop = new MediaStream(tracks);
             console.log('streamDesktop', streamDesktop);
             videoElement.srcObject = streamDesktop;
@@ -112,24 +135,83 @@
                 const camtracks = [
                     ...webcamStream.getVideoTracks(),
                 ];
-                console.log('Cam to add to stream', camtracks);
+                console.log('Cam add to stream', camtracks);
                 streamCam = new MediaStream(camtracks);
                 console.log('streamCam', streamCam);
                 camElement.srcObject = streamCam;
                 camElement.muted = true;
             }
-
-            console.log(videoElement.dWidth);
         }
+
+
+        var stream;
         videoElement.onplay = () => {
-            console.log(videoElement.videoHeight);
+
+            // desktop recording settings
+            videoElement.scale = Math.min(
+                canvas.width / videoElement.videoWidth,
+                canvas.height / videoElement.videoHeight);
+            var scale = videoElement.scale;
+            var vidH = videoElement.videoHeight;
+            var vidW = videoElement.videoWidth;
+            var top = canvas.height / 2 - (vidH / 2) * scale;
+            var left = canvas.width / 2 - (vidW / 2) * scale;
+
+            // cam recording settings
+            // source cam
+            var sourceStartX = 150,
+                sourceStartY = 100,
+                sizeSourceWidth = 320,
+                sizeSourceHeight = 300;
+            // destination canvas
+            var destinationStartX = canvas.width - sizeSourceWidth / 2,
+                destinationStartY = canvas.height - sizeSourceHeight / 2,
+                destinationSizeX = 150,
+                destinationSizeY = 150;
+
+
+
+            blobs = [];
+            stream = canvas.captureStream(); // frames per second
+            rec = new MediaRecorder(stream, {
+                mimeType: 'video/webm; codecs=vp8,opus'
+            });
+
+            rec.ondataavailable = (e) => blobs.push(e.data);
+            rec.onstop = async() => {
+                //blobs.push(MediaRecorder.requestData());
+                blob = new Blob(blobs, {
+                    type: 'video/webm'
+                });
+                let url = window.URL.createObjectURL(blob);
+                download.href = url;
+                download.download = 'test.webm';
+                download.style.display = 'block';
+            };
+
+
 
             function step() {
-                ctx.drawImage(videoElement, 0, 0)
+                ctx.drawImage(videoElement, left, top, vidW * scale, vidH * scale);
+                if (allowCam === true) {
+                    ctx.drawImage(camElement, sourceStartX, sourceStartY, sizeSourceWidth, sizeSourceHeight, destinationStartX, destinationStartY, destinationSizeX, destinationSizeY);
+                }
+                // ctx.drawImage(videoElement, 0, 0);
                 requestAnimationFrame(step)
             }
             requestAnimationFrame(step);
         }
+
+        startVideoButton.onclick = () => {
+            console.log("Start to recording...")
+            rec.start();
+        };
+        stopVideoButton.onclick = () => {
+            rec.stop();
+            stream.getTracks().forEach(s => s.stop())
+            videoElement.srcObject = null
+            stream = null;
+        };
     </script>
 </body>
 
