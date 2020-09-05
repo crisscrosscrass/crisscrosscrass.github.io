@@ -35,15 +35,13 @@
             
         </canvas>
     </div>
+    <div>
+
+    </div>
     <div class="mainMenuSettings">
         <div id="captureVideoButton" class="button">
             <button>Capture Device</button>
         </div>
-        <div id="captureVideoButton" class="button">
-            <button>enable Cam</button>
-        </div>
-        <input type="checkbox" id="cameraToggle" />
-        <label for="audioToggle">+ Video from Cam</label><br>
         <input type="checkbox" id="audioToggle" />
         <label for="audioToggle">Capture Audio from Desktop</label><br>
         <input type="checkbox" id="micAudioToggle" />
@@ -54,7 +52,9 @@
         <div id="stopVideoButton" class="button">
             <button>Stop Recording</button>
         </div>
+        <h2>Result</h2>
         <a id="download" href="#" style="display: none;">Download</a>
+        <video id="resultRecording" width="300" height="150" controls></video>
     </div>
 
     <script>
@@ -70,7 +70,6 @@
         videoElement.width = screen.width / 6;
         videoElement.height = screen.height / 6;
 
-        const cameraToggle = document.getElementById('cameraToggle');
         const audioToggle = document.getElementById('audioToggle');
         const micAudioToggle = document.getElementById('micAudioToggle');
 
@@ -84,28 +83,59 @@
         const startVideoButton = document.getElementById("startVideoButton");
         const stopVideoButton = document.getElementById("stopVideoButton");
         const download = document.getElementById('download');
+        const resultRecording = document.getElementById('resultRecording');
 
         // methods
         let voiceStream;
         let webcamStream;
         let desktopStream;
-        let allowCam;
 
         // recording
+
         let rec;
+        var requestAnimationStream;
+        var streamCam;
+        var streamDesktop;
+        var audioDesktop;
+        var cam;
+
+
+        const mergeAudioStreams = (desktopStream, voiceStream) => {
+            const context = new AudioContext();
+            const destination = context.createMediaStreamDestination();
+            let hasDesktop = false;
+            let hasVoice = false;
+            if (desktopStream && desktopStream.getAudioTracks().length > 0) {
+                // If you don't want to share Audio from the desktop it should still work with just the voice.
+                const source1 = context.createMediaStreamSource(desktopStream);
+                const desktopGain = context.createGain();
+                desktopGain.gain.value = 0.7;
+                source1.connect(desktopGain).connect(destination);
+                hasDesktop = true;
+            }
+
+            if (voiceStream && voiceStream.getAudioTracks().length > 0) {
+                const source2 = context.createMediaStreamSource(voiceStream);
+                const voiceGain = context.createGain();
+                voiceGain.gain.value = 0.7;
+                source2.connect(voiceGain).connect(destination);
+                hasVoice = true;
+            }
+
+            return (hasDesktop || hasVoice) ? destination.stream.getAudioTracks() : [];
+        };
 
 
         captureVideoButton.onclick = async() => {
             // download.style.display = 'none';
             const audio = audioToggle.checked || false;
             const mic = micAudioToggle.checked || false;
-            const cam = cameraToggle.checked || false;
-            allowCam = cam;
+            cam = confirm("use camera as capture device too?");
 
 
             desktopStream = await navigator.mediaDevices.getDisplayMedia({
                 video: true,
-                audio: audio
+                audio: audio,
             });
 
             if (cam === true) {
@@ -122,12 +152,20 @@
                 });
             }
 
-            const tracks = [
+            const desktoptracks = [
                 ...desktopStream.getVideoTracks(),
             ];
-            console.log('Desktop add to stream', tracks);
-            streamDesktop = new MediaStream(tracks);
+            const desktopAudiotracks = [
+                ...voiceStream.getAudioTracks(),
+            ];
+            console.log(audio)
+            console.log('Desktop add to stream', desktoptracks);
+            streamDesktop = new MediaStream(desktoptracks);
             console.log('streamDesktop', streamDesktop);
+            console.log("INPUT", "STREAM", desktoptracks)
+            console.log("INPUT", "STREAM", desktopAudiotracks)
+            audioDesktop = new MediaStream(desktopAudiotracks);
+            console.log('audioDesktop', audioDesktop);
             videoElement.srcObject = streamDesktop;
             videoElement.muted = true;
 
@@ -144,7 +182,7 @@
         }
 
 
-        var stream;
+        var streamCanvas;
         videoElement.onplay = () => {
 
             // desktop recording settings
@@ -164,16 +202,26 @@
                 sizeSourceWidth = 320,
                 sizeSourceHeight = 300;
             // destination canvas
-            var destinationStartX = canvas.width - sizeSourceWidth / 2,
-                destinationStartY = canvas.height - sizeSourceHeight / 2,
-                destinationSizeX = 150,
-                destinationSizeY = 150;
+            var destinationSizeX = 150,
+                destinationSizeY = 150,
+                destinationStartX = canvas.width - destinationSizeX, // right side of the screen
+                destinationStartY = canvas.height - destinationSizeY;
 
 
 
             blobs = [];
-            stream = canvas.captureStream(); // frames per second
-            rec = new MediaRecorder(stream, {
+            streamCanvas = canvas.captureStream(); // frames per second
+            const context = new AudioContext();
+            const destination = context.createMediaStreamDestination();
+            const source1 = context.createMediaStreamSource(desktopAudiotracks);
+            const desktopGain = context.createGain();
+            desktopGain.gain.value = 0.7;
+            source1.connect(desktopGain).connect(destination);
+            streamCanvas.addTrack(source1);
+
+
+
+            rec = new MediaRecorder(streamCanvas, {
                 mimeType: 'video/webm; codecs=vp8,opus'
             });
 
@@ -187,19 +235,20 @@
                 download.href = url;
                 download.download = 'test.webm';
                 download.style.display = 'block';
+                resultRecording.src = URL.createObjectURL(blob);
             };
 
 
 
             function step() {
                 ctx.drawImage(videoElement, left, top, vidW * scale, vidH * scale);
-                if (allowCam === true) {
+                if (cam === true) {
                     ctx.drawImage(camElement, sourceStartX, sourceStartY, sizeSourceWidth, sizeSourceHeight, destinationStartX, destinationStartY, destinationSizeX, destinationSizeY);
                 }
                 // ctx.drawImage(videoElement, 0, 0);
-                requestAnimationFrame(step)
+                requestAnimationStream = requestAnimationFrame(step)
             }
-            requestAnimationFrame(step);
+            requestAnimationStream = requestAnimationFrame(step);
         }
 
         startVideoButton.onclick = () => {
@@ -207,10 +256,21 @@
             rec.start();
         };
         stopVideoButton.onclick = () => {
+            console.log("Stop to recording...")
             rec.stop();
-            stream.getTracks().forEach(s => s.stop())
-            videoElement.srcObject = null
-            stream = null;
+            streamCanvas.getTracks().forEach(s => s.stop())
+            streamDesktop.getTracks().forEach(s => s.stop())
+            if (cam === true) {
+                streamCam.getTracks().forEach(s => s.stop())
+            }
+            videoElement.srcObject = null;
+            camElement.srcObject = null;
+            streamCanvas = null;
+            streamDesktop = null;
+            streamCam = null;
+            window.cancelAnimationFrame(requestAnimationStream);
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         };
     </script>
 </body>

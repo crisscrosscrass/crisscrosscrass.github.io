@@ -355,11 +355,11 @@ const projects = {
         fullstory: "",
         source: "",
         demo: "",
-        features: ["URL Import", "FileReader", "Streaming", "XML-Parser", "JSON-Parser", "FileStorage", "File Splitter", "Analysis Table", "Log Reader"]
+        features: ["URL Import", "Decompression zip / 7z", "FileReader", "Streaming", "XML-Parser", "JSON-Parser", "Data Formatting", "FileStorage", "File Splitter", "Analysis Table", "Log Reader"]
     },
     synctemplate: {
         name: "Sync Template",
-        text: "Web interface for creating dynamically jira tickets",
+        text: "Web interface for creating dynamically jira tickets with gathering Data while processing",
         image: "images/synctemplate.jpg",
         language: "Python, Materialize, Flask, MongoDB",
         fullstory: "",
@@ -455,7 +455,7 @@ const projects = {
         fullstory: "https://drive.google.com/open?id=1YRRUeMdbdxoKssb8YePv45Yu9bJbfvg_",
         source: "https://github.com/crisscrosscrass/feeddetective",
         demo: "http://crisscrosscrass.epizy.com",
-        features: ["Read Files", "Feed Analysis", "Visualize Data", "Feedback Builder", "Automatic Feedback", "Support 16 Languages"]
+        features: ["Read Files", "Decompression zip / 7z", "Data Formatting", "Feed Analysis", "Visualize Data", "Feedback Builder", "Automatic Feedback", "Support 16 Languages"]
     }
 }
 class ModalWindow {
