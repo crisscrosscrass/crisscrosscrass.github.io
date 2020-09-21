@@ -211,13 +211,14 @@
 
             blobs = [];
             streamCanvas = canvas.captureStream(); // frames per second
-            const context = new AudioContext();
-            const destination = context.createMediaStreamDestination();
-            const source1 = context.createMediaStreamSource(desktopAudiotracks);
-            const desktopGain = context.createGain();
-            desktopGain.gain.value = 0.7;
-            source1.connect(desktopGain).connect(destination);
-            streamCanvas.addTrack(source1);
+            // const context = new AudioContext();
+            // const destination = context.createMediaStreamDestination();
+            // const source1 = context.createMediaStreamSource(desktopAudiotracks);
+            // const desktopGain = context.createGain();
+            // desktopGain.gain.value = 0.7;
+            // source1.connect(desktopGain).connect(destination);
+            console.log(audioDesktop);
+            streamCanvas.addTrack(audioDesktop);
 
 
 

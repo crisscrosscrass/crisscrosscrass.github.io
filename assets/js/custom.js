@@ -353,8 +353,8 @@ const projects = {
         image: "images/feedcomissioner.jpg",
         language: "NodeJS, Express, Socket.io, EJS",
         fullstory: "",
-        source: "",
-        demo: "",
+        source: "https://github.com/crisscrosscrass/feedcomissioner",
+        demo: "https://feedcomissioner.herokuapp.com/",
         features: ["URL Import", "Decompression zip / 7z", "FileReader", "Streaming", "XML-Parser", "JSON-Parser", "Data Formatting", "FileStorage", "File Splitter", "Analysis Table", "Log Reader"]
     },
     synctemplate: {
