@@ -347,6 +347,36 @@ function EmailViaJavaScriptFunction(NameInput, EmailInput, MessageInput) {
 }
 
 const projects = {
+    employeecms: {
+        name: "Employee CMS",
+        text: "Its been a while since a build something in Java, so i wanted to build a simple Employee CMS Webapp, where you can add and delete Employees due different Views. I also added a way to add Employees via an RestAPI and show all Employees via an RestAPI Endpoint. For the frontend i used the provided Thymeleaf Framework. For simplicity i didn't add a Database, but should be very simple with the Spring Boot provided Features",
+        image: "images/EmployeeCMS.jpg",
+        language: "Spring Boot, Maven, Java, Thymeleaf",
+        fullstory: "",
+        source: "https://github.com/crisscrosscrass/EmployeeCMS",
+        demo: "https://employeecmsdemo.herokuapp.com/",
+        features: ["RestAPI", "JSON", "Webapp", "Data Management"]
+    },
+    icalendar: {
+        name: "Personio iCalendar Reader",
+        text: "Personio is an awesome tool for Employee Management and other Humon Ressources topics. But in the Calendar View there is no way to calculate the actual amount of People from different states like Absences. So i build a simple iCalendar Reader which downloads the File from Personio (based on the Settings) and create a simple overview of all People due all States",
+        image: "images/iCalendar.jpg",
+        language: "NodeJS, Express, Nodemon, Bootstrap, EJS",
+        fullstory: "",
+        source: "https://github.com/crisscrosscrass/icalcreader",
+        demo: "https://vmicalc.herokuapp.com/",
+        features: ["URL Import", "FileReader", "Calendar-Event-Parser", "Data Formatting", "FileStorage", "Analysis Calendar Events"]
+    },
+    screenrecorder: {
+        name: "Screen Recording",
+        text: "I was mainly interessted in the UserMedia API provided by the Mozilla. The MediaDevices.getUserMedia() method prompts the user for permission to use a media input which produces a MediaStream with tracks containing the requested types of media. That stream can include, for example, a video track (produced by either a hardware or virtual video source such as a camera, video recording device, screen sharing service, and so forth), an audio track (similarly, produced by a physical or virtual audio source like a microphone, A/D converter, or the like), and possibly other track types.",
+        image: "images/ScreenRecorder.jpg",
+        language: "Vanila JS",
+        fullstory: "",
+        source: "https://crisscrosscrass.github.io/assets/Projects/ScreenRecorder/index.html",
+        demo: "https://crisscrosscrass.github.io/assets/Projects/ScreenRecorder/index.html",
+        features: ["ScreenRecording", "VoiceRecording"]
+    },
     comissioner: {
         name: "Feed Comissioner",
         text: "At Visual Meta we have to synchronize millions of products from our partner-shops on a daily basis in order to provide users with the most recent product information (price changes, availability or even new products). Prior to allowing new product feeds to join the synchronization schedule, they have to undergo a quick quality check. A manual validation of CSV & XML files with hundreds of thousands of lines is very time consuming and vague. To ease the burden of this huge effort, I planned, developed and released the “Feed Commision” (based on the Feed Detective, but with the Backend in mind and dealing with huge Files), a web-based solution to automate & simplify this process.",
