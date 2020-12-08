@@ -1,0 +1,446 @@
+#loader{
+	display: none;
+}
+.bounce-enter-active {
+	animation: bounce-in .5s;
+  }
+  .bounce-leave-active {
+	animation: bounce-in .2s reverse;
+  }
+  @keyframes bounce-in {
+	0% {
+	  transform: scale(0);
+	}
+	50% {
+	  transform: scale(1.2);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+	transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-leave-active {
+	transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+	transform: translateX(1000px);
+	opacity: 0;
+  }
+.bg-smoke{
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.searchMagnifer{
+	background: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    position: relative;
+    font-size: medium;
+    top: 0px;
+	left: 23px;
+	outline: none !important;
+    box-shadow: none !important;
+}
+.search {
+	position: relative;
+	display: inline-block;
+}
+.search input {
+	width: 0px;
+	height: 34px;
+	background-color: rgba(0, 0, 0, 0);
+	box-shadow: none;
+	color: #fff;
+	border: 1px solid transparent;
+	outline: none;
+	padding-left: 20px;
+	font-size: 16px;
+	transition: 0.3s ease all;
+}
+.search input.toggle {
+	width: 240px;
+	border-color: #fff;
+}
+.search img {
+	width: 18px;
+	left: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+
+
+.img__description {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	visibility: hidden;
+	opacity: 0;
+	border-radius: 2%;
+	-webkit-box-shadow: 3px 3px 3px 3px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    3px 3px 3px 3px #ccc;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         inset 0px 0px 3px 3px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	box-shadow:         0px 0px 3px 3px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	/* transition effect. not necessary */
+	transition: opacity .2s, visibility .2s;
+  }
+  .img__description .featured__description{
+	font-size: 0.075rem;
+  }
+  .img__description button{
+	background-color: white;
+	color: black;
+	border-radius: 2px;
+	border: 0;
+    outline: 0;
+}
+  
+  .box a:hover  .img__description {
+	visibility: visible;
+	opacity: 1;
+  }
+
+  .railway{
+	font-family: "Raleway";
+	text-decoration: none;
+  }
+
+  .loading {
+	height: 0;
+	width: 0;
+	padding: 30px;
+	border: 6px solid #ccc;
+	border-right-color: #888;
+	border-radius: 200px;
+	-webkit-animation: rotate 1s infinite linear;
+	/* left, top and position just for the demo! */
+	position: absolute;
+	left: 50%;
+	top: 25%;
+	z-index: 100;
+  }
+  
+  @-webkit-keyframes rotate {
+	/* 100% keyframe for  clockwise. 
+	   use 0% instead for anticlockwise */
+	100% {
+	  -webkit-transform: rotate(360deg);
+	}
+  }
+
+.dropshadow{
+	-webkit-box-shadow: 0px 0px 20px 30px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 20px 30px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 20px 30px rgba(0,0,0,0.75);
+}
+.featured { 
+    height: 400px;
+    position: relative;
+    background-size: cover;
+    padding: 0 0 0 30px;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+	z-index: 10;
+}
+
+.featured::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
+}
+
+.netflixOriginals h2, .movies__header h2 {
+    padding-left: 30px;
+}
+
+
+.featured h2 {
+    font-size: 50px;
+	margin: 0;
+	z-index: 10;
+}
+
+.featured .featured__buttons {
+    z-index: 10;
+}
+
+.featured .featured__buttons button {
+    font-size: 16px;
+    color: white;
+    background-color: rgba(109,109,110,0.7);;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 4px;
+}
+
+.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.featured .featured__buttons .button__play {
+    background-color: white; 
+    color: black;
+}
+
+.button__play i {
+    margin-right: 6px;
+}
+
+.featured .featured__description {
+    max-width: 650px;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.45);
+    
+}
+
+/* CSS VARIABLES */
+:root {
+	--halfdark: rgba(0, 0, 0, 0.75);
+	--primary: #141414;
+	--light: #f3f3f3;
+	--dark: #686868;
+}
+html, body {
+	width: 100vw;
+	min-height: 100vh;
+	max-width:100%;
+	margin: 0;
+	padding: 0;
+	background-color: var(--primary);
+	color: var(--light);
+	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
+	line-height: 1.4;
+}
+img {
+	max-width: 100%;
+}
+h1 {
+	padding-top: 60px;
+}
+.wrapper {
+	margin: 0;
+	padding: 0;
+}
+/* HEADER */
+header {
+	padding: 20px 20px 10px 20px;
+	position: fixed;
+	top: 0;
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-template-areas: "nt mn mn sb . . . ";
+	background-color: var(--halfdark);
+	width: 100%;
+	margin-bottom: 0px;
+	z-index: 20;
+}
+.netflixLogo {
+	grid-area: nt;
+	object-fit: cover;
+	width: 100px;
+	max-height: 100%;
+	padding-left: 30px;
+	padding-top: 0px;
+}
+.netflixLogo img {
+	height: 35px;
+}
+#logo {
+	color: #e50914;
+	margin: 0;
+	padding: 0;
+}
+.main-nav {
+	grid-area: mn;
+	padding: 0 30px 0 20px;
+	z-index: 30;
+}
+.main-nav a {
+	color: var(--light);
+	text-decoration: none;
+	margin: 5px;
+}
+.main-nav a:hover {
+	color: var(--dark);
+}
+.sub-nav {
+	grid-area: sb;
+	padding: 0 40px 0 40px;
+}
+.sub-nav a {
+	color: var(--light);
+	text-decoration: none;
+	margin: 5px;
+}
+.sub-nav a:hover {
+	color: var(--dark);
+}
+/* MAIN CONTIANER */
+.main-container {
+	padding: 50px 100px;
+}
+.box {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(6, minmax(100px, 1fr));
+}
+.box a {
+	transition: transform 0.3s;
+}
+.box a:hover {
+	transition: transform 0.3s;
+	-ms-transform: scale(1.6);
+	-webkit-transform: scale(1.6);
+	transform: scale(1.6);
+}
+.box img {
+	border-radius: 2px;
+}
+/* LINKS */
+.link {
+	padding: 50px;
+}
+.sub-links ul {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(4, 1fr);
+}
+.sub-links a {
+	color: var(--dark);
+	text-decoration: none;
+}
+.sub-links a:hover {
+	color: var(--dark);
+	text-decoration: underline;
+}
+.logos a {
+	padding: 10px;
+}
+.logo {
+	color: var(--dark);
+}
+/* FOOTER */
+footer {
+	padding: 20px;
+	text-align: center;
+	color: var(--dark);
+	margin: 10px;
+}
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+	header {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas: "nt nt nt . . . sb . . . " "mn mn mn mn mn mn mn mn mn mn";
+   }
+	.box {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(4, minmax(100px, 1fr));
+   }
+}
+@media (max-width: 700px) {
+	header {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas: "nt nt nt . . . sb . . . " "mn mn mn mn mn mn mn mn mn mn";
+   }
+	.box {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(3, minmax(100px, 1fr));
+   }
+	.sub-links ul {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(3, 1fr);
+   }
+}
+@media (max-width: 500px) {
+	.wrapper {
+		font-size: 15px;
+   }
+   .placeholderNavbar{
+	   display: none;
+   }
+	header {
+		margin: 0;
+		padding: 20px 0 0 0;
+		position: static;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-areas: "nt" "mn" "sb";
+		text-align: center;
+   }
+	.netflixLogo {
+		max-width: 100%;
+		margin: auto;
+		padding-right: 20px;
+   }
+	.main-nav {
+		display: grid;
+		grid-gap: 0px;
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+		display:none;
+   }
+	h1 {
+		text-align: center;
+		font-size: 18px;
+   }
+	.box {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+   }
+	.box a:hover {
+		transition: transform 0.3s;
+		-ms-transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
+   }
+	.logos {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+		text-align: center;
+   }
+	.sub-links ul {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+		font-size: 15px;
+   }
+   
+}
+
+

@@ -1,0 +1,208 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>QM-flix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+    crossorigin="anonymous"></script>
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- production version, optimized for size and speed -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet" type="text/css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import Tailwind CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+  <div id="vm-flix">
+    <div class="wrapper">
+      <h1 class="placeholderNavbar">&nbsp;</h1>
+      <div class="loading" id="loader">
+        <div class="indeterminate">
+        </div>
+      </div>
+    </div>
+    <!--h1 v-bind:class="{red:true}">{{ name }}</h1>
+       <a v-bind:href="website">Visual Meta</a>
+       <p v-html="dynamicAtag"></p-->
+    <!-- HEADER -->
+    <header>
+      <div class="netflixLogo">
+        <a id="logo" href="#home" class="railway">
+          <h3>QMFLIX</h3>
+        </a>
+      </div>
+      <!--div class="netflixLogo">
+          <a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
+          </div-->
+      <nav class="main-nav z-20">
+        <a v-for="link in navbar" :href="link.url" target="_blank">
+          {{ link.text }}
+        </a>
+      </nav>
+      <nav class="sub-nav z-20">
+        <div class="search">
+          <button v-on:click="toogleSearch()" type="submit" class="searchMagnifer"><i class="fa fa-search"></i></button>
+          <input class="input" id="searchbar" v-model="search" v-on:focusin="onSearchEnter()" v-on:focusout="onSearchLeave()" type="text"
+            placeholder="Titles, people, genres">
+        </div>
+        <!--i class="fas fa-search sub-nav-logo"></i-->
+        <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+        <a href="#">Account</a>
+      </nav>
+    </header>
+    <!-- END OF HEADER -->
+    <!--Featured -->
+    <div v-if="showContent" class="featured dropshadow" v-if="featuredMovie.title" v-bind:style="featuredMovie.styleObject">
+      <h2>{{featuredMovie.title}}</h2>
+      <div class="featured__buttons">
+        <button v-on:click="playMovie()" class="button__play"><i class="fas fa-play"></i> Play</button>
+        <button>+ My List</button>
+      </div>
+      <div class="featured__description">
+        {{featuredMovie.description}}
+      </div>
+    </div>
+    <!-- MAIN CONTAINER -->
+    <section v-if="showContent" class="main-container">
+      <div v-for="bar in moviebar">
+        <h1 id="home">{{bar.title}}</h1>
+        <div class="box p-0">
+          <a href="#!" v-for="movie in bar.list">
+            <img :src="movie.imageSmall"/>
+            <div v-on:click="modalAction({movie})" class="img__description">
+              <h2 class="t-4 text-xs">{{movie.title}}</h2>
+              <div class="featured__description w-full leading-0">
+                {{movie.description}}
+              </div>
+              <div>
+                <button v-if="movie.movieLink" v-on:click="playMovie(movie.movieLink)" class="px-2 py-1"><i class="fas fa-play"></i> Play</button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <h1 id="movies" v-if="secondFeaturedMovie.title">Blockbuster Action & Adventure</h1>
+      <!--second Featured -->
+      <div class="featured" v-if="secondFeaturedMovie.title" v-bind:style="secondFeaturedMovie.styleObject">
+        <h2>{{secondFeaturedMovie.title}}</h2>
+        <div class="featured__buttons">
+          <button class="button__play"><i class="fas fa-play"></i>Play</button>
+          <button>My List</button>
+        </div>
+        <div class="featured__description">
+          {{secondFeaturedMovie.description}}
+        </div>
+      </div>
+      <div v-if="secondFeaturedMovie.title" class="box">
+        <a href="#" v-for="movie in movies">
+          <img :src="movie.src" />
+        </a>
+      </div>
+      <h1 id="originals">Netflix Originals</h1>
+      <div class="box">
+        <a href="#" v-for="movie in originals">
+          <img :src="movie.src" />
+        </a>
+      </div>
+    </section>
+    <!-- END OF MAIN CONTAINER -->
+    <!-- LINKS -->
+    <section class="link">
+      <div class="logos">
+        <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+      </div>
+      <div class="sub-links">
+        <ul>
+          <li><a href="#">Audio and Subtitles</a></li>
+          <li><a href="#">Audio Description</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Media Center</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Legal Notices</a></li>
+          <li><a href="#">Corporate Information</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- END OF LINKS -->
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy 1997-2020 Netflix, Inc.</p>
+      <p>Crisscrosscrass &copy 2020</p>
+    </footer>
+    <transition name="slide-fade">
+      <div v-if="showModal" class="bg-smoke fixed pin-t pin-l h-full w-full inset-0 z-20 flex items-center justify-center">
+        <!--button v-on:click="showModal = !showModal"
+            class="bg-gray-800 m -4 text-white front-bold px-4 py-4 rounded-full">
+            Close
+          </button-->
+        <div v-bind:style="modalContent.styleObject" style="height: 70%;" class="bg-white rounded  w-full text-black z-30">
+          <div class="modal__container h-full" style="background: linear-gradient(90deg, #000 15%, transparent);">
+            <h1 class="md:text-6sl lg:text-xl">{{modalContent.title}}</h1>
+            <p class="modal__info m-4"><span class="text-green-400">
+              {{modalContent.tags}} </span>{{modalContent.info}}
+              <img :src="modalContent.imageSrc" class="rounded m-4 w-24" alt=""></img>
+            </p>
+            <p class="modal__episode"></p>
+            <p class="md:w-full leading-4 lg:w-1/2">
+              <span style="color: rgba(124, 124, 124, 0.871);" class="md:text-6sl lg:text-6sl">{{modalContent.description}}
+              </span>
+            </p>
+            <button v-on:click="playMovie(modalContent.movieLink)" class="m-4 text-white front-bold px-6 py-2 rounded" style="background-color: rgba(248,6,22,0.870588);"><i class="fas fa-play"></i> Play</button>
+            <button style="text-transform: uppercase; cursor: pointer; background-color: transparent; color: #fff; border: 0.5px solid #7a7a7a; border-radius: 2px;
+            margin-top: 2rem;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            transition: all .2s;">+ My List</button>
+            <button v-on:click="showModal = !showModal"
+            style="text-transform: uppercase; cursor: pointer; background-color: transparent; color: #fff; border: 0.5px solid #7a7a7a; border-radius: 2px;
+            margin-top: 2rem;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            transition: all .2s;">
+            Close
+          </button>
+          </div>
+        </div>
+      </div>
+    </transition>
+    <transition name="bounce">
+    <div v-if="showSearch" class="bg-smoke absolute pin-t pin-l h-full w-full inset-0">
+      <div v-bind:style="searchContent.styleObject" class="bg-black rounded text-white">
+        <h1></h1>
+        <div class="mt-10 flex flex-wrap items-center justify-center">
+          <div v-on:click="modalAction({movie})" v-for="movie in filteredList" class="w-1/6 bg-black h-1/3 m-4 justify-center">
+            <img :src="movie.imageSmall"/>
+            <h2 class="">{{movie.title}}</h2>
+          </div>
+        </div>
+        <button v-on:click="showSearch = false, showContent = true"
+          class="bg-gray-800 m-4 text-white front-bold px-4 py-4 rounded-full">
+          Close
+        </button>
+      </div>
+    </div>
+    </transition>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
