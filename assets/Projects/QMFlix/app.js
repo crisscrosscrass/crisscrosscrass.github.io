@@ -1,3 +1,22 @@
+//TODOS:
+/*
+qmflix adjustments
+
+-main Header
+ height: 56.25vw;
+ position: absolute;
+
+- navbar bg-transparent to black by scroll
+
+- remove navbar placeholder
+
+- add placeholder for mainHeader background to align the cards afterwards or add something like:
+padding: 50px 100px;
+position: relative;
+top: 52vw
+
+*/
+
 /*
 new Vue({
   el: "#vue-app",
@@ -41,6 +60,7 @@ class Movie{
 var qmflix = new Vue({
     el: "#vm-flix",
     data: {
+      showVideo: false,
       showSearch: false,
       search: '',
       searchContent:{
@@ -70,10 +90,15 @@ var qmflix = new Vue({
       available: false,
       nearby: false,
       featuredMovie: {
-        title: 'The girl next door',
+        title: 'The text next door',
         description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea...',
         styleObject: {
-          backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+          //backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+          //backgroundImage: `url('https://ilarge.lisimg.com/image/15656670/1118full-sophie-mudd.jpg')`,
+          //backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg")`,
+          // backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+          backgroundImage: `url('https://image.tmdb.org/t/p/original//8veOfB9RbSzFki0Rq3IQIGsFfhC.jpg')`,
+          // backgroundImage: `url('https://zoomgirls.net/download/sammy-brady-2-1920x1080.jpg')`,
           backgroundPosition: 'top',
         },
         /* sample URLs
@@ -94,32 +119,35 @@ var qmflix = new Vue({
         videoSrc: '',
       },
       navbar: [
-        { text: 'Home', url :'#' },
-        { text: 'TV Shows', url :'#' },
-        { text: 'Movies', url :'#' },
         { text: 'Originals', url :'#' },
+        { text: 'Clips', url :'#' },
         { text: 'Recently Added', url :'#' },
-        { text: 'Portfolio', url :'https://crisscrosscrass.github.io/' },
       ],
       // title imageSmall imageBig backgroundPosition(top,center,bottom,etc) backgroundSize(cover,80%,etc) tags description movie-link
       moviebar:[
         {
-          title: "Popular on Netflix",
+          title: "Recently added",
           list: [
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p1.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p2.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p3.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p4.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p5.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p6.PNG?raw=true"),
-            new Movie("13 Reasons Why","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p7.PNG?raw=true","https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg","center","cover","Reasons,Drama","After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.","https://www.youtube.com/watch?v=0XuOkYlUWIs"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p8.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p9.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p10.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p11.PNG?raw=true"),
-            new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true"),
+            new Movie("Avengers","https://wallpaperaccess.com/full/329583.jpg"),
+            new Movie("Venom","https://images3.alphacoders.com/948/thumb-1920-948864.jpg"),
+            new Movie("Stranger Things","https://wallpaperaccess.com/full/1087400.jpg"),
+            new Movie("Guardians of the Galaxy","https://wallpaperaccess.com/full/267457.jpg"),
+            new Movie("Pacific Rim","https://wallpapercave.com/wp/wp3212737.jpg"),
+            new Movie("13 Reasons Why","https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg","https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg","center","cover","Reasons,Drama","After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.","https://www.youtube.com/watch?v=0XuOkYlUWIs"),
           ]
         },
+        {
+          title: "Originals",
+          list: [
+            new Movie("Avengers","https://wallpaperaccess.com/full/329583.jpg"),
+            new Movie("Venom","https://images3.alphacoders.com/948/thumb-1920-948864.jpg"),
+            new Movie("Stranger Things","https://wallpaperaccess.com/full/1087400.jpg"),
+            new Movie("Guardians of the Galaxy","https://wallpaperaccess.com/full/267457.jpg"),
+            new Movie("Pacific Rim","https://wallpapercave.com/wp/wp3212737.jpg"),
+            new Movie("13 Reasons Why","https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg","https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg","center","cover","Reasons,Drama","After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.","https://www.youtube.com/watch?v=0XuOkYlUWIs"),
+          ]
+        },
+        /*
         {
           title: "BIG on Netflix",
           list: [
@@ -176,6 +204,7 @@ var qmflix = new Vue({
             new Movie("","https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv12.PNG?raw=true"),
           ],
         },
+        */
       ],
       movies: [
         {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
@@ -222,7 +251,8 @@ var qmflix = new Vue({
       },
       playMovie: function (url) {
         // `this` inside methods points to the Vue instance
-        window.open(`${url}`, '_blank');
+        // window.open(`${url}`, '_blank');
+        console.log(url);
       },
       modalAction: function (data) {
         // `this` inside methods points to the Vue instance
@@ -265,6 +295,11 @@ var qmflix = new Vue({
         },
         
         this.showModal = true;
+      },
+      videoAction: function (data) {
+        console.log(data);
+        this.showVideo = true;
+        this.showContent = false;
       },
     },
     computed:{
