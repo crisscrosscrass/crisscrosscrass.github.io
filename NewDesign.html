@@ -36,7 +36,7 @@
     <nav class="header init">
         <p class="font-thin">CrissCrossCrass</p>
         <p class="font-bold"><a class="hover-border" href="#about" onclick="scrollToClass('myAbout')">About</a></p>
-        <p class="font-bold"><a class="hover-border" href="#skills" onclick="scrollToClass('mySkill')">Skills</a></p>
+        <p class="font-bold"><a class="hover-border" href="#skills" onclick="scrollToClass('mySkills')">Skills</a></p>
         <p class="font-bold"><a class="hover-border" href="#projects" onclick="scrollToClass('myProjects')">Projects</a></p>
         <p class="font-bold"><a class="hover-border" href="#contatc" onclick="scrollToClass('myContact')">Contact</a></p>
     </nav>
@@ -76,7 +76,7 @@
         </div>
     </section>
     <section class="skills bg-primary">
-        <h2 class="text-right headline mySkill">Skills</h2>
+        <h2 class="text-right headline mySkills">S</h2>
         <div class="center-container">
             <div class="container">
                 <div class="split p-2 text-center">
@@ -98,7 +98,7 @@
     </section>
     <section class="projects bg-primary">
         <div>
-            <h2 class="text-right headline myProjects">Projects</h2>
+            <h2 class="text-right headline myProjects">P</h2>
             <div class="center-container">
                 <div class="container">
                     <div class="flex-wrap">
@@ -130,7 +130,7 @@
     </section>
     <section class="contact bg-primary">
         <div>
-            <h2 class="text-right headline myContact">Contact</h2>
+            <h2 class="text-right headline myContact">C</h2>
             <div class="center-container">
                 <div class="container">
                     <div class="flex-row">
@@ -204,7 +204,27 @@
             window.scrollTo(0, targetPosition.top - elHeight/2);
         }
 
+        function onVisible(element, callback){
+            new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry =>{
+                    if(entry.intersectionRatio > 0){
+                        callback(element);
+                        observer.disconnect();
+                    }
+                });
+            }).observe(element);
+        }
+
         // Typing Animations
+        function typingTextHeader(className, arrayStrings){
+            return new Typed(className, {
+            strings: arrayStrings,
+            typeSpeed: 400,
+            showCursor: false,
+        });
+        }
+
+
         var typedName = new Typed('.myName', {
             // Waits 1000ms after typing "First"
             strings: ["", "^500 I'm Chris."],
@@ -218,11 +238,21 @@
             typeSpeed: 20,
             showCursor: false
         });
-        var typedAbout = new Typed('.myAbout', {
-            strings: ['A', 'ABOUT'],
-            typeSpeed: 400,
-            showCursor: false,
-        });
+        var typedAbout = typingTextHeader('.myAbout', ['A', 'About']);
+        typedAbout.stop();
+        onVisible(document.querySelector('.myAbout'), () => typedAbout.start());
+
+        var typedSkills = typingTextHeader('.mySkills', ['S', 'Skills']);
+        typedSkills.stop();
+        onVisible(document.querySelector('.mySkills'), () => typedSkills.start());
+
+        var typedProjects = typingTextHeader('.myProjects', ['P', 'Projects']);
+        typedProjects.stop();
+        onVisible(document.querySelector('.myProjects'), () => typedProjects.start());
+
+        var typedContact = typingTextHeader('.myContact', ['C', 'Contact']);
+        typedContact.stop();
+        onVisible(document.querySelector('.myContact'), () => typedContact.start());
 
 
         // Menu interface
