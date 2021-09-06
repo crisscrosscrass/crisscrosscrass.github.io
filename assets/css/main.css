@@ -45,6 +45,11 @@ h1,h2,h3{
     line-height: 1;
 }
 
+
+h2{
+    margin-top: 0.4em;
+}
+
 h2,h3,p{
     margin-bottom: 1em;
 }
@@ -54,7 +59,7 @@ img{
     max-width: 100%;
 }
 
-header,section{
+header,section,footer{
     padding: 1rem;
 }
 section{
@@ -63,7 +68,7 @@ section{
 }
 
 @media (min-width: 40em){
-    header,section{
+    header,section,footer{
         padding: 1rem;
     }
 }
@@ -87,6 +92,21 @@ nav a{
     width: 100%;
     transform: translateY(0);
     transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+    z-index: 1;
+}
+
+.footer{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin-top: 2em;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+   
     z-index: 1;
 }
 
@@ -344,6 +364,7 @@ h1,h2,h3{
     
     box-shadow: 0 0 0 0 rgb(255, 255, 255);
 	/* animation: pulse 2s infinite; */
+    
     animation: pulse 2s 1;
   }
 
@@ -512,6 +533,59 @@ h1,h2,h3{
     position: relative;
     text-decoration: none;
     margin: 0.1em;
+    color: #fff;
+  }
+  
+  .hover-border2:before,
+  .hover-border2:after{
+    position: absolute;
+    content: "";
+    transition: all .25s;
+  }
+  
+  .hover-border2:before{
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    width: 10%;
+    height: 10%;
+    left: 0px;
+    bottom: 0px;
+  }
+  
+  .hover-border2:after{
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    width: 10%;
+    height: 10%;
+    top: 0px;
+    right: 0px;
+  }
+  
+  .hover-border2:hover:before{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .3);
+  }
+  
+  .hover-border2:hover:after{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .3);
+    font-size: 1em;
+  }
+  .hover-border2 a{
+      color: white;
+  }
+
+  .hover-border2{
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    margin: 0.3em;
     color: #fff;
   }
   

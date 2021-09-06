@@ -97,23 +97,23 @@
             <div class="center-container">
                 <div class="container">
                     <div class="flex-wrap">
-                        <div class="custom-border text-center project-container" onclick="openModal()">
+                        <div class="text-center project-container hover-border2" onclick="openModal()">
                             <p>Project A</p>
                             <p>SomeName</p>
                         </div>
-                        <div class="custom-border text-center project-container" onclick="openModal()">
+                        <div class="text-center project-container hover-border2" onclick="openModal()">
                             <p>Project A</p>
                             <p>SomeName</p>
                         </div>
-                        <div class="custom-border text-center project-container" onclick="openModal()">
+                        <div class="text-center project-container hover-border2" onclick="openModal()">
                             <p>Project A</p>
                             <p>SomeName</p>
                         </div>
-                        <div class="custom-border text-center project-container" onclick="openModal()">
+                        <div class="text-center project-container hover-border2" onclick="openModal()">
                             <p>Project A</p>
                             <p>SomeName</p>
                         </div>
-                        <div class="custom-border text-center project-container" onclick="openModal()">
+                        <div class="text-center project-container hover-border2" onclick="openModal()">
                             <p>Project A</p>
                             <p>SomeName</p>
                         </div>
@@ -170,8 +170,8 @@
           </div>
     </section>
     <footer>
-        <p class="text-center">CrissCrossCrass &copy 2021</p>
-      </footer>
+        <p class="footer"><span>CrissCrossCrass &copy 2021</span></p>
+    </footer>
     <script>
         const header = document.querySelector(".header");
         const sectionOne = document.querySelector(".home");
@@ -194,8 +194,8 @@
         headerObserver.observe(sectionOne);
 
         if (document.querySelector(".header").classList.contains('init')){
-            setTimeout(function() { document.querySelector(".header").classList.remove('init'); }, 500);
-            setTimeout(function() { document.querySelector("#triangle-down").classList.remove('init'); }, 500);
+            setTimeout(function() { document.querySelector(".header").classList.remove('init'); }, 2000);
+            setTimeout(function() { document.querySelector("#triangle-down").classList.remove('init'); }, 2000);
         }
 
         function openModal(){

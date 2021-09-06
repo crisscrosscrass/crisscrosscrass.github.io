@@ -45,6 +45,7 @@ console.log(adressObj);
 
 
 //** Nex Try with some functional approach */
+// https://www.kaeltehilfe-berlin.de/Angebote/Kaeltehilfe_angebot.php
 var angebote = document.querySelector(".angebote");
 angebote = angebote.children;
 let adressObj = {};
@@ -55,6 +56,12 @@ function uniq(a) {
     return a.filter(function(item) {
         return seen.hasOwnProperty(item) ? false : (seen[item] = true);
     });
+}
+
+function removeEmptyElements(a) {
+    return a.filter(function (el) {
+        return el != null && el != "";
+    });  
 }
 
 function docToJsonMain(dataNode){
@@ -70,7 +77,13 @@ function docToJsonMain(dataNode){
             }
         }
         data = uniq(data);
-        json[dataNode[i].attributes.class.value] = data;
+        data = removeEmptyElements(data);
+        if(data.length == 1){
+            json[dataNode[i].attributes.class.value] = data[0];
+        }else{
+            json[dataNode[i].attributes.class.value] = data;
+        }
+        
     }
     return json;
 }
@@ -90,8 +103,19 @@ function docToJsonDetails(dataNode){
                     data.push(dataNode[i].children[j].textContent);
                 }
             }
+            // remove first element
             data = uniq(data);
-            json[data[0]] = {data};
+            let subnodeName = data[0];
+            let modifiedData = [...data];
+            modifiedData.shift();
+            modifiedData = removeEmptyElements(modifiedData);
+            // remove first element because of header
+            json[subnodeName] = modifiedData;
+            if(modifiedData.length == 1){
+                json[subnodeName] = modifiedData[0];
+            }else{
+                json[subnodeName] = modifiedData;
+            }
         }
     }
     return json;
