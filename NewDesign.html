@@ -234,22 +234,25 @@
         var typedIntro = new Typed('.myText', {
             // Waits 1000ms after typing "First"
             strings: ["", "^2500 A passionate father &amp; sefl-taught developer from Berlin."],
-            typeSpeed: 20,
+            typeSpeed: 5,
+            backSpeed: 2,
+            backDelay: 500,
+            smartBackspace: true,
             showCursor: false
         });
-        var typedAbout = typingTextHeader('.myAbout', ['A', 'About']);
+        var typedAbout = typingTextHeader('.myAbout', ['A', 'A____','About']);
         typedAbout.stop();
         onVisible(document.querySelector('.myAbout'), () => typedAbout.start());
 
-        var typedSkills = typingTextHeader('.mySkills', ['S', 'Skills']);
+        var typedSkills = typingTextHeader('.mySkills', ['S', 'S_____', 'Skills']);
         typedSkills.stop();
         onVisible(document.querySelector('.mySkills'), () => typedSkills.start());
 
-        var typedProjects = typingTextHeader('.myProjects', ['P', 'Projects']);
+        var typedProjects = typingTextHeader('.myProjects', ['P', 'P_______', 'Projects']);
         typedProjects.stop();
         onVisible(document.querySelector('.myProjects'), () => typedProjects.start());
 
-        var typedContact = typingTextHeader('.myContact', ['C', 'Contact']);
+        var typedContact = typingTextHeader('.myContact', ['C', 'C______', 'Contact']);
         typedContact.stop();
         onVisible(document.querySelector('.myContact'), () => typedContact.start());
 
