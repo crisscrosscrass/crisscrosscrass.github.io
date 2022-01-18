@@ -108,6 +108,7 @@ javascript: (function () {
     createDropDownMenu("VOIS", "#", VOISSectionDropDownLinks);
     /* TOOLS */
     ToolsSectionDropDownLinks = [
+      ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
       ["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
       ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
@@ -154,27 +155,11 @@ javascript: (function () {
     );
     /* Personal Section */
     PersonalSectionDropDownLinks = [
-      ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
+      ["VOIS CRM", "https://www.vois-crm.de/default/login"],
+      ["internes JIRA (Ticketsystem)", "https://vm-jira.hsh-berlin.com/"],
       [
-        "VOIS Online",
-        "https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/",
-      ],
-      [
-        "OKR Dashboard S2",
-        "https://docs.google.com/spreadsheets/d/1AX1JXXmsUczz25wzLi89QhX4w2Dx-RTtMIQVz1iOcKs/",
-      ],
-      [
-        "OKR Dashboard S3",
-        "https://docs.google.com/spreadsheets/d/1ot3-vkjjjinf6scpEHq8r6-SNtajmz8M6uuuxVLLqEY/",
-      ],
-      ["Personio", "https://visualmeta.personio.de/login/index"],
-      [
-        "Mobile Working Calendar",
-        "https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126620914/Mobile+Working+-+Calendar/",
-      ],
-      [
-        "All Hands Presentations",
-        "https://visualmeta.atlassian.net/wiki/spaces/VM/pages/126716164/All+Hands+Presentations/",
+        "externes JIRA (Ticketsystem)",
+        "https://ticketsystem.hsh-berlin.com/login.jsp",
       ],
     ];
     createDropDownMenu(
