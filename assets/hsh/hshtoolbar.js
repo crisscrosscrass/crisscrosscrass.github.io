@@ -43,6 +43,10 @@ javascript: (function () {
         "https://confluence.hsh-berlin.com/display/HSH/HSH+-+Raumbelegung",
       ],
       [
+        "Telefonliste",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
         "Entwicklung",
         "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=48565690",
       ],
@@ -86,6 +90,12 @@ javascript: (function () {
         "VOIS - HUX",
         "https://doku.vois.org/vois/docs/hux/21.20/6/docs/api/index.html",
       ],
+      ["VOIS - Nexus", "https://repo.vois.org/"],
+      ["VOIS - Schulung", "https://schulung.vois.org/"],
+      [
+        "VOIS - Einrichten FV",
+        "https://confluence.hsh-berlin.com/display/THM/VOIS+einrichten",
+      ],
       [
         "Fachverfahren src - Meldewesen",
         "https://svn.hsh-berlin.com/vois/hsh-meldewesen/hsh-meldewesen/release/",
@@ -94,36 +104,35 @@ javascript: (function () {
         "Fachverfahren src - Personaldokumente",
         "https://svn.hsh-berlin.com/vois/hsh-personaldokumente/hsh-personaldokumente/release/",
       ],
-      ["VOIS - Schulung", "https://schulung.vois.org/my/"],
-      [
-        "VOIS - Einrichten FV",
-        "https://confluence.hsh-berlin.com/display/THM/VOIS+einrichten",
-      ],
     ];
     createDropDownMenu("VOIS", "#", VOISSectionDropDownLinks);
     /* Tagger */
-    TaggerSectionDropDownLinks = [
-      ["Tagger - DE", "https://tagger.ladenzeile.de/"],
-      ["Tagger - AT", "https://tagger.ladenzeile.at/"],
-      ["Tagger - NL", "https://tagger.shopalike.nl/"],
-      ["Tagger - FR", "https://tagger.shopalike.fr/"],
-      ["Tagger - IT", "https://tagger.shopalike.it/"],
-      ["Tagger - ES", "https://tagger.shopalike.es/"],
-      ["Tagger - PL", "https://tagger.shopalike.pl/"],
-      ["Tagger - HU", "https://tagger.shopalike.hu/"],
-      ["Tagger - SK", "https://tagger.shopalike.sk/"],
-      ["Tagger - CZ", "https://tagger.shopalike.cz/"],
-      ["Tagger - FI", "https://tagger.shopalike.fi/"],
-      ["Tagger - DK", "https://tagger.shopalike.dk/"],
-      ["Tagger - SE", "https://tagger.shopalike.se/"],
+    ToolsSectionDropDownLinks = [
+      ["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
+      ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
+      ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
+      ["Fisheye", "https://fisheye.hsh-berlin.com/"],
+      ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
     ];
-    createDropDownMenu("Tools", "#", TaggerSectionDropDownLinks);
+    createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
     /* Tools Section */
     AspSectionDropDownLinks = [
-      ["Ralf Reich - Rechtsfragen", ""],
-      ["Markus Hempel - Rechtsfragen", ""],
-      ["André Linkowitsch - HUX Plattform", ""],
-      ["Chris Hengl - HUX Plattform", ""],
+      [
+        "Markus Hempel - Rechtsfragen",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Ralf Reich - Rechtsfragen",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "André Linkowitsch - HUX Plattform",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Chris Hengl - HUX Plattform",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
     ];
     createDropDownMenu(
       "Wichtige Ansprechpartner",
@@ -132,7 +141,7 @@ javascript: (function () {
     );
     /* Personal Section */
     PersonalSectionDropDownLinks = [
-      ["Chat - Google", "https://chat.google.com/"],
+      ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
       [
         "OKR Dashboard S1",
         "https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/",
