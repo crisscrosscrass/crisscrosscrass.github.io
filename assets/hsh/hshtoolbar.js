@@ -73,7 +73,7 @@ javascript: (function () {
       ],
     ];
     createDropDownMenu("HSH", "#", HSHSectionDropDownLinks);
-    /* TOOLS */
+    /* VOIS */
     VOISSectionDropDownLinks = [
       ["VOIS - BASE", "https://docs.vois.org/org.vois.docs/latest/index.html"],
       ["VOIS - SOURCE", "https://src.vois.org/"],
@@ -106,16 +106,17 @@ javascript: (function () {
       ],
     ];
     createDropDownMenu("VOIS", "#", VOISSectionDropDownLinks);
-    /* Tagger */
+    /* TOOLS */
     ToolsSectionDropDownLinks = [
       ["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
       ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
+      ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/"],
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
-    /* Tools Section */
+    /* ASP Section */
     AspSectionDropDownLinks = [
       [
         "Markus Hempel - Rechtsfragen",
@@ -139,11 +140,23 @@ javascript: (function () {
       "#",
       AspSectionDropDownLinks
     );
+    /* VOIS Online */
+    VoisOnlineSectionDropDownLinks = [
+      ["Meldewesen", "https://online.vois.org/meldewesen/"],
+      ["Vois Online", "https://online.vois.org/voisonline/"],
+      ["Angelkarte", "https://online.vois.org/angelkarte/"],
+      ["Gewerbe", "https://online.vois.org/gewerbe/"],
+    ];
+    createDropDownMenu(
+      "VOIS-Online",
+      "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=77177159",
+      VoisOnlineSectionDropDownLinks
+    );
     /* Personal Section */
     PersonalSectionDropDownLinks = [
       ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
       [
-        "OKR Dashboard S1",
+        "VOIS Online",
         "https://docs.google.com/spreadsheets/d/15wm5bPh2IgA1pqIrR6yLPOMYoUdjFS9NlvaemI8ipWM/",
       ],
       [
@@ -169,95 +182,6 @@ javascript: (function () {
       "https://www.google.com/",
       PersonalSectionDropDownLinks
     );
-    /* create Ticket Section */
-    function createTicket() {
-      console.log("Create a Ticket for... ");
-      // customfield_10807=13816 TEAM
-      var Jira = "";
-      if (document.getElementById("selectedTeamForBug").value != "-1") {
-        // console.log("you selected Bug!");
-        var selectedTeam = document.getElementById("selectedTeamForBug").value;
-        Jira =
-          "https://visualmeta.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=11000&issuetype=1&summary=Problem Summary&description=*Problem Statement*%0A|WHERE do you see the problem?|%0A|WHAT is exactly wrong?|%0A|WHO is affected?|%0A%0A*Reproduce*%0A|HOW did the problem occur?|%0A|HOW can we see it?|%0A%0A*Expected Outcome*%0A|WHY is that wrong?|%0A|WHAT is the correct one?|%0A%0A*Hints*&customfield_10807=" +
-          selectedTeam;
-      }
-      if (document.getElementById("selectedTeamForStory").value != "-1") {
-        // console.log("you selected Story!");
-        var selectedTeam = document.getElementById(
-          "selectedTeamForStory"
-        ).value;
-        Jira =
-          "https://visualmeta.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=11000&issuetype=10001&summary=Feature Summary&description=h6. User Story%0AThis is a sentence which describes the type of user the story refers to, what the this user wants to achieve through the story and why the story is is important to him. It is usually expressed in the following format:%0A%22As a <<user type/persona>>, I want to be able to <<scope of the story>> because <<business value>>%22%0AExample: As a developer, I want to be able to edit/delete clickouts through a UI in the BO because it will help me saving considerable time every week on this task.%0A%0Ah6. Acceptance criteria%0AList of items that should be implemented%0ATestable criteria are marked with (x) for QA approval in testing.%0A%0Ah6. Testing scenario%0AStep to step guide to validate change.%0A%0Ah6. Hints (if applicable)%0AList all technical hints, comments etc.&customfield_10807=" +
-          selectedTeam;
-      }
-      window.open(Jira);
-      // console.log(document.getElementById("selectedTeamForBug").options[document.getElementById("selectedTeamForBug").selectedIndex].text);
-      // console.log(document.getElementById("selectedTeamForBug").value);
-      document.getElementById("selectedTeamForBug").value = "-1";
-      document.getElementById("selectedTeamForStory").value = "-1";
-    }
-    AllDevTeams = [
-      ["None", "-1"],
-      ["Sharks", "13816"],
-      ["Rabbits", "14701"],
-      ["Lobster", "10651"],
-      ["Swift Foxes", "10636"],
-      ["Goldfish", "14734"],
-      ["Orcas", "10638"],
-      ["Elephants", "10635"],
-      ["Crocodiles", "10634"],
-      ["Meerkats", "14736"],
-      ["Bees", "10637"],
-      ["Camels", "14804"],
-      ["Raptors", "14837"],
-      ["Design", "14866"],
-    ];
-    listItem = document.createElement("li");
-    listItem.setAttribute("class", "dropdown");
-    aLink = document.createElement("a");
-    aLink.setAttribute("href", "#");
-    aLink.setAttribute("class", "dropbtn");
-    aLink.innerHTML = "&#9850;Ticket";
-    listItem.appendChild(aLink);
-    aDiv = document.createElement("div");
-    aDiv.setAttribute("class", "dropdown-content");
-    aDropDownLink = document.createElement("a");
-    aDropDownLink.setAttribute(
-      "href",
-      "https://visualmeta.atlassian.net/wiki/spaces/DEV/pages/1398047321/Bug+Reporting+You"
-    );
-    aDropDownLink.innerHTML = "<strong>Bug Reporting & You &#9873;</strong>";
-    aDiv.appendChild(aDropDownLink);
-    aDropDownLink = document.createElement("a");
-    aDropDownLink.setAttribute("href", "#");
-    aDropDownLink.innerHTML = "create Bug";
-    aSelection = document.createElement("select");
-    aSelection.setAttribute("id", "selectedTeamForBug");
-    aSelection.addEventListener("change", createTicket, false);
-    for (var i = 0; i < AllDevTeams.length; i++) {
-      aOption = document.createElement("option");
-      aOption.innerHTML = AllDevTeams[i][0];
-      aOption.setAttribute("value", AllDevTeams[i][1]);
-      aSelection.appendChild(aOption);
-    }
-    aDropDownLink.appendChild(aSelection);
-    aDiv.appendChild(aDropDownLink);
-    aDropDownLink = document.createElement("a");
-    aDropDownLink.setAttribute("href", "#");
-    aDropDownLink.innerHTML = "create Story";
-    aSelection = document.createElement("select");
-    aSelection.setAttribute("id", "selectedTeamForStory");
-    aSelection.addEventListener("change", createTicket, false);
-    for (var i = 0; i < AllDevTeams.length; i++) {
-      aOption = document.createElement("option");
-      aOption.innerHTML = AllDevTeams[i][0];
-      aOption.setAttribute("value", AllDevTeams[i][1]);
-      aSelection.appendChild(aOption);
-    }
-    aDropDownLink.appendChild(aSelection);
-    aDiv.appendChild(aDropDownLink);
-    listItem.appendChild(aDiv);
-    unorderList.appendChild(listItem);
     /* Close Section */
     listItem = document.createElement("li");
     listItem.setAttribute("class", "dropdown");
