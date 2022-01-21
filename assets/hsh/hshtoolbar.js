@@ -96,16 +96,8 @@ javascript: (function () {
         "VOIS - Einrichten FV",
         "https://confluence.hsh-berlin.com/display/THM/VOIS+einrichten",
       ],
-      [
-        "Fachverfahren src - Meldewesen",
-        "https://svn.hsh-berlin.com/vois/hsh-meldewesen/hsh-meldewesen/release/",
-      ],
-      [
-        "Fachverfahren src - Personaldokumente",
-        "https://svn.hsh-berlin.com/vois/hsh-personaldokumente/hsh-personaldokumente/release/",
-      ],
     ];
-    createDropDownMenu("VOIS", "#", VOISSectionDropDownLinks);
+    createDropDownMenu("VOIS - DOCS", "#", VOISSectionDropDownLinks);
     /* TOOLS */
     ToolsSectionDropDownLinks = [
       ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
@@ -160,6 +152,14 @@ javascript: (function () {
       [
         "externes JIRA (Ticketsystem)",
         "https://ticketsystem.hsh-berlin.com/login.jsp",
+      ],
+      [
+        "Fachverfahren src - Meldewesen",
+        "https://svn.hsh-berlin.com/vois/hsh-meldewesen/hsh-meldewesen/release/",
+      ],
+      [
+        "Fachverfahren src - Personaldokumente",
+        "https://svn.hsh-berlin.com/vois/hsh-personaldokumente/hsh-personaldokumente/release/",
       ],
     ];
     createDropDownMenu(
