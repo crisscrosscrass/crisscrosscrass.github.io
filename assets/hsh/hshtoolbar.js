@@ -133,7 +133,7 @@ javascript: (function () {
       "#",
       AspSectionDropDownLinks
     );
-    /* VOIS Online */
+    /* VOIS Online Section */
     VoisOnlineSectionDropDownLinks = [
       ["Meldewesen", "https://online.vois.org/meldewesen/"],
       ["Vois Online", "https://online.vois.org/voisonline/"],
