@@ -114,7 +114,7 @@ javascript: (function () {
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
-      ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/"],
+      ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/user"],
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
     /* ASP Section */
