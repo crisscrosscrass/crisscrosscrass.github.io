@@ -51,8 +51,12 @@ javascript: (function () {
         "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=48565690",
       ],
       [
-        "Wochenplan",
+        "Wochenplan - FV",
         "https://confluence.hsh-berlin.com/display/BER/Wochenplan+FV-Entwickler+-+Anwesenheit",
+      ],
+      [
+        "Wochenplan - Plattform",
+        "https://confluence.hsh-berlin.com/display/BER/Anwesenheit+Plattform+Entwicklung",
       ],
       [
         "Abkürzungen und Begriffserklärungen",
