@@ -1,5 +1,5 @@
-javascript: ((options) => {
-  console.log(options);
+javascript: (() => {
+  console.log(window.location.href);
   if (!document.getElementById("ToolbarID")) {
     function createDropDownMenu(
       dropdownTitle,
