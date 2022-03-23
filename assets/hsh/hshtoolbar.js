@@ -1,4 +1,6 @@
 javascript: (() => {
+  console.log("location: ", location.href);
+
   let url_string = window.location.href;
   let url = new URL(url_string);
   var a = url.searchParams.get("a");
