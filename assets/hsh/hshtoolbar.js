@@ -1,5 +1,6 @@
 javascript: (() => {
   console.log("location: ", location.href);
+  console.log("get this", this);
 
   let url_string = window.location.href;
   let url = new URL(url_string);
