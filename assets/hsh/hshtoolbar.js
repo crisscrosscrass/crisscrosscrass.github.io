@@ -1,8 +1,9 @@
 javascript: (() => {
-  console.log("location: ", location.href);
-  console.log("get this", this);
+  var scripts = document.getElementsByTagName("script"),
+    currentScriptSrc = scripts[scripts.length - 1].src;
+  console.log("location of js file: ", currentScriptSrc);
 
-  let url_string = window.location.href;
+  let url_string = currentScriptSrc;
   let url = new URL(url_string);
   var a = url.searchParams.get("a");
 
