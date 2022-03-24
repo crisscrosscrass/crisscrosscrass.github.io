@@ -43,8 +43,17 @@ new Vue({
 });
 */
 
-class Movie{
-  constructor(title="",imageSmall="",imageBig="",imagePosition="",imageSize="",tags="",description="",movieLink=""){
+class Movie {
+  constructor(
+    title = "",
+    imageSmall = "",
+    imageBig = "",
+    imagePosition = "",
+    imageSize = "",
+    tags = "",
+    description = "",
+    movieLink = ""
+  ) {
     this.title = title;
     this.imageSmall = imageSmall;
     this.imageSize = imageSize;
@@ -58,96 +67,143 @@ class Movie{
 }
 
 var qmflix = new Vue({
-    el: "#vm-flix",
-    data: {
-      showVideo: false,
-      showSearch: false,
-      search: '',
-      searchContent:{
-        styleObject: {
-          // backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
-          // backgroundPosition: 'center',
-        },
+  el: "#vm-flix",
+  data: {
+    showVideo: false,
+    showSearch: false,
+    search: "",
+    searchContent: {
+      styleObject: {
+        // backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+        // backgroundPosition: 'center',
       },
-      showModal: false,
-      movie: new Movie("","https://images3.alphacoders.com/948/thumb-1920-948864.jpg"),
-      modalContent:{
-        title: "",
-        imageSrc: "",
-        tags: "",
-        info: "",
-        description: "",
-        movieLink: "",
-        styleObject: {
-          backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
-          backgroundPosition: 'top',
-        },
+    },
+    showModal: false,
+    movie: new Movie(
+      "",
+      "https://images3.alphacoders.com/948/thumb-1920-948864.jpg"
+    ),
+    modalContent: {
+      title: "",
+      imageSrc: "",
+      tags: "",
+      info: "",
+      description: "",
+      movieLink: "",
+      styleObject: {
+        backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+        backgroundPosition: "top",
       },
-      showContent: true,
-      name: "$User",
-      website: "www.google.de",
-      dynamicAtag: '<a href="www.google.de">dynmaic Link</a>',
-      available: false,
-      nearby: false,
-      featuredMovie: {
-        title: 'The text next door',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea...',
-        styleObject: {
-          //backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
-          //backgroundImage: `url('https://ilarge.lisimg.com/image/15656670/1118full-sophie-mudd.jpg')`,
-          //backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg")`,
-          // backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
-          backgroundImage: `url('https://image.tmdb.org/t/p/original//8veOfB9RbSzFki0Rq3IQIGsFfhC.jpg')`,
-          // backgroundImage: `url('https://zoomgirls.net/download/sammy-brady-2-1920x1080.jpg')`,
-          backgroundPosition: 'top',
-        },
-        /* sample URLs
+    },
+    showContent: true,
+    name: "$User",
+    website: "www.google.de",
+    dynamicAtag: '<a href="www.google.de">dynmaic Link</a>',
+    available: false,
+    nearby: false,
+    featuredMovie: {
+      title: "The text next door",
+      description:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea...",
+      styleObject: {
+        //backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+        //backgroundImage: `url('https://ilarge.lisimg.com/image/15656670/1118full-sophie-mudd.jpg')`,
+        //backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg")`,
+        // backgroundImage: `url('https://www.123mobilewallpapers.com/wp-content/uploads/2014/07/jordan_carver_gym_workout.jpg')`,
+        backgroundImage: `url('https://image.tmdb.org/t/p/original//8veOfB9RbSzFki0Rq3IQIGsFfhC.jpg')`,
+        // backgroundImage: `url('https://zoomgirls.net/download/sammy-brady-2-1920x1080.jpg')`,
+        backgroundPosition: "top",
+      },
+      /* sample URLs
         imageUrl: 'https://i.redd.it/ltdlas5w3ad51.jpg',
         imageUrl: 'https://www.tomswallpapers.com/large/201705/100318.jpg',
         imageUrl: 'https://img2.goodfon.com/wallpaper/nbig/c/f4/busty-model-smoke-pose-boobs.jpg',
         imageUrl: 'https://images3.alphacoders.com/948/thumb-1920-948864.jpg',
         */
-        videoSrc: '',
+      videoSrc: "",
+    },
+    secondFeaturedMovie: {
+      title: "Venom",
+      description:
+        "While exploring space for new habitable worlds, a probe belonging to the bio-engineering corporation Life Foundation discovers a comet covered in symbiotic lifeforms...",
+      styleObject: {
+        backgroundImage: `url('https://images3.alphacoders.com/948/thumb-1920-948864.jpg')`,
+        backgroundPosition: "top",
       },
-      secondFeaturedMovie: {
-        title: 'Venom',
-        description: 'While exploring space for new habitable worlds, a probe belonging to the bio-engineering corporation Life Foundation discovers a comet covered in symbiotic lifeforms...',
-        styleObject: {
-          backgroundImage: `url('https://images3.alphacoders.com/948/thumb-1920-948864.jpg')`,
-          backgroundPosition: 'top',
-        },
-        videoSrc: '',
+      videoSrc: "",
+    },
+    navbar: [
+      { text: "Originals", url: "#" },
+      { text: "Clips", url: "#" },
+      { text: "Recently Added", url: "#" },
+    ],
+    // title imageSmall imageBig backgroundPosition(top,center,bottom,etc) backgroundSize(cover,80%,etc) tags description movie-link
+    moviebar: [
+      {
+        title: "Recently added",
+        list: [
+          new Movie("Avengers", "https://wallpaperaccess.com/full/329583.jpg"),
+          new Movie(
+            "Venom",
+            "https://images3.alphacoders.com/948/thumb-1920-948864.jpg"
+          ),
+          new Movie(
+            "Stranger Things",
+            "https://wallpaperaccess.com/full/1087400.jpg"
+          ),
+          new Movie(
+            "Guardians of the Galaxy",
+            "https://wallpaperaccess.com/full/267457.jpg"
+          ),
+          new Movie(
+            "Pacific Rim",
+            "https://wallpapercave.com/wp/wp3212737.jpg"
+          ),
+          new Movie(
+            "13 Reasons Why",
+            "https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg",
+            "https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg",
+            "center",
+            "cover",
+            "Reasons,Drama",
+            "After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.",
+            "https://www.youtube.com/watch?v=0XuOkYlUWIs"
+          ),
+        ],
       },
-      navbar: [
-        { text: 'Originals', url :'#' },
-        { text: 'Clips', url :'#' },
-        { text: 'Recently Added', url :'#' },
-      ],
-      // title imageSmall imageBig backgroundPosition(top,center,bottom,etc) backgroundSize(cover,80%,etc) tags description movie-link
-      moviebar:[
-        {
-          title: "Recently added",
-          list: [
-            new Movie("Avengers","https://wallpaperaccess.com/full/329583.jpg"),
-            new Movie("Venom","https://images3.alphacoders.com/948/thumb-1920-948864.jpg"),
-            new Movie("Stranger Things","https://wallpaperaccess.com/full/1087400.jpg"),
-            new Movie("Guardians of the Galaxy","https://wallpaperaccess.com/full/267457.jpg"),
-            new Movie("Pacific Rim","https://wallpapercave.com/wp/wp3212737.jpg"),
-            new Movie("13 Reasons Why","https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg","https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg","center","cover","Reasons,Drama","After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.","https://www.youtube.com/watch?v=0XuOkYlUWIs"),
-          ]
-        },
-        {
-          title: "Originals",
-          list: [
-            new Movie("Avengers","https://wallpaperaccess.com/full/329583.jpg"),
-            new Movie("Venom","https://images3.alphacoders.com/948/thumb-1920-948864.jpg"),
-            new Movie("Stranger Things","https://wallpaperaccess.com/full/1087400.jpg"),
-            new Movie("Guardians of the Galaxy","https://wallpaperaccess.com/full/267457.jpg"),
-            new Movie("Pacific Rim","https://wallpapercave.com/wp/wp3212737.jpg"),
-            new Movie("13 Reasons Why","https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg","https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg","center","cover","Reasons,Drama","After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.","https://www.youtube.com/watch?v=0XuOkYlUWIs"),
-          ]
-        },
-        /*
+      {
+        title: "Originals",
+        list: [
+          new Movie("Avengers", "https://wallpaperaccess.com/full/329583.jpg"),
+          new Movie(
+            "Venom",
+            "https://images3.alphacoders.com/948/thumb-1920-948864.jpg"
+          ),
+          new Movie(
+            "Stranger Things",
+            "https://wallpaperaccess.com/full/1087400.jpg"
+          ),
+          new Movie(
+            "Guardians of the Galaxy",
+            "https://wallpaperaccess.com/full/267457.jpg"
+          ),
+          new Movie(
+            "Pacific Rim",
+            "https://wallpapercave.com/wp/wp3212737.jpg"
+          ),
+          new Movie(
+            "13 Reasons Why",
+            "https://i.pinimg.com/originals/9e/33/00/9e3300e8f5ec8d712029b165d36fe40c.jpg",
+            "https://image.tmdb.org/t/p/original//sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg",
+            "center",
+            "cover",
+            "Reasons,Drama",
+            "After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.",
+            "https://www.youtube.com/watch?v=0XuOkYlUWIs"
+          ),
+        ],
+      },
+      /*
         {
           title: "BIG on Netflix",
           list: [
@@ -205,121 +261,245 @@ var qmflix = new Vue({
           ],
         },
         */
-      ],
-      movies: [
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m4.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m5.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m6.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-      ],
-      originals: [
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-        {title:"",imageSmall:"https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true", imageBig: "",imagePosition: "",imageSize: "",tags: "",description: "",movieLink: ""},
-      ],
+    ],
+    movies: [
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m4.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m5.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m6.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+    ],
+    originals: [
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+      {
+        title: "",
+        imageSmall:
+          "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true",
+        imageBig: "",
+        imagePosition: "",
+        imageSize: "",
+        tags: "",
+        description: "",
+        movieLink: "",
+      },
+    ],
+  },
+  methods: {
+    greet: function (time) {
+      return "Good " + time + " " + this.name;
     },
-    methods: {
-      greet: function (time) {
-        return "Good " + time + " " + this.name;
-      },
-      toogleSearch: function (event) {
-        document.getElementById("searchbar").classList.toggle('toggle');
-        if(document.getElementById("searchbar").classList.value === "input toggle"){
-          document.getElementById("searchbar").focus();
-          // return searchbarOpen = true;
-        }
-      },
-      onSearchEnter: function (event) {
-        this.showSearch = true;
-        this.showContent = false;
-      },
-      onSearchLeave: function (event) {
-        /*
+    toogleSearch: function (event) {
+      document.getElementById("searchbar").classList.toggle("toggle");
+      if (
+        document.getElementById("searchbar").classList.value === "input toggle"
+      ) {
+        document.getElementById("searchbar").focus();
+        // return searchbarOpen = true;
+      }
+    },
+    onSearchEnter: function (event) {
+      this.showSearch = true;
+      this.showContent = false;
+    },
+    onSearchLeave: function (event) {
+      /*
         if(document.getElementById("searchbar").value.length == 0){
           document.getElementById("searchbar").classList.remove('toggle');
         }
         */
-       document.getElementById("searchbar").classList.remove('toggle');
-       if(document.getElementById("searchbar").value.length == 0){
-         setTimeout(() => { this.showSearch = false; this.showContent = true; }, 500);
-       }
-      },
-      playMovie: function (url) {
-        // `this` inside methods points to the Vue instance
-        // window.open(`${url}`, '_blank');
-        console.log(url);
-      },
-      modalAction: function (data) {
-        // `this` inside methods points to the Vue instance
-        let overlay = 'linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5))';
-        // return 'background-image:'+ overlay +' , url(' + url + ');';
-        console.log(data);
-        this.modalContent.imageSrc = data.movie.imageSmall;
-        this.modalContent.title = data.movie.title;
-        this.modalContent.tags = data.movie.tags;
-        this.modalContent.info = data.movie.info;
-        this.modalContent.description = data.movie.description;
-        this.modalContent.movieLink = data.movie.movieLink;
-        var imageBig = data.movie.imageBig;
-        var imagePosition = data.movie.imagePosition;
-        var imageSize = data.movie.imageSize;
-        if(imageBig == ""){
-          imageBig = 'https://img2.goodfon.com/wallpaper/nbig/c/f4/busty-model-smoke-pose-boobs.jpg';
-          imagePosition = 'center';
-          imageSize = 'cover';
-        }
-        // imageBig = 'https://image.tmdb.org/t/p/original//jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg';
-        // imageBig = 'https://www.celebsfirst.com/wp-content/uploads/2018/01/sophie-mudd-hits-the-beach-in-a-red-bikini-in-malibu-140118_7.jpg';
-        // imageBig = 'https://www.foxhq.com/wendy-fiore-dreamy-babe/5.jpg';
-        // imageBig = 'https://www.2busty.net/wp-content/uploads/2014/04/dream-girl-37.jpg';
-        // imageBig = 'https://cdn.hipwallpaper.com/i/41/40/TvuqFr.jpg';
-        // imageBig = 'https://wallsdesk.com/wp-content/uploads/2016/11/Wendy-Fiore-Background.jpg';
-        // imageBig = 'https://img2.goodfon.com/wallpaper/nbig/c/f4/busty-model-smoke-pose-boobs.jpg';
-
-
-        this.modalContent.styleObject = {
-          color: 'white',
-          backgroundColor: 'black',
-          backgroundPosition: `${imagePosition}`,
-          backgroundImage: `url('${imageBig}')`,
-          /*backgroundImage:'linear-gradient(to right,  rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 40%, rgba(255,0,0,1) 60%)',*/
-          backgroundImage:''+ overlay +' , url(' + imageBig + ')',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: `${imageSize}`,
-          boxShadow: '0 1.5rem 4rem rgba(23,24,24,0.15);',
-        },
-        
-        this.showModal = true;
-      },
-      videoAction: function (data) {
-        console.log(data);
-        this.showVideo = true;
-        this.showContent = false;
-      },
+      document.getElementById("searchbar").classList.remove("toggle");
+      if (document.getElementById("searchbar").value.length == 0) {
+        setTimeout(() => {
+          this.showSearch = false;
+          this.showContent = true;
+        }, 500);
+      }
     },
-    computed:{
-        compClasses: function(){
-            return {
-                red: this.available,
-                nearby: this.nearby
-            }
-        },
-        filteredList() {
-          let movieList = [];
-          for( let i = 0; i < this.moviebar.length; i++){
-            movieList.push(...this.moviebar[i].list)
-          }
-          // console.log({movieList});
-          return movieList.filter(movie => {
-            
-            //return post.title.toLowerCase().includes(this.search.toLowerCase())
-            return movie.title.toLowerCase().includes(this.search.toLowerCase())
-          })
-        }
-    }
+    playMovie: function (url) {
+      // `this` inside methods points to the Vue instance
+      // window.open(`${url}`, '_blank');
+      console.log(url);
+    },
+    modalAction: function (data) {
+      // `this` inside methods points to the Vue instance
+      let overlay =
+        "linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5))";
+      // return 'background-image:'+ overlay +' , url(' + url + ');';
+      console.log(data);
+      this.modalContent.imageSrc = data.movie.imageSmall;
+      this.modalContent.title = data.movie.title;
+      this.modalContent.tags = data.movie.tags;
+      this.modalContent.info = data.movie.info;
+      this.modalContent.description = data.movie.description;
+      this.modalContent.movieLink = data.movie.movieLink;
+      var imageBig = data.movie.imageBig;
+      var imagePosition = data.movie.imagePosition;
+      var imageSize = data.movie.imageSize;
+      if (imageBig == "") {
+        imageBig =
+          "https://img2.goodfon.com/wallpaper/nbig/c/f4/busty-model-smoke-pose-boobs.jpg";
+        imagePosition = "center";
+        imageSize = "cover";
+      }
+      // imageBig = 'https://image.tmdb.org/t/p/original//jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg';
+      // imageBig = 'https://www.celebsfirst.com/wp-content/uploads/2018/01/sophie-mudd-hits-the-beach-in-a-red-bikini-in-malibu-140118_7.jpg';
+      // imageBig = 'https://www.foxhq.com/wendy-fiore-dreamy-babe/5.jpg';
+      // imageBig = 'https://www.2busty.net/wp-content/uploads/2014/04/dream-girl-37.jpg';
+      // imageBig = 'https://cdn.hipwallpaper.com/i/41/40/TvuqFr.jpg';
+      // imageBig = 'https://wallsdesk.com/wp-content/uploads/2016/11/Wendy-Fiore-Background.jpg';
+      // imageBig = 'https://img2.goodfon.com/wallpaper/nbig/c/f4/busty-model-smoke-pose-boobs.jpg';
+
+      (this.modalContent.styleObject = {
+        color: "white",
+        backgroundColor: "black",
+        backgroundPosition: `${imagePosition}`,
+        backgroundImage: `url('${imageBig}')`,
+        /*backgroundImage:'linear-gradient(to right,  rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 40%, rgba(255,0,0,1) 60%)',*/
+        backgroundImage: "" + overlay + " , url(" + imageBig + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: `${imageSize}`,
+        boxShadow: "0 1.5rem 4rem rgba(23,24,24,0.15);",
+      }),
+        (this.showModal = true);
+    },
+    videoAction: function (data) {
+      console.log(data);
+      this.showVideo = true;
+      this.showContent = false;
+    },
+  },
+  computed: {
+    compClasses: function () {
+      return {
+        red: this.available,
+        nearby: this.nearby,
+      };
+    },
+    filteredList() {
+      let movieList = [];
+      for (let i = 0; i < this.moviebar.length; i++) {
+        movieList.push(...this.moviebar[i].list);
+      }
+      // console.log({movieList});
+      return movieList.filter((movie) => {
+        //return post.title.toLowerCase().includes(this.search.toLowerCase())
+        return movie.title.toLowerCase().includes(this.search.toLowerCase());
+      });
+    },
+  },
 });

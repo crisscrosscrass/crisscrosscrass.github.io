@@ -1,4 +1,9 @@
+import { multiply } from "./modules.js";
+
 javascript: (() => {
+  const result = multiply();
+  console.log(`Result: ${result}`);
+
   var scripts = document.getElementsByTagName("script"),
     currentScriptSrc = scripts[scripts.length - 1].src;
   console.log("location of js file: ", currentScriptSrc);
