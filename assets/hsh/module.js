@@ -1,3 +1,3 @@
-export function multiply() {
+function multiply() {
   return 2 * 3;
 }
