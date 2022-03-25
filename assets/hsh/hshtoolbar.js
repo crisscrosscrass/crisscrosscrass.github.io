@@ -1,8 +1,12 @@
 import { multiply } from "./modules.js";
 
 javascript: (() => {
-  const result = multiply();
-  console.log(`Result: ${result}`);
+  try {
+    const result = multiply();
+    console.log(`Result: ${result}`);
+  } catch (error) {
+    console.log("Error by import module:\n", e);
+  }
 
   var scripts = document.getElementsByTagName("script"),
     currentScriptSrc = scripts[scripts.length - 1].src;
