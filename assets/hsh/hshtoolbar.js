@@ -1,13 +1,4 @@
-import { multiply } from "./modules.js";
-
 javascript: (() => {
-  try {
-    const result = multiply();
-    console.log(`Result: ${result}`);
-  } catch (error) {
-    console.log("Error by import module:\n", e);
-  }
-
   var scripts = document.getElementsByTagName("script"),
     currentScriptSrc = scripts[scripts.length - 1].src;
   console.log("location of js file: ", currentScriptSrc);
