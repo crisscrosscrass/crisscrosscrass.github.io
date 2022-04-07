@@ -122,6 +122,7 @@ javascript: (() => {
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
+      ["HSH-CRM", "https://www.vois-crm.de/"],
       ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/user"],
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
