@@ -104,7 +104,7 @@ javascript: (() => {
       ],
       [
         "VOIS - HUX",
-        "https://doku.vois.org/vois/docs/hux/21.20/6/docs/api/index.html",
+        "https://doku.vois.org/vois/docs/hux/latest/6/docs/api/index.html",
       ],
       ["VOIS - Nexus", "https://repo.vois.org/"],
       ["VOIS - Schulung", "https://schulung.vois.org/"],
