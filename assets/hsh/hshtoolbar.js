@@ -108,6 +108,7 @@ javascript: (() => {
       ],
       ["VOIS - Nexus", "https://repo.vois.org/"],
       ["VOIS - Schulung", "https://schulung.vois.org/"],
+      ["VOIS - Einrichten", "https://docs.vois.org/org.vois.docs/latest/getting_started/setup/getting_started_setup_eclipse.html"],
       [
         "VOIS - Einrichten FV",
         "https://confluence.hsh-berlin.com/display/THM/VOIS+einrichten",
