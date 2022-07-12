@@ -141,8 +141,25 @@ javascript: (() => {
         "André Linkowitsch - HUX Plattform",
         "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
       ],
+
       [
-        "Chris Hengl - HUX Plattform",
+        "Viliam Vakerman - HUX UI",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Fabian Wolf - Proccess UI",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Chris Hengl - HUX Widgets",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Sebastian Dunkel - DevOps / Datenbanken / Docker",
+        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+      ],
+      [
+        "Isabelle - PO",
         "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
       ],
     ];
