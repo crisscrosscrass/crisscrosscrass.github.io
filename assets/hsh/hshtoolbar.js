@@ -59,6 +59,10 @@ javascript: (() => {
         "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
       ],
       [
+        "Geburtstagsliste",
+        "https://confluence.hsh-berlin.com/display/THM/Geburtstagsliste",
+      ],
+      [
         "Entwicklung",
         "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=48565690",
       ],
