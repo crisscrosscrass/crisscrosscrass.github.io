@@ -1,0 +1,2 @@
+depley gh pages via:
+git push -f origin master:gh-pages
