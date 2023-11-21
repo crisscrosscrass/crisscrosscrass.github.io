@@ -124,6 +124,7 @@ javascript: (() => {
       ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
       ["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
       ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
+      ["HSH - Newsblock", "https://info-box.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
