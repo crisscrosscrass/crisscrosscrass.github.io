@@ -122,7 +122,8 @@ javascript: (() => {
     /* TOOLS */
     ToolsSectionDropDownLinks = [
       ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
-      ["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
+      //["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
+      ["Jira - Ticketsystem", "https://tickets.vois.org/"],
       ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
       ["HSH - Newsblock", "https://info-box.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
