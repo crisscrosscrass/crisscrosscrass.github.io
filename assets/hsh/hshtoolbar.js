@@ -132,6 +132,7 @@ javascript: (() => {
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
       ["HSH-Cloud", "https://cloud.hsh-berlin.com/"],
+      ["HSH-Sicherheit", "https://elearning.sosafe.de/"],
       // ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/user"],
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
