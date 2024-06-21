@@ -110,6 +110,10 @@ javascript: (() => {
         "VOIS - HUX",
         "https://doku.vois.org/vois/docs/hux/latest/6/docs/api/index.html",
       ],
+      [
+        "VOIS - VUX STORYBOOK",
+        "https://doku.vois.org/vois/docs/vux/master/index.html",
+      ],
       ["VOIS - Nexus", "https://repo.vois.org/"],
       ["VOIS - Schulung", "https://schulung.vois.org/"],
       ["VOIS - Einrichten", "https://docs.vois.org/org.vois.docs/latest/getting_started/setup/getting_started_setup_eclipse.html"],
