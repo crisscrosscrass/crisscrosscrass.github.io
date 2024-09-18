@@ -111,12 +111,15 @@ javascript: (() => {
         "https://doku.vois.org/vois/docs/hux/latest/6/docs/api/index.html",
       ],
       [
-        "VOIS - VUX STORYBOOK",
-        "https://doku.vois.org/vois/docs/vux/master/index.html",
+        "VOIS - VUX STORYBOOK - M3",
+        "https://doku.vois.org/vois/docs/vux/m3/?path=/docs/shared-libs-vux-button-button--doc",
       ],
       ["VOIS - Nexus", "https://repo.vois.org/"],
       ["VOIS - Schulung", "https://schulung.vois.org/"],
-      ["VOIS - Einrichten", "https://docs.vois.org/org.vois.docs/latest/getting_started/setup/getting_started_setup_eclipse.html"],
+      [
+        "VOIS - Einrichten",
+        "https://docs.vois.org/org.vois.docs/latest/getting_started/setup/getting_started_setup_eclipse.html",
+      ],
       [
         "VOIS - Einrichten FV",
         "https://confluence.hsh-berlin.com/display/THM/VOIS+einrichten",
