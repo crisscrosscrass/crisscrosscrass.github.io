@@ -24,10 +24,6 @@ function initKeyboard() {
 }
 
 function submitGuess() {
-  if (attempts > 0) {
-    attempts--;
-    document.getElementById("attempts-left").textContent = attempts;
-  }
   const input = document.getElementById("guess-input");
   const guess = input.value.toUpperCase();
   input.value = "";
@@ -37,7 +33,10 @@ function submitGuess() {
     return;
   }
 
-  attempts--;
+  if (attempts > 0) {
+    attempts--;
+    document.getElementById("attempts-left").textContent = attempts;
+  }
   updateBoard(guess);
   updateKeyboard(guess);
 
