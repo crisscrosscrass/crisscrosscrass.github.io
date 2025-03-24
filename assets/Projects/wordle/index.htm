@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wördle</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <h1>WÖRDLE</h1>
+    <p>Verbleibende Versuche: <span id="attempts-left">6</span></p>
+    <div id="game-board"></div>
+    <input type="text" id="guess-input" maxlength="5">
+    <button onclick="submitGuess()">Raten</button>
+    <p id="message"></p>
+    <div id="keyboard" onclick="handleKeyboardClick(event)"></div>
+    <button onclick="deleteLastCharacter()">⌫ Zurück</button>
+</body>
+
+</html>
