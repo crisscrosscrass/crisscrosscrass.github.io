@@ -1,4 +1,4 @@
-const solution = "RAMPE"; // Beispielwort
+const solution = "ABEND"; // Beispielwort
 let attempts = 6;
 const keyboardLayout = "QWERTZUIOPÜ ASDFGHJKLÖÄ YXCVBNM".split(" ");
 
