@@ -111,8 +111,8 @@ javascript: (() => {
         "https://doku.vois.org/vois/docs/hux/latest/6/docs/api/index.html",
       ],
       [
-        "VOIS - VUX STORYBOOK - M3",
-        "https://doku.vois.org/vois/docs/vux/m3/?path=/docs/shared-libs-vux-button-button--doc",
+        "VOIS - VUX",
+        "https://doku.vois.org/vois/docs/storybook/org.vois.base.ui.ng/index.html",
       ],
       ["VOIS - Nexus", "https://repo.vois.org/"],
       ["VOIS - Schulung", "https://schulung.vois.org/"],
@@ -144,46 +144,46 @@ javascript: (() => {
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
     /* ASP Section */
-    AspSectionDropDownLinks = [
-      [
-        "Markus Hempel - Rechtsfragen",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "Ralf Reich - Rechtsfragen",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "André Linkowitsch - HUX Plattform",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
+    // AspSectionDropDownLinks = [
+    //   [
+    //     "Markus Hempel - Rechtsfragen",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "Ralf Reich - Rechtsfragen",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "André Linkowitsch - HUX Plattform",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
 
-      [
-        "Viliam Vakerman - HUX UI",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "Fabian Wolf - Proccess UI",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "Chris Hengl - HUX Widgets",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "Sebastian Dunkel - DevOps / Datenbanken / Docker",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-      [
-        "Isabelle - PO",
-        "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
-      ],
-    ];
-    createDropDownMenu(
-      "Wichtige Ansprechpartner",
-      "#",
-      AspSectionDropDownLinks
-    );
+    //   [
+    //     "Viliam Vakerman - HUX UI",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "Fabian Wolf - Proccess UI",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "Chris Hengl - HUX Widgets",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "Sebastian Dunkel - DevOps / Datenbanken / Docker",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    //   [
+    //     "Isabelle - PO",
+    //     "https://confluence.hsh-berlin.com/display/THM/Telefonliste",
+    //   ],
+    // ];
+    // createDropDownMenu(
+    //   "Wichtige Ansprechpartner",
+    //   "#",
+    //   AspSectionDropDownLinks
+    // );
     /* VOIS Online Section */
     VoisOnlineSectionDropDownLinks = [
       ["Meldewesen", "https://online.vois.org/meldewesen/"],
