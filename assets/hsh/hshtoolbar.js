@@ -15,7 +15,7 @@ javascript: (() => {
     function createDropDownMenu(
       dropdownTitle,
       dropdownTitleLink,
-      dropdownLinks
+      dropdownLinks,
     ) {
       listItem = document.createElement("li");
       listItem.setAttribute("class", "dropdown");
@@ -80,7 +80,11 @@ javascript: (() => {
       ],
       ["VPN - Einwahl", "https://einwahl.hsh-berlin.com/spog/welcome"],
       [
-        "Serverübersicht / Testserver",
+        "Serverübersicht (Plattform)",
+        "https://confluence.hsh-berlin.com/spaces/PRD/pages/48563816/Server%C3%BCbersicht+Plattform",
+      ],
+      [
+        "Serverübersicht (Testserver)",
         "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=35265541",
       ],
       [
@@ -194,7 +198,7 @@ javascript: (() => {
     createDropDownMenu(
       "VOIS-Online",
       "https://confluence.hsh-berlin.com/pages/viewpage.action?pageId=77177159",
-      VoisOnlineSectionDropDownLinks
+      VoisOnlineSectionDropDownLinks,
     );
     /* Personal Section */
     PersonalSectionDropDownLinks = [
@@ -216,7 +220,7 @@ javascript: (() => {
     createDropDownMenu(
       "Personal",
       "https://www.google.com/",
-      PersonalSectionDropDownLinks
+      PersonalSectionDropDownLinks,
     );
     /* Close Section */
     listItem = document.createElement("li");
