@@ -132,6 +132,7 @@ javascript: (() => {
     createDropDownMenu("VOIS - DOCS", "#", VOISSectionDropDownLinks);
     /* TOOLS */
     ToolsSectionDropDownLinks = [
+      ["HSH - eMail", "https://webmail.hsh-berlin.com/"],
       ["Chat - Mattermost", "https://chat.vois.org/hsh/"],
       //["Jira - Ticketsystem", "https://vm-jira.hsh-berlin.com/"],
       ["HSH - Newsblock", "https://info-box.hsh-berlin.com/"],
