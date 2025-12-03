@@ -138,13 +138,14 @@ javascript: (() => {
       ["HSH - Newsblock", "https://info-box.hsh-berlin.com/"],
       ["HSH-CRM", "https://www.vois-crm.de/"],
       ["HSH-Guard", "http://intraweb.hsh-berlin.com/guard/"],
+      ["HSH-VOIS|Auth", "https://auth.vois.org/"],
+      ["HSH-Cloud", "https://cloud.hsh-berlin.com/"],
+      ["HSH-Sicherheit", "https://elearning.sosafe.de/"],
       ["Confluence - Content", "https://confluence.hsh-berlin.com/"],
       ["Jira - Ticketsystem", "https://tickets.vois.org/"],
       ["Zammad - Ticketsystem", "https://zammad.hsh-berlin.com/"],
       ["Fisheye", "https://fisheye.hsh-berlin.com/"],
       ["Jenkins Build", "https://jenkins.hsh-berlin.com/view/VOIS/job/vois/"],
-      ["HSH-Cloud", "https://cloud.hsh-berlin.com/"],
-      ["HSH-Sicherheit", "https://elearning.sosafe.de/"],
       // ["Restore Database", "http://uwe-vm-20.hsh-berlin.com:4444/user"],
     ];
     createDropDownMenu("Tools", "#", ToolsSectionDropDownLinks);
