@@ -1,848 +1,848 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html class="sr">
+<html>
 
 <head>
-    <meta charset="UTF-8">
+    <title>CrissCrossCrass | Portfolio</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Eckardt | Full Stack Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #a855f7;
-            --accent: #ec4899;
-            --dark: #0f172a;
-            --dark-soft: #1e293b;
-            --light: #f1f5f9;
-            --text: #334155;
-            --text-light: #64748b;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .hero-bg span {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
-            animation: float 20s infinite;
-        }
-
-        .hero-bg span:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .hero-bg span:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 3s;
-        }
-
-        .hero-bg span:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            bottom: 10%;
-            left: 50%;
-            animation-delay: 6s;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-
-            33% {
-                transform: translate(30px, -50px);
-            }
-
-            66% {
-                transform: translate(-20px, 30px);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            color: white;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, white, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2rem;
-            color: var(--light);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--dark);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: var(--light);
-            color: var(--text);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Projects Grid */
-        .projects-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: white;
-            border: 2px solid var(--light);
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-tech {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-links a {
-            font-size: 0.9rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--dark);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 2rem;
-            color: var(--light);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border-radius: 8px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-soft);
-            color: var(--light);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="icon" href="images/crisscrosscrassIcon.png" type="image/png" />
+    <!-- HOSTED -->
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- SMTP JS -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- LOCAL -->
+    <link rel="stylesheet" href="./assets/css/ccc.css">
+    <!-- LOCAL / jquery Toast -->
+    <link rel="stylesheet" href="./assets/js/jquery.toast.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.toast.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?theme=altblack&always=1&scrolling=1&top=1"></script>
+    <script src="assets/js/lineMover.js"></script>
+    <script src="assets/js/custom.js"></script>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">CCC</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="hero-content">
-            <h1>Hi, I'm Chris</h1>
-            <p class="subtitle">Full Stack Developer & Problem Solver</p>
-            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Passionate about building elegant solutions to complex
-                problems. Father, self-taught developer, and lifelong learner.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="fade-in">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Building the future, one line of code at a time</p>
-        <div class="about-content">
-            <div>
-                <img src="./images/Foto.JPG" alt="Chris" class="about-image">
-            </div>
-            <div class="about-text">
-                <p>I'm a dynamic and motivated Full Stack Developer with over 5 years of experience in fast-paced
-                    startup environments. I thrive on learning new technologies and applying them to solve real-world
-                    problems.</p>
-                <p>As a self-taught developer, I've built a diverse skill set spanning frontend frameworks, backend
-                    technologies, and DevOps tools. I believe the greatest work comes from passionate people who aren't
-                    afraid to adapt and grow.</p>
-                <p><strong>What drives me:</strong> Creating efficient, scalable solutions that make a difference.
-                    Whether it's automating quality checks for millions of products or building tools that save hours of
-                    manual work, I love the challenge.</p>
-            </div>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>🎨 Frontend</h3>
-                <div class="skill-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Angular</span>
-                    <span class="tag">Vue.js</span>
-                    <span class="tag">Flutter</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">JavaScript</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>⚙️ Backend</h3>
-                <div class="skill-tags">
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Spring Boot</span>
-                    <span class="tag">Python/Flask</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">PHP</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>🗄️ Databases</h3>
-                <div class="skill-tags">
-                    <span class="tag">MongoDB</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">Firebase</span>
-                    <span class="tag">SQL/NoSQL</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>🛠️ DevOps & Tools</h3>
-                <div class="skill-tags">
-                    <span class="tag">Docker</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Jenkins</span>
-                    <span class="tag">Selenium</span>
-                    <span class="tag">Jira</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="fade-in">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Some of my greatest and latest work</p>
-
-        <div class="projects-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="popular">Popular</button>
-            <button class="filter-btn" data-filter="latest">Latest</button>
-            <button class="filter-btn" data-filter="developing">In Progress</button>
-        </div>
-
-        <div class="projects-grid">
-            <div class="project-card" data-category="popular">
-                <img src="images/EmployeeCMS.jpg" alt="Employee CMS" class="project-image">
-                <div class="project-content">
-                    <h3>Employee CMS</h3>
-                    <p class="project-tech">Spring Boot • Java • Thymeleaf • REST API</p>
-                    <p>Full-featured employee management system with REST API endpoints for seamless data management.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/EmployeeCMS" target="_blank">Source →</a>
-                        <a href="https://employeecmsdemo.herokuapp.com/" target="_blank">Demo →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="latest">
-                <img src="images/iCalendar.jpg" alt="iCalendar Reader" class="project-image">
-                <div class="project-content">
-                    <h3>Personio iCalendar Reader</h3>
-                    <p class="project-tech">Node.js • Express • Bootstrap • EJS</p>
-                    <p>Automated calendar analysis tool that parses iCal files to provide absence statistics and team
-                        availability insights.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/icalcreader" target="_blank">Source →</a>
-                        <a href="https://vmicalc.herokuapp.com/" target="_blank">Demo →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="popular">
-                <img src="images/feedcomissioner.jpg" alt="Feed Commissioner" class="project-image">
-                <div class="project-content">
-                    <h3>Feed Commissioner</h3>
-                    <p class="project-tech">Node.js • Socket.io • Express • EJS</p>
-                    <p>Automated quality check system for product feeds handling millions of items. Real-time processing
-                        with WebSocket communication.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/feedcomissioner" target="_blank">Source →</a>
-                        <a href="https://feedcomissioner.herokuapp.com/" target="_blank">Demo →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="latest">
-                <img src="images/tool.jpg" alt="QM Automation" class="project-image">
-                <div class="project-content">
-                    <h3>QM Automation Tool</h3>
-                    <p class="project-tech">Java • JavaFX • Selenium • CSS</p>
-                    <p>Desktop application for automated quality assurance testing with screenshot capture and
-                        customizable test suites.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/frontendcheckerqm" target="_blank">Source →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="developing">
-                <img src="images/aggregator.jpg" alt="Aggregator Monitor" class="project-image">
-                <div class="project-content">
-                    <h3>Aggregator Monitor</h3>
-                    <p class="project-tech">Java • React • Spring • MySQL</p>
-                    <p>Real-time monitoring dashboard for aggregator issues with multi-database support and automated
-                        ticket creation.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/AggregatorMonitor" target="_blank">Source →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="latest">
-                <img src="images/exampleBeerApp.png" alt="Beer List App" class="project-image">
-                <div class="project-content">
-                    <h3>Beer List WebApp</h3>
-                    <p class="project-tech">React • Node.js • Heroku</p>
-                    <p>Modern brewery catalog application with API integration, pagination, and detailed beer
-                        information views.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/crisscrosscrass/BreweryDBReactBeerApp" target="_blank">Source →</a>
-                        <a href="https://blooming-sierra-74939.herokuapp.com/" target="_blank">Demo →</a>
+    <div class="overflow-wrap">
+        <div class="modal-wrap flex">
+            <div class="mask"></div>
+            <div class="modal" id="myModalSendEmailTo">
+                <div class="modalContent">
+                    <div class="modalBoxContent">
+                        <div class="modalBoxWrapperContent">
+                            <form role="form" method="post" id="reused_form">
+                                <p>Send your message in the form below and i will get back to you as soon as possible.</p>
+                                <div class="form-group">
+                                    Name:
+                                    <input type="text" class="form-control" name="name" required maxlength="50" id="contactNameInput">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+						                Email:</label>
+                                    <input type="email" class="form-control" name="email" required maxlength="50" id="contactEmailInput">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">
+						                Message:</label>
+                                    <textarea class="form-control" type="textarea" name="message" placeholder="Your Message here" maxlength="6000" rows="4" style="resize:none" id="contactTextInput"></textarea>
+                                </div>
+                                <div style="text-align:center; width:100%; padding:0;">
+                                    <a href="#Mail" class="btn btn-outline-info" onclick="OpenMailTo()">Close</a>
+                                    <a href="#Mail" class="btn btn-outline-info" onclick="SubmitButton()">Submit</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- Modal for Projects -->
+        <div id="myModal" class="itemModal">
+            <button type="button" class="close" aria-label="Close" id="modalScreenCloseButton">
+                <span aria-hidden="true" class="btn btn-outline-primary">&times;</span>
+              </button>
+            <div class="container mt-5">
+                <div class="d-flex justify-content-center mt-5">
+                    <img id="projectImage" src="images/exampleBeerApp.png" class="projectImage">
+                </div>
+                <div class="d-flex justify-content-center mt-5">
+                    <h2 class="text-uppercase">
+                        <span id="projectModalTitle" class="customBorder"></span>
+                    </h2>
+                </div>
+                <i>Project built with:<br> <span id="projectLanguages"></span></i><br>
+                <div id="projectAttachedLinks">
+                </div>
+                <p id="projectText"></p>
+                <div id="projectFeatures"></div>
+            </div>
+            <div id="modalFullScreenClose"></div>
+        </div>
+        <!-- HOME -->
+        <section id="home">
+            <div id="particles"></div>
+            <div id="branding" class="flex branding hidden">
+                <div class="text">
+                    <h1 class="">Hi there, I'm <span class="highlight">Chris</span>.</h1>
+                </div>
+                <div class="tex">
+                    <h3>A passionate Father and Self-Taught Developer</h3>
+                </div>
+                <div class="animation-for-button littleGlow">
+                    <div class="button-view-my-work section2">
+                        <p>About me &nbsp;<span id="littleArrow" class="fas fa-arrow-right"></span></p>
+                    </div>
+                </div>
+                <p class="special-text"><i>Coffee is done, <br/> code is run, <br/> time for some fun.</i></p>
+            </div>
+        </section>
+        <!-- Navi -->
+        <section id="navi">
+            <div class="link-wrap">
+                <div><a href="#home" class="section1" id="naviHomeLink">Home <span class="fas fa-home"></span></a></div>
+                <div><a href="#about" class="section2" id="naviAboutMeLink">About Me <span class="fas fa-smile-wink"></span></a></div>
+                <div><a href="#portfolio" class="section3" id="naviProjectsLink">Projects <span class="fas fa-project-diagram"></span></a></div>
+                <div><a href="#connect" class="section4" id="naviConnectLink">Connect With Me <span class="fab fa-connectdevelop"></span></a></div>
+                <div><a href="#contact" class="section5" id="naviContactLink">Contact <span class="fas fa-envelope"></span></a></div>
+                <div><a href="images/CVChristopherEckardt.pdf">Resume <span class="fas fa-download"></span></a></div>
+            </div>
+        </section>
+        <!-- Navi for Mobile -->
+        <section id="sidenavi">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#home" class="section1">Home <span class="fas fa-home"></span></a>
+                <a href="#about" class="section2">About Me <span class="fas fa-smile-wink"></span></a>
+                <a href="#portfolio" class="section3">Projects <span class="fas fa-project-diagram"></span></a>
+                <a href="#connect" class="section4">Connect With Me <span class="fab fa-connectdevelop"></span></a>
+                <a href="#contact" class="section5">Contact <span class="fas fa-envelope"></span></a>
+                <a href="images/CVChristopherEckardt.pdf">Resume <span class="fas fa-download"></span></a>
+            </div>
+            <span id="sideNaviButton" style="font-size:30px;cursor:pointer;color:#A239CA;" onclick="openNav()">&#9776;</span>
+        </section>
+        <!-- ABOUT -->
+        <section id="about" class="about hidden">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <h2 class="text-uppercase">
+                        <span class="customBorder">About</span>
+                    </h2>
+                </div>
+                <div class="d-flex justify-content-center mt-5">
+                    <img src="./images/Foto.JPG" class="me">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p>Like many other people, I enjoy spending my free time increasing my knowledge <br> of Development Skills and building new and challenging projects.</p>
+                </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact fade-in">
-        <h2 class="section-title" style="color: white;">Let's Connect</h2>
-        <p class="section-subtitle" style="color: var(--light);">Open to new opportunities and collaborations</p>
+                <div class="d-flex justify-content-center mb-5">
+                    <button type="button" class="btn btn-outline-primary section3 customButtonBorder">VIEW MY WORK</button>
+                </div>
+            </div>
+            <div class="container border">
+                <div class="row mt-5 text-center purpleBrightDesign">
+                    <div class="col-xl-7 col-lg-7 col-md-7 offset-md-1">
+                        <div class="first-row row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                HTML / HTML5 <span class="fab fa-html5"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                CSS/ CSS3 <span class="fab fa-css3"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Java-Script <span class="fab fa-js"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                JQuery <span class="fas fa-code-branch"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Bootsrap <span class="fab fa-blogger"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Regular Expression <span class="fas fa-search-plus"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                PHP <span class="fab fa-php"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                SQL <span class="fas fa-database"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                NoSQL <span class="fas fa-server"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Java <span class="fab fa-java"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Dart <span class="fas fa-bullseye"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Batch <span class="fas fa-file-contract"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Python <span class="fab fa-python"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="experience-area">
+                            <div class="d-flex flex-row justify-content-center">
+                                <h1>Skills <span class="fas fa-code"></span></h1>
+                            </div>
+                            <div class="bg-panel"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 mb-5 text-center purpleDesign">
+                    <div class="col-xl-3 col-lg-3 col-md-3 offset-md-1">
+                        <div class="experience-area">
+                            <div class="d-flex flex-row justify-content-center">
+                                <h1>Tech Stack <span class="fas fa-terminal"></span></h1>
+                            </div>
+                            <div class="bg-panel"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="first-row row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Spring - Maven <span class="fas fa-leaf"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                NodeJS <span class="fab fa-node"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                ReactJS <span class="fab fa-react"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Angular <span class="fab fa-angular"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Jenkins <span class="fab fa-jenkins"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                JavaFX <span class="fab fa-java"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Selenium <span class="fas fa-check-circle"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                JSON & AJAX <span class="fas fa-network-wired"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                GWT <span class="fab fa-google-drive"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Docker <span class="fab fa-docker"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Git <span class="fab fa-git-square"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Flask <span class="fas fa-flask"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Flutter <span class="fas fa-angle-double-left"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                MySQL <span class="fas fa-table"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                MongoDB <span class="fas fa-database"></span>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Firebase <span class="fas fa-copy"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 text-center blueDesign">
+                    <div class="col-xl-7 col-lg-7 col-md-7 offset-md-1">
+                        <div class="first-row row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Visual Studio Code
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                IntelliJ IDEA
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Postman
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Windows
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Linux
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Figma
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Webflow
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Jira
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Confluence
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Bitbucket
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Github
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Grafana
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Photoshop
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Heroku
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                Android Studio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="experience-area">
+                            <div class="d-flex flex-row mr-5 justify-content-center">
+                                <h1>Tools & Plattform <span class="fab fa-accusoft"></span></h1>
+                            </div>
+                            <div class="bg-panel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="sevices-img text-center py-4">
+                            <h2><span class="fas fa-laptop"></span></h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">Passionate about development</h5>
+                            <p class="card-text text-secondary">
+                                <p>Big believer in the fact that the greatest work is done by passionate people.</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="sevices-img text-center py-4">
+                            <h2><span class="fas fa-book-open"></span></h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">Quick learner</h5>
+                            <p class="card-text text-secondary">
+                                <p>Confident in my ability to learn something new and put it into production. Thrive in fast-paced and competitive environments.</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="sevices-img text-center py-4">
+                            <h2><span class="fas fa-users"></span></h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">Adaptable</h5>
+                            <p class="card-text text-secondary">
+                                <p>Always excited to learn new things. The most valuable thing I can provide to your company is the ability to be molded to your stack.</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="sevices-img text-center py-4">
+                            <h2><span class="fas fa-box"></span></h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">Technological</h5>
+                            <p class="card-text text-secondary">
+                                <p>I always enjoy learning new things. Especially the technologies that makes me a better Developer.</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PORTFOLIO -->
+        <section id="portfolio" class="portfolio hidden">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <h2 class="text-uppercase">
+                        <span class="customBorder">PROJECTS</span>
+                    </h2>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p>Some of my greatest and latest projects..</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary active" data-filter="all">All</button>
+                            <button type="button" class="btn btn-secondary" data-filter="popular">Popular</button>
+                            <button type="button" class="btn btn-secondary" data-filter="latest">Latest</button>
+                            <button type="button" class="btn btn-secondary" data-filter="developing">Developing</button>
+                            <button type="button" class="btn btn-secondary" data-filter="upcoming">Upcoming</button>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 offset-md-4 mt-5 text-center">
+                        <h4 class="text-uppercase"><a href="#connect" class="btn btn-outline-primary section4 customButtonBorder">Connect</a></h4>
+                    </div>
+                </div>
+                <div class="row grid mt-5 projectItems">
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/EmployeeCMS.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Employee CMS</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('employeecms')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Employee CMS</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Spring Boot, Maven, Java, Thymeleaf</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/iCalendar.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Personio iCalendar Reader</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('icalendar')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Personio iCalendar Reader</h4>
+                                <span class="text-secondary"><i>Project built with:<br> NodeJS, Express, Nodemon, Bootstrap, EJS</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="developing">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/ScreenRecorder.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Screen Recording</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('screenrecorder')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Screen Recording</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Vanila JS</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/feedcomissioner.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Feed Comissioner</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('comissioner')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Feed Comissioner</h4>
+                                <span class="text-secondary"><i>Project built with:<br> NodeJS, Express, Socket.io, EJS</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/synctemplate.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Sync Template</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('synctemplate')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Sync Template</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Python, Materialize, Flask, MongoDB</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="upcoming">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/aggregator.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Aggregator Monitor</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('aggregator')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Aggregator Monitor</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Java, React, Spring, MySQL</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="developing">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/gChatBot.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Incident Notifications</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('notifications')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Incident Notifications</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Python, Jira, Webhooks</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="developing">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/salestracking.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Salestracking</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('salestracking')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Salestracking</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Python, Flask, MySQL, uWSGI</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="developing">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/failwatch.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">Failwatch</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('failwatch')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Failwatch</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Python, Flask, MongoDB, uWSGI</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/exampleBeerApp.png" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">BEERLIST WEBAPP</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('beerwebapp')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">BEERLIST WEBAPP</h4>
+                                <span class="text-secondary"><i>Project built with:<br> NodeJS, React, Heroku</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/qmtoolbar.png" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">QM TOOLBAR</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('qmtoolbar')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">QM TOOLBAR</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Vanila Javascript, CSS, Chrome Extensions</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/modernfetchingImages.png" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">MODERN FETCHING IMAGES</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('fetchingimages')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">MODERN FETCHING IMAGES</h4>
+                                <span class="text-secondary"><i>Project built with:<br> React, CSS, Ajax & JSON</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/tool.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">QM AUTOMATION</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('qmautomation')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">QM AUTOMATION</h4>
+                                <span class="text-secondary"><i>Project built with:<br> Java, JavaFX, CSS, Selenium</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item" data-filter="popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <div class="projectContainer">
+                                    <img src="images/Project1.jpg" alt="Avatar" class="projectImage">
+                                    <div class="projectOverlay">
+                                        <div class="projectText">
+                                            <h4 class="text-uppercase">FEED DETECTIVE</h4>
+                                            <h4 class="text-uppercase"><button class="btn btn-outline-primary customButtonBorder" onclick="new ModalWindow('feeddetective')">Readmore</button></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">FEED DETECTIVE</h4>
+                                <span class="text-secondary"><i>Project built with:<br> HTML, CSS, Java-Script, JQuery, PHP, Ajax</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CONNECT ETC -->
+        <section id="connect" class="connect hidden">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <h2 class="text-uppercase">
+                        <span class="customBorder">Social</span>
+                    </h2>
+                </div>
+                <div class="d-flex justify-content-center mb-5">
+                    <p>Want to get in touch? I share my passion for development anywhere I can.</p>
+                </div>
+            </div>
+            <div class="container">
+                <nav class="navbar navbar-light bg-light">
+                    <a href="https://www.linkedin.com/in/christopher-eckardt/" class="btn btn-outline-primary" target="_blank">
+                        <h1 class="fab fa-linkedin"></h1>
+                    </a>
+                    <a href="http://xing.com/profile/Christopher_Eckardt" class="btn btn-outline-primary" target="_blank">
+                        <h1 class="fab fa-xing-square"></h1>
+                    </a>
+                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                        <h1 class="fab fa-stack-overflow"></h1>
+                    </a>
+                    <a href="https://github.com/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                        <h1 class="fab fa-github-square"></h1>
+                    </a>
+                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                        <h1 class="fab fa-stack-overflow"></h1>
+                    </a>
+                    <a href="#Mail" onclick="OpenMailTo()" class="btn btn-outline-primary">
+                        <h1 class="fas fa-envelope"></h1>
+                    </a>
+                </nav>
+            </div>
+            <div class="container">
+                <div class="row mt-5 mb-5">
+                    <div class="col-xl-3 col-lg-3 col-md-3 offset-md-1">
+                        <div class="d-flex flex-row mt-5 mb-5 justify-content-center">
+                            <h4 class="text-uppercase"><a href="#connect" class="btn btn-outline-primary section5 customButtonBorder">Interests</a></h4>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p>Here is a <strong>short list</strong> of technologies iam interested in or have recently worked on:</p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p>I am interested in a much variety of technologies! <br> I feel very interested in building tools and working with frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 p-2">
+                        <div class="row text-center">
+                            <div class="col-lg-4 col-md-6 col-sm-6 ">
+                                <img src="https://spring.io/images/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://angular.io/assets/images/logos/angular/angular.svg" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://flutter.dev/assets/flutter-lockup-1caf6476beed76adec3c477586da54de6b552b2f42108ec5bc68dc63bae2df75.png" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://flask.palletsprojects.com/en/1.1.x/_images/flask-logo.png" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2000px-Vue.js_Logo_2.svg.png" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Docker-Logo-White-RGB_Vertical-BG_0.png?itok=8Tuac9I3" class="responsive">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png" class="responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CONTACT -->
+        <section id="contact" class="contact hidden">
+            <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light" style="margin-top: -150px;margin-bottom: 65px;">
+      <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
+      </svg>
+            <p id="aboutcontact" style="margin-bottom: 65px;"></p>
+            <div class="container">
+                <div class="header-Section">
+                    <h1>About <span class="highlight">CCC</span></h1>
+                </div>
+                <div class="content-Split">
+                    <div class="content-Section">
+                        <div class="wrapper-left-container">
+                            <p>
+                                <i>Dynamic and motivated professional with a proven record of generating and building relationships, managing projects from concept to completion, designing educational strategies and coaching individuals to success. Skilled in building cross-functional teams, demonstrating exceptional analytical mindset, technical knowledge and making critical decisions during challenges. Adaptable, transformational detail-oriented Quality Manager with +5 years of experience in a startup environment with an ability to work independently and learn quickly, creating effective presentations, and developing opportunities that further establish organizational goals.</i>
+                            </p>
+                            <br/>
+                            <h1>Say hello:</h1>
+                            <p>Address: Berlin - Germany</p>
+                            <p>Email: c.eckardt@sags-per-mail.de</p>
+                            <div class="container">
+                                <nav class="navbar">
+                                    <a href="https://www.linkedin.com/in/christopher-eckardt/" class="btn btn-outline-primary " target="_blank">
+                                        <h6 class="fab fa-linkedin"></h6>
+                                    </a>
+                                    <a href="http://xing.com/profile/Christopher_Eckardt" class="btn btn-outline-primary" target="_blank">
+                                        <h6 class="fab fa-xing-square"></h6>
+                                    </a>
+                                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                                        <h6 class="fab fa-stack-overflow"></h6>
+                                    </a>
+                                    <a href="https://github.com/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                                        <h6 class="fab fa-github-square"></h6>
+                                    </a>
+                                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-primary" target="_blank">
+                                        <h6 class="fab fa-stack-overflow"></h6>
+                                    </a>
+                                    <a href="#Mail" onclick="OpenMailTo()" class="btn btn-outline-primary">
+                                        <h6 class="fas fa-envelope"></h6>
+                                    </a>
+                                </nav>
+                            </div>
+                            <!--div class="content-Split">
+                                <div class="content-Section">
+                                    <a href="https://www.linkedin.com/in/christopher-eckardt/" class="btn btn-outline-info" target="_blank">
+                                        <h6 class="fab fa-linkedin"></h6>
+                                    </a>
+                                </div>
+                                <div class="content-Section">
+                                    <a href="http://xing.com/profile/Christopher_Eckardt" class="btn btn-outline-info" target="_blank">
+                                        <h6 class="fab fa-xing-square"></h6>
+                                    </a>
+                                </div>
+                                <div class="content-Section">
+                                    <a href="https://github.com/crisscrosscrass" class="btn btn-outline-info" target="_blank">
+                                        <h6 class="fab fa-github-square"></h6>
+                                    </a>
+                                </div>
+                                <div class="content-Section">
+                                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" class="btn btn-outline-info" target="_blank">
+                                        <h6 class="fab fa-stack-overflow"></h6>
+                                    </a>
+                                </div>
+                                <div class="content-Section">
+                                    <a href="#Mail" class="btn btn-outline-info" onclick="OpenMailTo()">
+                                        <h6 class="fas fa-envelope"></h6>
+                                    </a>
+                                </div>
+                            </div-->
 
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <p>I'm currently open to Full Stack Developer positions. Whether you have a question or just want to say
-                    hi, I'll do my best to get back to you!</p>
-                <p><strong>Location:</strong> Berlin, Germany</p>
-                <p><strong>Email:</strong> c.eckardt@sags-per-mail.de</p>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/christopher-eckardt/" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://github.com/crisscrosscrass" target="_blank" title="GitHub">gh</a>
-                    <a href="https://stackoverflow.com/users/8268744/crisscrosscrass" target="_blank"
-                        title="Stack Overflow">so</a>
-                    <a href="http://xing.com/profile/Christopher_Eckardt" target="_blank" title="Xing">x</a>
+                        </div>
+                    </div>
+                    <div class="content-Section">
+                        <div class="wrapper-right-container">
+                            <p>
+                                <h2>Currently looking for a Fullstack Developer Position</h2>
+                            </p>
+                            <p>I started my journey as a self-taught web developer right out of High School. Ever since I have fallen in love with web development and spend most of my days taking my craft to the next level.</p>
+                            <p>Nowadays I tend to code all of my projects from scratch in order to deliver a unique experience to every company.</p>
+                            <p>Like many other people, I enjoy spending my free time increasing my knowledge of Web Development and building new and challenging projects.</p>
+                            <p>Some of my favorite things to do include:</p>
+                            <ul>
+                                <li>1 on 1 tutoring on development</li>
+                                <li>Contributing to open source projects</li>
+                                <li>Learning modern standards and best practices of the industry</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+        <footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Christopher Eckardt. Built with passion and lots of coffee ☕</p>
-    </footer>
-
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Project filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thanks for reaching out! This is a demo - in production, this would send an email.');
-            e.target.reset();
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function () {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-    </script>
+        </footer>
+    </div>
+    <div class="preload">
+    </div>
 </body>
 
 </html>
