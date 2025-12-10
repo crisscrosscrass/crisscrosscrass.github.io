@@ -128,9 +128,14 @@ javascript: (() => {
       title: "Personal",
       href: "https://www.google.com/",
       links: [
-        ["VOIS CRM", "https://www.vois-crm.de/default/login"],
-        ["internes JIRA", "https://vm-jira.hsh-berlin.com/"],
-        ["externes JIRA", "https://ticketsystem.hsh-berlin.com/login.jsp"],
+        [
+          "Mitarbeiter Benefits",
+          "https://hsh-berlin.mitarbeiterangebote.de/login",
+        ],
+        [
+          "Entwicklerrunde",
+          "https://us06web.zoom.us/j/82999764382?pwd=A9tMzVSZOBJx8baasVRToq5kht8LjV.1",
+        ],
         [
           "FV src - Meldewesen",
           "https://svn.hsh-berlin.com/vois/hsh-meldewesen/hsh-meldewesen/release/",
